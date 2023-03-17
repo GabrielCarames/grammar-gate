@@ -14,7 +14,7 @@ const askForGrammarCheck = async (
   const json_data: ChatGPTJSON_dataProps = {
     model: "gpt-3.5-turbo",
     messages: [...currentMessages],
-    temperature: 0.7
+    temperature: 1
   }
   const res = await makeRequest(url, json_data, headers)
   const chatinatorAnswer = res?.choices[0].message.content
