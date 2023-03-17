@@ -6,14 +6,11 @@ import createPrompt from "@/utils/prompt"
 export const useTextarea = () => {
   const [value, setValue] = useState("")
   const [messages, setMessages] = useState<any>([])
+  const [corrections, setCorrections] = useState<any>([])
   const { makeRequest, data, error, loading } = useAxios()
 
   const createNewMessage = (message: string) => {
-    setMessages([
-      ...messages,
-      { role: "user", content: createPrompt(message) }
-      // { role: "assistant", content: createPrompt(message) },
-    ])
+    setMessages([...messages, { role: "user", content: createPrompt(message) }])
   }
 
   useEffect(() => {
@@ -26,7 +23,7 @@ export const useTextarea = () => {
     const timeout = setTimeout(() => {
       console.log(value)
       createNewMessage(value)
-    }, 500)
+    }, 3000)
 
     return () => {
       clearTimeout(timeout)
@@ -35,26 +32,11 @@ export const useTextarea = () => {
 
   useEffect(() => {
     if (!data) return
-    const response = data.choices[0].message.content
-    const regex = /^- (.+)\n\nExplicación del texto a corregir: (.+)\n\nTexto corregido: (.+)$/gm
-    const text = response
-    let match
-    while ((match = regex.exec(text)) !== null) {
-      const wordsToCorrect = match[1]
-      const explanation = match[2]
-      const correctedText = match[3]
-      console.log(
-        "wordsToCorrect: ",
-        wordsToCorrect,
-        "explanation:",
-        explanation,
-        "correctedText: ",
-        correctedText
-      )
-    }
+    const correction = JSON.parse(data.choices[0].message.content)
+    setCorrections(correction)
   }, [data])
 
   const onChange = (e: any) => setValue(e.target.value)
 
-  return { value, onChange }
+  return { value, onChange, corrections }
 }
