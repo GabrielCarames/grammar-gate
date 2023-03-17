@@ -12,6 +12,11 @@ export interface CorrectionProps {
   result: string[]
 }
 
+export interface CorrectionsProps {
+  corrections: CorrectionProps[]
+  textCorrected: string
+}
+
 export interface MakeRequestProps {
   (
     url: string,
