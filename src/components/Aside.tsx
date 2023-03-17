@@ -1,6 +1,7 @@
 import { useCorrectionsContext } from "@/contexts/CorrectionsContext"
 import { useValueContext } from "@/contexts/ValueContext"
 import { CorrectionProps, CorrectionsProps } from "@/interfaces"
+import Correction from "./Correction"
 
 export default function Aside() {
   const { setValue } = useValueContext()
@@ -29,17 +30,11 @@ export default function Aside() {
       )}
       <ul className="flex flex-col gap-10">
         {corrections?.corrections?.map((correction: CorrectionProps) => (
-          <li className="flex flex-col gap-2" key={correction.id}>
-            <p>{correction.type}</p>
-            <p>{correction.explanation}</p>
-            <div className="flex gap-5">
-              <p className="line-through text-red-500">{correction.result[0]}</p>
-              <p className="text-green-500">{correction.result[1]}</p>
-            </div>
-            <button className="bg-orange-2" onClick={() => handleCorrection(correction)}>
-              Correct
-            </button>
-          </li>
+          <Correction
+            correction={correction}
+            handleCorrection={handleCorrection}
+            key={correction.id}
+          />
         ))}
       </ul>
     </aside>
