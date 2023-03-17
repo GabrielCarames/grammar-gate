@@ -1,11 +1,8 @@
 import Aside from "@/components/Aside"
-import TextareaFooter from "@/components/TextareaFooter"
-import { useTextarea } from "@/hooks/useTextarea"
+import TextareaSection from "@/components/TextareaSection"
 import Head from "next/head"
 
 export default function Home() {
-  const { value, onChange } = useTextarea()
-
   return (
     <>
       <Head>
@@ -16,26 +13,7 @@ export default function Home() {
       </Head>
       <main className="flex bg-black text-white w-full h-screen">
         <div className="w-full h-full grid place-content-center px-5">
-          <div className="w-[1000px]">
-            <div className="bg-pink-1 py-8 px-5 h-max mb-10 rounded-md">
-              <h1 className="text-xl font-bold leading-none">
-                Grammar Checker |{" "}
-                <span className="font-normal">Write your text and let us check your grammar!</span>
-              </h1>
-            </div>
-            <div className=" border border-gray-2 bg-gray-1 rounded-md">
-              <textarea
-                className="w-full min-h-[500px] bg-gray-1 h-max outline-none resize-none p-5 text-lg"
-                name="text"
-                cols={30}
-                rows={10}
-                value={value}
-                onChange={onChange}
-                placeholder="Write your text here..."
-              ></textarea>
-              <TextareaFooter />
-            </div>
-          </div>
+          <TextareaSection />
         </div>
         <Aside />
       </main>
