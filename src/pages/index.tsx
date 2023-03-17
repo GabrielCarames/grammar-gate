@@ -3,7 +3,7 @@ import { useTextarea } from "@/hooks/useTextarea"
 import Head from "next/head"
 
 export default function Home() {
-  const { value, onChange, corrections } = useTextarea()
+  const { value, setValue, onChange, corrections, setCorrections } = useTextarea()
 
   return (
     <>
@@ -28,7 +28,7 @@ export default function Home() {
             onChange={onChange}
           ></textarea>
         </div>
-        <Aside corrections={corrections} />
+        <Aside corrections={corrections} setValue={setValue} setCorrections={setCorrections} />
       </main>
     </>
   )

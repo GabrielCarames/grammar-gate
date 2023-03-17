@@ -5,6 +5,7 @@ import createPrompt from "@/utils/prompt"
 
 export const useTextarea = () => {
   const [value, setValue] = useState("")
+  const [textToCorrect, setTextToCorrect] = useState("")
   const [messages, setMessages] = useState<any>([])
   const [corrections, setCorrections] = useState<any>([])
   const { makeRequest, data, error, loading } = useAxios()
@@ -19,16 +20,16 @@ export const useTextarea = () => {
   }, [messages])
 
   useEffect(() => {
-    if (!value) return
+    if (textToCorrect.length <= 1) return
     const timeout = setTimeout(() => {
-      console.log(value)
-      createNewMessage(value)
+      console.log(textToCorrect)
+      createNewMessage(textToCorrect)
     }, 3000)
 
     return () => {
       clearTimeout(timeout)
     }
-  }, [value])
+  }, [textToCorrect])
 
   useEffect(() => {
     if (!data) return
@@ -36,7 +37,10 @@ export const useTextarea = () => {
     setCorrections(correction)
   }, [data])
 
-  const onChange = (e: any) => setValue(e.target.value)
+  const onChange = (e: any) => {
+    setTextToCorrect(e.target.value)
+    setValue(e.target.value)
+  }
 
-  return { value, onChange, corrections }
+  return { value, setValue, onChange, corrections, setCorrections }
 }
