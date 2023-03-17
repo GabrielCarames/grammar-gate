@@ -1,6 +1,11 @@
-import '@/styles/globals.css'
-import type { AppProps } from 'next/app'
+import { ValueProvider } from "@/contexts/ValueContext"
+import "@/styles/globals.css"
+import type { AppProps } from "next/app"
 
 export default function App({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
+  return (
+    <ValueProvider>
+      <Component {...pageProps} />
+    </ValueProvider>
+  )
 }
