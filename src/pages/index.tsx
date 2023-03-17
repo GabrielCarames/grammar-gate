@@ -1,8 +1,9 @@
+import Aside from "@/components/Aside"
 import { useTextarea } from "@/hooks/useTextarea"
 import Head from "next/head"
 
 export default function Home() {
-  const { value, onChange } = useTextarea()
+  const { value, onChange, corrections } = useTextarea()
 
   return (
     <>
@@ -12,8 +13,8 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className="bg-black text-white w-full h-screen px-5">
-        <div className="w-full h-full grid place-content-center">
+      <main className="flex bg-black text-white w-full h-screen">
+        <div className="w-full h-full grid place-content-center px-5">
           <h1 className="text-3xl mb-10">
             Grammar Checker | Write your text and let us check your grammar!
           </h1>
@@ -27,6 +28,7 @@ export default function Home() {
             onChange={onChange}
           ></textarea>
         </div>
+        <Aside corrections={corrections} />
       </main>
     </>
   )
