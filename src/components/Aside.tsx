@@ -1,15 +1,16 @@
+import { useValueContext } from "@/contexts/ValueContext"
 import { CorrectionProps, CorrectionsProps } from "@/interfaces"
 import { Dispatch, SetStateAction } from "react"
 
 export default function Aside({
   corrections,
-  setValue,
   setCorrections
 }: {
   corrections: CorrectionsProps
-  setValue: Dispatch<SetStateAction<string>>
   setCorrections: Dispatch<SetStateAction<CorrectionsProps>>
 }) {
+  const { setValue } = useValueContext()
+
   const handleCorrection = (correction: CorrectionProps) => {
     setValue((prev: string) => {
       const [before, after] = prev.split(correction.result[0])

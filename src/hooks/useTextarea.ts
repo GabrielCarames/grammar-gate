@@ -3,9 +3,10 @@ import askForGrammarCheck from "@/utils/askForGrammarCheck"
 import useAxios from "./useAxios"
 import createPrompt from "@/utils/prompt"
 import { CorrectionsProps, MessageProps } from "@/interfaces"
+import { useValueContext } from "@/contexts/ValueContext"
 
 export const useTextarea = () => {
-  const [value, setValue] = useState("")
+  const { value, setValue } = useValueContext()
   const [textToCorrect, setTextToCorrect] = useState("")
   const [messages, setMessages] = useState<MessageProps[]>([])
   const [corrections, setCorrections] = useState<CorrectionsProps>({

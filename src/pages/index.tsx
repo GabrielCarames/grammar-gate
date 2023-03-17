@@ -37,12 +37,11 @@ export default function Home() {
                 value={value}
                 corrections={corrections}
                 setCorrections={setCorrections}
-                setValue={setValue}
               />
             </div>
           </div>
         </div>
-        <Aside corrections={corrections} setValue={setValue} setCorrections={setCorrections} />
+        <Aside corrections={corrections} setCorrections={setCorrections} />
       </main>
     </>
   )

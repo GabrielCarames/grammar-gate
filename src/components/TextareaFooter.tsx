@@ -1,16 +1,16 @@
+import { useValueContext } from "@/contexts/ValueContext"
 import { CorrectionsProps } from "@/interfaces"
 
 export default function TextareaFooter({
   value,
   corrections,
-  setCorrections,
-  setValue
+  setCorrections
 }: {
   value: string
   corrections: CorrectionsProps
   setCorrections: (corrections: CorrectionsProps) => void
-  setValue: (value: string) => void
 }) {
+  const { setValue } = useValueContext()
   const wordsCount = () => (value?.split(" ").length >= 1 ? value?.split(" ").length : "0")
   const correctionsCount = () =>
     corrections?.corrections?.length >= 1 ? corrections?.corrections?.length : "0"
