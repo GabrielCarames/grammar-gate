@@ -4,12 +4,25 @@ module.exports = {
     "./app/**/*.{js,ts,jsx,tsx}",
     "./pages/**/*.{js,ts,jsx,tsx}",
     "./components/**/*.{js,ts,jsx,tsx}",
- 
-    // Or if using `src` directory:
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        "black": "#1B1E2E",
+        "white:": "#EAEEFF",
+        "gray-1": "#3D3950",
+        "gray-2": "#645772",
+        "violet-1": "#553A58",
+        "violet-2": "#8F7594",
+        "violet-3": "#BE95B6",
+        "pink-1": "#9D546D",
+        "pink-2": "#EFB6D6",
+        "orange-1": "#DC7A6C",
+        "orange-2": "#FEB362",
+        "yellow-1": "#F9F871",
+      }
+    },
   },
   plugins: [],
 }
