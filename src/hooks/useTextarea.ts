@@ -1,18 +1,18 @@
-import askForGrammarCheck from "@/utils/askForGrammarCheck"
 import { useEffect, useState } from "react"
+import askForGrammarCheck from "@/utils/askForGrammarCheck"
 import useAxios from "./useAxios"
 import createPrompt from "@/utils/prompt"
+import { CorrectionProps, MessageProps } from "@/interfaces"
 
 export const useTextarea = () => {
   const [value, setValue] = useState("")
   const [textToCorrect, setTextToCorrect] = useState("")
-  const [messages, setMessages] = useState<any>([])
-  const [corrections, setCorrections] = useState<any>([])
+  const [messages, setMessages] = useState<MessageProps[]>([])
+  const [corrections, setCorrections] = useState<CorrectionProps[]>([])
   const { makeRequest, data, error, loading } = useAxios()
 
-  const createNewMessage = (message: string) => {
+  const createNewMessage = (message: string) =>
     setMessages([...messages, { role: "user", content: createPrompt(message) }])
-  }
 
   useEffect(() => {
     if (messages.length === 0) return
@@ -22,7 +22,6 @@ export const useTextarea = () => {
   useEffect(() => {
     if (textToCorrect.length <= 1) return
     const timeout = setTimeout(() => {
-      console.log(textToCorrect)
       createNewMessage(textToCorrect)
     }, 3000)
 
@@ -37,7 +36,7 @@ export const useTextarea = () => {
     setCorrections(correction)
   }, [data])
 
-  const onChange = (e: any) => {
+  const onChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setTextToCorrect(e.target.value)
     setValue(e.target.value)
   }

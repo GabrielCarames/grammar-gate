@@ -1,3 +1,5 @@
+import { ChatGPTJSON_dataProps, MakeRequestProps, MessageProps } from "@/interfaces"
+
 const headers = {
   "Content-Type": "application/json",
   Authorization: `Bearer ${process.env.NEXT_PUBLIC_OPENAI_API_KEY}`
@@ -5,8 +7,11 @@ const headers = {
 
 const url = "https://api.openai.com/v1/chat/completions"
 
-const askForGrammarCheck = async (currentMessages: any, makeRequest: any) => {
-  const json_data = {
+const askForGrammarCheck = async (
+  currentMessages: MessageProps[],
+  makeRequest: MakeRequestProps
+) => {
+  const json_data: ChatGPTJSON_dataProps = {
     model: "gpt-3.5-turbo",
     messages: [...currentMessages],
     temperature: 0.7

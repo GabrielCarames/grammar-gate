@@ -1,4 +1,5 @@
-import axios from "axios"
+import { ChatGPTJSON_dataProps, MakeRequestProps } from "@/interfaces"
+import axios, { AxiosHeaders } from "axios"
 import { useState } from "react"
 
 const useAxios = () => {
@@ -6,7 +7,11 @@ const useAxios = () => {
   const [error, setError] = useState("")
   const [loading, setLoading] = useState(true)
 
-  const makeRequest = async (url: string, payload: any, headers: any) => {
+  const makeRequest: MakeRequestProps = async (
+    url: string,
+    payload: ChatGPTJSON_dataProps,
+    headers: AxiosHeaders
+  ) => {
     setLoading(true)
     try {
       const response = await axios.post(url, payload, { headers })
