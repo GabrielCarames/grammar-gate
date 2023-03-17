@@ -15,18 +15,24 @@ export default function Home() {
       </Head>
       <main className="flex bg-black text-white w-full h-screen">
         <div className="w-full h-full grid place-content-center px-5">
-          <h1 className="text-3xl mb-10">
-            Grammar Checker | Write your text and let us check your grammar!
-          </h1>
-          <textarea
-            className="w-full min-h-[400px] h-max bg-gray-1 border border-gray-2 outline-none resize-none p-2 text-lg rounded-md"
-            name="text"
-            id=""
-            cols={30}
-            rows={10}
-            value={value}
-            onChange={onChange}
-          ></textarea>
+          <div className="w-[1000px]">
+            <div className="bg-orange-1 py-8 px-5 h-max mb-10 rounded-md">
+              <h1 className="text-xl font-bold leading-none">
+                Grammar Checker |{" "}
+                <span className="font-normal">Write your text and let us check your grammar!</span>
+              </h1>
+            </div>
+            <textarea
+              className="w-full min-h-[500px] h-max bg-gray-1 border border-gray-2 outline-none resize-none p-5 text-lg rounded-md"
+              name="text"
+              id=""
+              cols={30}
+              rows={10}
+              value={value}
+              onChange={onChange}
+              placeholder="Write your text here..."
+            ></textarea>
+          </div>
         </div>
         <Aside corrections={corrections} setValue={setValue} setCorrections={setCorrections} />
       </main>
