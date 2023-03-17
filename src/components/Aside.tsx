@@ -1,15 +1,10 @@
+import { useCorrectionsContext } from "@/contexts/CorrectionsContext"
 import { useValueContext } from "@/contexts/ValueContext"
 import { CorrectionProps, CorrectionsProps } from "@/interfaces"
-import { Dispatch, SetStateAction } from "react"
 
-export default function Aside({
-  corrections,
-  setCorrections
-}: {
-  corrections: CorrectionsProps
-  setCorrections: Dispatch<SetStateAction<CorrectionsProps>>
-}) {
+export default function Aside() {
   const { setValue } = useValueContext()
+  const { corrections, setCorrections } = useCorrectionsContext()
 
   const handleCorrection = (correction: CorrectionProps) => {
     setValue((prev: string) => {

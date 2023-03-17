@@ -2,17 +2,15 @@ import { useEffect, useState } from "react"
 import askForGrammarCheck from "@/utils/askForGrammarCheck"
 import useAxios from "./useAxios"
 import createPrompt from "@/utils/prompt"
-import { CorrectionsProps, MessageProps } from "@/interfaces"
+import { MessageProps } from "@/interfaces"
 import { useValueContext } from "@/contexts/ValueContext"
+import { useCorrectionsContext } from "@/contexts/CorrectionsContext"
 
 export const useTextarea = () => {
   const { value, setValue } = useValueContext()
+  const { setCorrections } = useCorrectionsContext()
   const [textToCorrect, setTextToCorrect] = useState("")
   const [messages, setMessages] = useState<MessageProps[]>([])
-  const [corrections, setCorrections] = useState<CorrectionsProps>({
-    corrections: [],
-    textCorrected: ""
-  })
   const { makeRequest, data, error, loading } = useAxios()
 
   const createNewMessage = (message: string) =>
@@ -45,5 +43,5 @@ export const useTextarea = () => {
     setValue(e.target.value)
   }
 
-  return { value, setValue, onChange, corrections, setCorrections }
+  return { value, onChange }
 }

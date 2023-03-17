@@ -4,7 +4,7 @@ import { useTextarea } from "@/hooks/useTextarea"
 import Head from "next/head"
 
 export default function Home() {
-  const { value, setValue, onChange, corrections, setCorrections } = useTextarea()
+  const { value, onChange } = useTextarea()
 
   return (
     <>
@@ -33,15 +33,11 @@ export default function Home() {
                 onChange={onChange}
                 placeholder="Write your text here..."
               ></textarea>
-              <TextareaFooter
-                value={value}
-                corrections={corrections}
-                setCorrections={setCorrections}
-              />
+              <TextareaFooter />
             </div>
           </div>
         </div>
-        <Aside corrections={corrections} setCorrections={setCorrections} />
+        <Aside />
       </main>
     </>
   )
