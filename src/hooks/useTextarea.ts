@@ -2,13 +2,16 @@ import { useEffect, useState } from "react"
 import askForGrammarCheck from "@/utils/askForGrammarCheck"
 import useAxios from "./useAxios"
 import createPrompt from "@/utils/prompt"
-import { CorrectionProps, MessageProps } from "@/interfaces"
+import { CorrectionsProps, MessageProps } from "@/interfaces"
 
 export const useTextarea = () => {
   const [value, setValue] = useState("")
   const [textToCorrect, setTextToCorrect] = useState("")
   const [messages, setMessages] = useState<MessageProps[]>([])
-  const [corrections, setCorrections] = useState<CorrectionProps[]>([])
+  const [corrections, setCorrections] = useState<CorrectionsProps>({
+    corrections: [],
+    textCorrected: ""
+  })
   const { makeRequest, data, error, loading } = useAxios()
 
   const createNewMessage = (message: string) =>
