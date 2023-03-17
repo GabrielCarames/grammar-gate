@@ -1,6 +1,9 @@
+import { useTextarea } from "@/hooks/useTextarea"
 import Head from "next/head"
 
 export default function Home() {
+  const { value, onChange } = useTextarea()
+
   return (
     <>
       <Head>
@@ -16,10 +19,12 @@ export default function Home() {
           </h1>
           <textarea
             className="w-full min-h-[400px] h-max bg-gray-1 border border-gray-2 outline-none resize-none p-2 text-lg rounded-md"
-            name=""
+            name="text"
             id=""
             cols={30}
             rows={10}
+            value={value}
+            onChange={onChange}
           ></textarea>
         </div>
       </main>
