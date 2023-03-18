@@ -21,12 +21,12 @@ export default function Aside() {
   }
 
   return (
-    <aside className="w-80 bg-gray-1 p-5">
+    <aside className="w-96 bg-gray-1 p-5">
       <h2 className="text-lg mb-10">General corrections</h2>
       {corrections.corrections?.length === 0 && (
         <p className="text-center">No corrections available. Well done!</p>
       )}
-      <ul className="flex flex-col gap-10">
+      <ul className="flex flex-col gap-5">
         {corrections?.corrections?.map((correction: CorrectionProps) => (
           <Correction
             correction={correction}
