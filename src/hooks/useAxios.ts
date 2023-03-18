@@ -5,7 +5,7 @@ import { useState } from "react"
 const useAxios = () => {
   const [data, setData] = useState<any>(null)
   const [error, setError] = useState("")
-  const [loading, setLoading] = useState(true)
+  const [loading, setLoading] = useState(false)
 
   const makeRequest: MakeRequestProps = async (
     url: string,

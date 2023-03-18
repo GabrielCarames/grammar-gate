@@ -5,6 +5,7 @@ import { createConsecutivePrompt, createFirstPrompt } from "@/utils/prompt"
 import { MessageProps } from "@/interfaces"
 import { useValueContext } from "@/contexts/ValueContext"
 import { useCorrectionsContext } from "@/contexts/CorrectionsContext"
+import { toast } from "react-toastify"
 
 export const useTextarea = () => {
   const { value, setValue } = useValueContext()
@@ -44,8 +45,12 @@ export const useTextarea = () => {
 
   useEffect(() => {
     if (!data) return
-    const correction = JSON.parse(data.choices[0].message.content)
-    setCorrections(correction)
+    try {
+      const correction = JSON.parse(data.choices[0].message.content)
+      setCorrections(correction)
+    } catch {
+      toast.error("Something went wrong, please try again later")
+    }
   }, [data])
 
   const onChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
@@ -53,5 +58,5 @@ export const useTextarea = () => {
     setValue(e.target.value)
   }
 
-  return { value, onChange }
+  return { value, onChange, loading }
 }
