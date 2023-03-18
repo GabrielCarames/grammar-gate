@@ -14,6 +14,7 @@ export default function Textarea({
       value={value}
       onChange={onChange}
       placeholder="Write your text here..."
+      spellCheck={false}
     />
   )
 }
