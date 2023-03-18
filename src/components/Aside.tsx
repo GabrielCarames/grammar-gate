@@ -9,8 +9,8 @@ export default function Aside() {
 
   const handleCorrection = (correction: CorrectionProps) => {
     setValue((prev: string) => {
-      const [before, after] = prev.split(correction.result[0])
-      return `${before}${correction.result[1]}${after}`
+      const [before, after] = prev.split(correction?.result[0])
+      return `${before}${correction?.result[1]}${after}`
     })
     setCorrections((prev: CorrectionsProps) => {
       return {
