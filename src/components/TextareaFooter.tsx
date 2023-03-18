@@ -10,7 +10,7 @@ export default function TextareaFooter() {
     corrections?.corrections?.length >= 1 ? corrections?.corrections?.length : "0"
   const fixEverything = () => {
     setValue(corrections.textCorrected)
-    setCorrections({ corrections: [], textCorrected: "" })
+    setCorrections({ ...corrections, corrections: [] })
   }
 
   return (

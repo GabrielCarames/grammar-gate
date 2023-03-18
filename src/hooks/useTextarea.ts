@@ -1,20 +1,30 @@
 import { useEffect, useState } from "react"
 import askForGrammarCheck from "@/utils/askForGrammarCheck"
 import useAxios from "./useAxios"
-import createPrompt from "@/utils/prompt"
+import { createConsecutivePrompt, createFirstPrompt } from "@/utils/prompt"
 import { MessageProps } from "@/interfaces"
 import { useValueContext } from "@/contexts/ValueContext"
 import { useCorrectionsContext } from "@/contexts/CorrectionsContext"
 
 export const useTextarea = () => {
   const { value, setValue } = useValueContext()
-  const { setCorrections } = useCorrectionsContext()
+  const { corrections, setCorrections } = useCorrectionsContext()
   const [textToCorrect, setTextToCorrect] = useState("")
   const [messages, setMessages] = useState<MessageProps[]>([])
   const { makeRequest, data, error, loading } = useAxios()
 
-  const createNewMessage = (message: string) =>
-    setMessages([...messages, { role: "user", content: createPrompt(message) }])
+  const createNewMessage = (message: string) => {
+    if (messages.length === 0)
+      setMessages([...messages, { role: "user", content: createFirstPrompt(message) }])
+    else
+      setMessages([
+        ...messages,
+        {
+          role: "user",
+          content: createConsecutivePrompt(message, corrections.textCorrected)
+        }
+      ])
+  }
 
   useEffect(() => {
     if (messages.length === 0) return
