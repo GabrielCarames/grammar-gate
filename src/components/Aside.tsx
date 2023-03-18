@@ -4,14 +4,12 @@ import { CorrectionProps, CorrectionsProps } from "@/interfaces"
 import Correction from "./Correction"
 
 export default function Aside() {
-  const { setValue } = useValueContext()
+  const { value, setValue } = useValueContext()
   const { corrections, setCorrections } = useCorrectionsContext()
 
   const handleCorrection = (correction: CorrectionProps) => {
-    setValue((prev: string) => {
-      const [before, after] = prev.split(correction?.result[0])
-      return `${before}${correction?.result[1]}${after}`
-    })
+    const correctedText = value.replace(correction.result[0], correction.result[1])
+    setValue(correctedText)
     setCorrections((prev: CorrectionsProps) => {
       return {
         corrections: prev.corrections.filter(
