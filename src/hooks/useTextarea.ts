@@ -33,7 +33,7 @@ export const useTextarea = () => {
   }, [messages])
 
   useEffect(() => {
-    if (textToCorrect.length <= 1) return
+    if (textToCorrect?.length <= 1) return
     const timeout = setTimeout(() => {
       createNewMessage(textToCorrect)
     }, 3000)
