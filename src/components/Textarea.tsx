@@ -1,38 +1,39 @@
-import React, { useEffect, useState } from "react"
-import replace from "react-string-replace"
+import React from "react"
 import { useCorrectionsContext } from "@/contexts/CorrectionsContext"
+import { useValueContext } from "@/contexts/ValueContext"
+import HighlightedText from "./HighlightedText"
+import { CorrectionsProps } from "@/interfaces"
+const Highlighter = require("react-highlight-words")
+
+const getSearchWords = (corrections: CorrectionsProps) => [
+  `\\b(${corrections.corrections.map(correction => correction.result[0]).join("|")})\\b`,
+  "gi"
+]
 
 export default function Textarea({
-  value,
   onChange
 }: {
-  value: string
   onChange: (e: React.ChangeEvent<HTMLTextAreaElement>) => void
 }) {
-  const [text, setText] = useState<any>()
   const { corrections } = useCorrectionsContext()
-
-  const getHighlightedText = () => {
-    const highlightedWords = corrections.corrections.map(correction => correction.result[0])
-    const wordsToHighlight = highlightedWords.join("|")
-    const regex = new RegExp(`\\b(${wordsToHighlight})\\b`, "gi")
-    const highlightedText = replace(value, regex, (match, i) => (
-      <span key={i} className="bg-pink-1">
-        {match}
-      </span>
-    ))
-    return highlightedText
-  }
-
-  useEffect(() => {
-    const highlightedText = getHighlightedText()
-    setText(highlightedText)
-  }, [corrections, value])
+  const { value } = useValueContext()
 
   return (
     <div className="relative">
+      <div
+        className="text-transparent caret-white absolute inset-0 bg-transparent w-full min-h-[500px] h-max outline-none resize-none p-5 text-lg  text-white"
+        spellCheck={false}
+      >
+        <Highlighter
+          highlightClassName=""
+          searchWords={getSearchWords(corrections)}
+          autoEscape={false}
+          textToHighlight={value}
+          highlightTag={HighlightedText}
+        />
+      </div>
       <textarea
-        className="w-full min-h-[500px] bg-gray-1 h-max outline-none resize-none p-5 text-lg"
+        className=" relative w-full min-h-[500px] bg-gray-1 h-max outline-none resize-none p-5 text-lg bg-transparent "
         name="text"
         cols={30}
         rows={10}
@@ -41,12 +42,6 @@ export default function Textarea({
         placeholder="Write your text here..."
         spellCheck={false}
       />
-      <div
-        className="absolute inset-0 w-full min-h-[500px]  h-max outline-none resize-none p-5 text-lg pointer-events-none"
-        spellCheck={false}
-      >
-        {text}
-      </div>
     </div>
   )
 }
