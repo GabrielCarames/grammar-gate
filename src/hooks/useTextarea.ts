@@ -36,7 +36,7 @@ export const useTextarea = () => {
     if (textToCorrect?.length <= 1) return
     const timeout = setTimeout(() => {
       createNewMessage(textToCorrect)
-    }, 3000)
+    }, 1000)
 
     return () => {
       clearTimeout(timeout)
