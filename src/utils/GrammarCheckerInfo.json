@@ -1,0 +1,27 @@
+{
+  "How It Works": [
+    "Our grammar checker uses state-of-the-art natural language processing technology to identify and correct grammar mistakes in your English writing.",
+    "The tool scans your text for common grammar errors, such as subject-verb agreement, verb tense, and pronoun usage.",
+    "The tool also analyzes the context of your text to provide more accurate suggestions for corrections."
+  ],
+  "Limitations": [
+    "Our grammar checker may not be able to detect all errors in your writing, particularly when it comes to technical jargon or specialized language.",
+    "Some errors may be missed due to variations in style and tone of writing.",
+    "Additionally, the tool may not be able to recognize certain idiomatic expressions or colloquialisms."
+  ],
+  "Common Mistakes": [
+    "Subject-verb agreement errors: For example, 'She have' should be corrected to 'She has.'",
+    "Pronoun usage errors: For example, 'Her and me went' should be corrected to 'She and I went.'",
+    "Verb tense errors: For example, 'I had went' should be corrected to 'I had gone.'"
+  ],
+  "Tips": [
+    "Make sure to copy and paste your text into the tool instead of typing it directly to avoid typos and errors.",
+    "Carefully review the suggested corrections to ensure they make sense in the context of your writing.",
+    "Use the tool as a guide rather than relying solely on its suggestions. You know your writing best, so use your judgment to decide which corrections to accept."
+  ],
+  "Disclaimers": [
+    "While our grammar checker is designed to provide accurate suggestions for corrections, it may not always be 100% accurate.",
+    "The tool is best used as a supplement to your own knowledge and judgment about grammar.",
+    "We are not responsible for any errors or inaccuracies in your writing that may go undetected by the tool."
+  ]
+}
