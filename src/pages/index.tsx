@@ -11,8 +11,8 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className="flex bg-black text-white w-full h-screen">
-        <div className="w-full h-full grid place-content-center px-5">
+      <main className="flex flex-wrap gap-y-10 md:flex-nowrap bg-black text-white w-full h-screen pt-10 md:pt-0">
+        <div className="w-full h-max md:h-full flex justify-center items-center px-5">
           <TextareaSection />
         </div>
         <Aside />

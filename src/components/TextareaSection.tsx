@@ -7,9 +7,9 @@ export default function TextareaSection() {
   const { onChange, loading } = useTextarea()
 
   return (
-    <section className="w-[1000px]">
+    <section className="w-full h-max max-w-[1000px]">
       <TextareaHeader />
-      <div className=" border border-gray-2 bg-gray-1 rounded-md">
+      <div className="border border-gray-2 bg-gray-1 rounded-md">
         <Textarea onChange={onChange} />
         <TextareaFooter loading={loading} />
       </div>

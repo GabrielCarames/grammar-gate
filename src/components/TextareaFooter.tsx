@@ -15,12 +15,12 @@ export default function TextareaFooter({ loading }: { loading: boolean }) {
   }
 
   return (
-    <div className="w-full h-12 flex justify-between items-center px-5">
-      <p>
-        <span className="text-yellow-1">{wordsCount()}</span> words
+    <div className="w-full h-12 flex justify-between items-center px-5 text-sm md:text-md">
+      <p className="w-min md:w-auto flex flex-wrap gap-x-1 justify-center items-center">
+        <span className="text-yellow-1">{wordsCount()}</span> Words
       </p>
       <button
-        className={` p-4 py-1 rounded-full font-bold duration-200
+        className={`p-4 py-1 rounded-full text-sm md:text-md font-bold duration-200
         ${
           corrections.corrections.length >= 1
             ? "!bg-pink-1 hover:!bg-pink-2 !text-white"
@@ -42,15 +42,15 @@ export default function TextareaFooter({ loading }: { loading: boolean }) {
             height="24"
             width="50"
             radius="9"
-            color="#FEB362"
+            color="#F9F871"
             ariaLabel="three-dots-loading"
             wrapperStyle={{}}
             visible={true}
           />
         )}
       </button>
-      <p>
-        <span className="text-red-500">{correctionsCount()}</span> mistakes
+      <p className="w-min md:w-auto flex flex-wrap gap-x-1 justify-center items-center">
+        <span className="text-red-500 text-center">{correctionsCount()}</span> Mistakes
       </p>
     </div>
   )

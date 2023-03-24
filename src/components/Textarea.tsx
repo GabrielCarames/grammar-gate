@@ -5,10 +5,12 @@ import HighlightedText from "./HighlightedText"
 import { CorrectionsProps } from "@/interfaces"
 const Highlighter = require("react-highlight-words")
 
-const getSearchWords = (corrections: CorrectionsProps) => [
-  `\\b(${corrections.corrections.map(correction => correction.result[0]).join("|")})\\b`,
-  "gi"
-]
+const getSearchWords = (corrections: CorrectionsProps) => {
+  return [
+    `\\b(${corrections.corrections.map(correction => correction.result[0]).join("|")})\\b`,
+    "gi"
+  ]
+}
 
 export default function Textarea({
   onChange
@@ -19,9 +21,9 @@ export default function Textarea({
   const { value } = useValueContext()
 
   return (
-    <div className="relative">
+    <div className="relative w-full px-5">
       <div
-        className="text-transparent caret-white absolute inset-0 bg-transparent w-full min-h-[500px] h-max outline-none resize-none p-5 text-lg  text-white"
+        className="text-transparent caret-white absolute inset-0 bg-transparent w-full max-h-[250px] md:max-h-[500px] h-max md:h-screen outline-none resize-none p-5 text-lg  text-white"
         spellCheck={false}
       >
         <Highlighter
@@ -30,10 +32,11 @@ export default function Textarea({
           autoEscape={false}
           textToHighlight={value}
           highlightTag={HighlightedText}
+          caseSensitive={true}
         />
       </div>
       <textarea
-        className=" relative w-full min-h-[500px] bg-gray-1 h-max outline-none resize-none p-5 text-lg bg-transparent "
+        className="relative w-full max-h-[250px] md:max-h-[500px] bg-gray-1 h-max md:h-screen outline-none resize-none pt-5 text-lg bg-transparent "
         name="text"
         cols={30}
         rows={10}
