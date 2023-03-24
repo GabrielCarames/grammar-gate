@@ -15,7 +15,7 @@ export default function TextareaFooter({ loading }: { loading: boolean }) {
   }
 
   return (
-    <div className="w-full h-12 flex justify-between items-center px-5 text-sm md:text-md">
+    <div className="w-full h-12 flex justify-between items-center px-5 text-sm md:text-base">
       <p className="w-min md:w-auto flex flex-wrap gap-x-1 justify-center items-center">
         <span className="text-yellow-1">{wordsCount()}</span> Words
       </p>
