@@ -8,7 +8,7 @@ import { useCorrectionsContext } from "@/contexts/CorrectionsContext"
 import { toast } from "react-toastify"
 
 export const useTextarea = () => {
-  const { value, setValue } = useValueContext()
+  const { setValue } = useValueContext()
   const { corrections, setCorrections } = useCorrectionsContext()
   const [textToCorrect, setTextToCorrect] = useState("")
   const [messages, setMessages] = useState<MessageProps[]>([])
@@ -58,5 +58,5 @@ export const useTextarea = () => {
     setValue(e.target.value)
   }
 
-  return { value, onChange, loading }
+  return { onChange, loading }
 }
