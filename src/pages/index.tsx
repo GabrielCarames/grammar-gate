@@ -1,7 +1,8 @@
-import Aside from "@/components/Aside"
-import Navbar from "@/components/Navbar"
-import TextareaSection from "@/components/TextareaSection"
 import Head from "next/head"
+
+import homeText from "../utils/homeText.json"
+import links from "../utils/navbarLinks"
+import NavbarLink from "@/components/NavbarLink"
 
 export default function Home() {
   return (
@@ -12,15 +13,28 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className="flex flex-wrap gap-y-10 md:flex-nowrap bg-black text-white w-full h-screen md:pt-0">
-        <div id="modal-root"></div>
-        <div className="flex flex-col w-full">
-          <Navbar />
-          <div className="w-full h-max md:h-full flex justify-center items-center px-5 relative">
-            <TextareaSection />
-          </div>
-        </div>
-        <Aside />
+      <main className="flex justify-center items-center bg-black text-white w-full h-screen">
+        <section className="flex flex-col gap-20 w-max h-96">
+          <header className="flex flex-col gap-5 items-center justify-center w-[900px]">
+            <h1 className="text-3xl text-pink-1">{homeText?.title}</h1>
+            <p className="text-center text-lg font-semibold">{homeText?.subititle}</p>
+          </header>
+          <ul className="h-max flex justify-center gap-20 font-bold">
+            {links.map((link, index) => (
+              <div className="w-max h-max flex flex-col gap-1" key={index}>
+                <NavbarLink
+                  link={link}
+                  imageDivClassName="!p-5"
+                  imageClassName="!w-10 !h-10"
+                  linkNameClassName="!text-lg"
+                />
+                <p className="w-full max-w-[400px] font-normal text-center">
+                  {homeText.functionalities[index].description}
+                </p>
+              </div>
+            ))}
+          </ul>
+        </section>
       </main>
     </>
   )
