@@ -1,0 +1,23 @@
+{
+  "title": "Welcome to GrammarGate - Your All-In-One Solution for Grammar!",
+  "subititle": "Our platform harnesses the power of ChatGPT technology to enhance your writing and language skills. From grammar correction to text summarization and translation, we've got everything you need to take your language game to the next level."
+   ,
+  "functionalities": [
+    {
+      "title": "Grammar Checker",
+      "description": "Our grammar checker is prepared to identify grammar, spelling, and punctuation errors in your writing. It offers suggestions for corrections and provides explanations to help you understand the rules behind the them.",
+      "link": "/grammar-checker"
+    },
+    {
+      "title": "Summarizer",
+      "description": "Our summarizer analyzes your text and generates a concise summary, making it easy to distill the key points of any document or article.",
+      "link": "/summarizer"
+    },
+    {
+      "title": "Translator",
+      "description": "Our translator leverages the power of ChatGPT to provide fast and accurate translations in multiple languages. Simply enter your text, select your target language, and let our translator do the rest.",
+      "link": "/translator"
+    }
+  ],
+  "mission": "At GrammarGate, we believe that everyone has the potential to be a great writer. Our mission is to make writing accessible and enjoyable for all. Try our platform today and experience the power of clear, concise, and effective communication!"
+}
