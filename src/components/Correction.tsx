@@ -1,13 +1,10 @@
 import { CorrectionProps } from "@/interfaces"
 import CorrectionComparation from "./CorrectionComparation"
+import { useHandleCorrection } from "@/hooks/useHandleCorrection"
 
-export default function Correction({
-  correction,
-  handleCorrection
-}: {
-  correction: CorrectionProps
-  handleCorrection: (correction: CorrectionProps) => void
-}) {
+export default function Correction({ correction }: { correction: CorrectionProps }) {
+  const { handleCorrection } = useHandleCorrection()
+
   return (
     <li className="flex flex-col gap-2 border-[2px] border-gray-2 p-2 rounded-md">
       <p className="capitalize font-bold">{correction.type}</p>
