@@ -30,3 +30,10 @@ export interface ChatGPTJSON_dataProps {
   messages: MessageProps[]
   temperature: number
 }
+
+export interface NavbarLinkProps {
+  name: string
+  href: string
+  icon: string
+  backgroundColor: string
+}
