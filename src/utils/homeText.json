@@ -5,7 +5,7 @@
   "functionalities": [
     {
       "title": "Grammar Checker",
-      "description": "Our grammar checker is prepared to identify grammar, spelling, and punctuation errors in your writing. It offers suggestions for corrections and provides explanations to help you understand the rules behind the them.",
+      "description": "Our grammar checker identifies grammar, spelling, and punctuation errors in your writing. It suggests corrections and provides explanations to help you understand the rules.",
       "link": "/grammar-checker"
     },
     {
