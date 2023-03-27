@@ -3,9 +3,7 @@ import Link from "next/link"
 
 const Item = ({ children, className }: { children: React.ReactNode; className: string }) => {
   return (
-    <li className={`h-max rounded-md hover:bg-gray-2 border-b-[3px] duration-150 ${className}`}>
-      {children}
-    </li>
+    <li className={`h-max rounded-md hover:bg-gray-3 duration-150 ${className}`}>{children}</li>
   )
 }
 
