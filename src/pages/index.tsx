@@ -13,7 +13,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className="flex justify-center items-center bg-black text-white w-full min-h-screen h-max">
-        <section className="flex flex-col sm:items-center gap-20 w-full max-w-max h-full px-5 py-10">
+        <section className="flex flex-col sm:items-center gap-12 md:gap-20 w-full max-w-max h-full px-5 py-10">
           <header className="flex flex-col gap-5 items-center justify-center w-full max-w-[900px]">
             <h1 className="text-2xl sm:text-5xl text-[#F380F0] text-center">
               <strong>{homeText?.name}</strong>
@@ -23,10 +23,10 @@ export default function Home() {
             </h2>
             <p className="text-center text-base sm:text-lg font-semibold">{homeText?.subititle}</p>
           </header>
-          <ul className="h-max grid grid-rows-1 grid-cols-2 justify-center gap-x-20 gap-y-5 font-bold">
+          <ul className="h-full flex flex-wrap justify-center gap-x-20 gap-y-5 font-bold">
             {links.map((link, index) => (
               <Item
-                className={`w-max !h-full flex flex-col gap-1 border-[2px] border-gray-1 rounded-md ${link?.borderColor} hover:bg-gray-3`}
+                className={`w-max h-auto flex flex-col gap-1 border-[2px] border-gray-1 rounded-md ${link?.borderColor} hover:bg-gray-3`}
                 key={index}
               >
                 <Item.ItemLink href={link?.href} className="flex flex-col items-center gap-2 p-5">
