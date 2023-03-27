@@ -6,7 +6,7 @@ export default function TextareaFooter({ loading }: { loading: boolean }) {
 
   return (
     <div className="w-full h-12 flex justify-between items-center px-5 text-sm md:text-base">
-      <p className="w-min md:w-auto flex flex-wrap gap-x-1 justify-center items-center">
+      <p className="w-min md:w-auto flex flex-wrap gap-x-1 justify-center items-center text-xs lg:text-base">
         <span className="text-yellow-1">{wordsCount()}</span> Words
       </p>
       <button
@@ -39,7 +39,7 @@ export default function TextareaFooter({ loading }: { loading: boolean }) {
           />
         )}
       </button>
-      <p className="w-min md:w-auto flex flex-wrap gap-x-1 justify-center items-center">
+      <p className="w-min md:w-auto flex flex-wrap gap-x-1 justify-center items-center text-xs lg:text-base">
         <span className="text-red-500 text-center">{correctionsCount()}</span> Mistakes
       </p>
     </div>

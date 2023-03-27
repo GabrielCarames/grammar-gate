@@ -36,7 +36,7 @@ export default function Textarea({
         />
       </div>
       <textarea
-        className="relative w-full max-h-[250px] md:max-h-[500px] bg-gray-1 h-max md:h-screen outline-none resize-none pt-5 text-lg bg-transparent "
+        className="relative w-full max-h-[250px] md:max-h-[500px] bg-gray-1 h-max md:h-screen outline-none resize-none pt-5 text-base lg:text-lg bg-transparent"
         name="text"
         cols={30}
         rows={10}

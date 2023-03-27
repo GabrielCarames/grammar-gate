@@ -8,9 +8,9 @@ export default function InfoButtonSection() {
   const handleCloseModal = () => setShowInfo(!showInfo)
 
   return (
-    <div className="w-10 h-10">
-      <button className="w-10 h-10" onClick={handleCloseModal}>
-        <InformationCircleIcon className="text-white w-10 hover:text-pink-200 duration-150" />
+    <div className="w-max h-max rouned-full">
+      <button className="w-max h-max rounded-full" onClick={handleCloseModal}>
+        <InformationCircleIcon className="text-white w-8 lg:w-10 hover:text-pink-200 duration-150" />
       </button>
       {showInfo && (
         <Modal onClose={handleCloseModal}>

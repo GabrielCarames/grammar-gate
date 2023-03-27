@@ -10,11 +10,11 @@ export default function ModalContent() {
       <ul className="flex flex-col gap-5 overflow-y-scroll h-full">
         {sections.map(([key, values]) => (
           <li key={key}>
-            <h3 className="text-lg font-semibold text-pink-300">{key}</h3>
+            <h3 className="text-base lg:text-lg font-semibold text-pink-300">{key}</h3>
             <ul className="flex flex-col gap-2">
               {values.map((value, index) => (
                 <li key={index}>
-                  <p className="text-white">{value}</p>
+                  <p className="text-white text-sm lg:text-base">{value}</p>
                 </li>
               ))}
             </ul>
