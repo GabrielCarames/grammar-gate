@@ -1,5 +1,6 @@
 {
-  "title": "Welcome to GrammarGate - Your All-In-One Solution for Grammar!",
+  "name": "GrammarGate",
+  "title": "Your All-In-One solution for grammar!",
   "subititle": "Our platform harnesses the power of ChatGPT technology to enhance your writing and language skills. From grammar correction to text summarization and translation, we've got everything you need to take your language game to the next level."
    ,
   "functionalities": [
@@ -18,6 +19,5 @@
       "description": "Our translator leverages the power of ChatGPT to provide fast and accurate translations in multiple languages. Simply enter your text, select your target language, and let our translator do the rest.",
       "link": "/translator"
     }
-  ],
-  "mission": "At GrammarGate, we believe that everyone has the potential to be a great writer. Our mission is to make writing accessible and enjoyable for all. Try our platform today and experience the power of clear, concise, and effective communication!"
+  ]
 }
