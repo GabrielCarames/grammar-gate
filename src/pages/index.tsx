@@ -1,7 +1,7 @@
 import Head from "next/head"
 import homeText from "../utils/homeText.json"
-import links from "../utils/navbarLinks"
-import NavbarLink from "@/components/NavbarLink"
+import links from "../utils/grammarGateLinks"
+import { Item } from "../components/GrammarGateItem"
 
 export default function Home() {
   return (
@@ -13,27 +13,36 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className="flex justify-center items-center bg-black text-white w-full min-h-screen h-max">
-        <section className="flex flex-col gap-20 w-full max-w-max h-full px-5 py-10">
+        <section className="flex flex-col sm:items-center gap-20 w-full max-w-max h-full px-5 py-10">
           <header className="flex flex-col gap-5 items-center justify-center w-full max-w-[900px]">
-            <h1 className="text-2xl sm:text-3xl text-pink-1 text-center">{homeText?.title}</h1>
+            <h1 className="text-2xl sm:text-5xl text-[#F380F0] text-center">
+              <strong>{homeText?.name}</strong>
+            </h1>
+            <h2 className="text-2xl sm:text-3xl text-yellow-1 font-bold text-center">
+              {homeText?.title}
+            </h2>
             <p className="text-center text-base sm:text-lg font-semibold">{homeText?.subititle}</p>
           </header>
-          <ul className="h-max flex flex-wrap justify-center gap-x-20 gap-y-5 font-bold">
+          <ul className="h-max grid grid-rows-1 grid-cols-2 justify-center gap-x-20 gap-y-5 font-bold">
             {links.map((link, index) => (
-              <div
-                className="w-max h-max flex flex-col gap-1 border-[2px] border-gray-1 p-5 rounded-md"
+              <Item
+                className={`w-max !h-full flex flex-col gap-1 border-[2px] border-gray-1 rounded-md ${link?.borderColor}`}
                 key={index}
               >
-                <NavbarLink
-                  link={link}
-                  imageDivClassName="p-4 sm:!p-5"
-                  imageClassName="w-5 h-5 sm:!w-10 sm:!h-10"
-                  linkNameClassName="!text-lg"
-                />
-                <p className="w-full max-w-[400px] font-normal text-center text-sm">
-                  {homeText.functionalities[index].description}
-                </p>
-              </div>
+                <Item.ItemLink href={link?.href} className="flex flex-col items-center gap-2 p-5">
+                  <Item.ImageWrapper className={`p-4 sm:!p-5 ${link?.backgroundColor}`}>
+                    <Item.ItemImage
+                      src={link?.icon}
+                      alt="Image Alt Text"
+                      className="w-5 h-5 sm:!w-10 sm:!h-10"
+                    />
+                  </Item.ImageWrapper>
+                  <Item.Text className="!text-lg">{link?.name}</Item.Text>
+                  <p className="w-full max-w-[400px] font-normal text-center text-sm md:text-base">
+                    {homeText.functionalities[index].description}
+                  </p>
+                </Item.ItemLink>
+              </Item>
             ))}
           </ul>
         </section>
