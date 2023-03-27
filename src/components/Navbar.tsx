@@ -1,20 +1,40 @@
 import { useRouter } from "next/router"
-import links from "../utils/navbarLinks"
-import NavbarLink from "./NavbarLink"
+import links from "../utils/grammarGateLinks"
+import { Item } from "./GrammarGateItem"
 
 export default function Navbar() {
   const router = useRouter()
 
   return (
     <section className="w-full h-max max-h-32 bg-gray-1 border-r border-r-gray-2 mb-10">
-      <div className="w-full h-full flex flex-wrap items-center justify-center">
-        <div className="w-full pt-2 px-5">
-          <h2 className="text-md md:text-lg font-semibold">Grammar Gate</h2>
+      <div className="w-full h-full flex flex-wrap lg:flex-row md:flex-nowrap items-center justify-center lg:justify-start">
+        <div className="w-full md:max-w-max px-5 py-2 border-b-[0.5px] md:border-none border-slate-400">
+          <h2 className="text-base md:text-lg font-semibold">Grammar Gate</h2>
         </div>
-        <nav>
-          <ul className="flex gap-5 px-5 h-full">
+        <nav className="w-full flex justify-center border-b-[0.5px] md:border-none border-slate-400">
+          <ul className="flex gap-1 px-5 h-full">
             {links.map(link => (
-              <NavbarLink link={link} pathname={router.pathname} key={link.name} />
+              <Item
+                className={`!rounded-none relative ${
+                  router.pathname === link.href ? link?.borderColor : "border-transparent"
+                }
+                  ${router.pathname === link.href ? "bg-gray-2" : ""}
+                  `}
+                key={link.name}
+              >
+                <Item.ItemLink
+                  href={link?.href}
+                  className="flex flex-col items-center gap-1 p-1 px-5"
+                >
+                  <Item.ImageWrapper className={`${link?.backgroundColor}`}>
+                    <Item.ItemImage src={link?.icon} alt="Image Alt Text" className="" />
+                  </Item.ImageWrapper>
+                  <Item.Text className="text-xs md:text-sm lg:text-base">{link?.name}</Item.Text>
+                </Item.ItemLink>
+                <div
+                  className={`absolute bottom-[-0.2px] left-0 w-full h-[0.5px] ${link.backgroundColor}`}
+                ></div>
+              </Item>
             ))}
           </ul>
         </nav>
