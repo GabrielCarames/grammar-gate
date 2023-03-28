@@ -1,5 +1,4 @@
 import Aside from "@/components/Aside"
-// import TextareaSection from "@/components/GrammarChecker/TextareaSection"
 import Navbar from "@/components/Navbar"
 import TextareaSection from "@/components/TextareaSection"
 import Head from "next/head"
