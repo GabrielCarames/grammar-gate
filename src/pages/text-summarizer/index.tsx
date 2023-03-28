@@ -23,8 +23,8 @@ export default function TextSummarizer() {
                 title="Text Summarizer"
                 description="Summarize any text in a few seconds!"
               />
-              <div className="w-full flex gap-5">
-                <TextareaSection.TextareaWrapper className="!w-[50%]">
+              <div className="w-full flex flex-wrap items-center justify-center gap-5">
+                <TextareaSection.TextareaWrapper className="flex-1">
                   <SummarizerTextareaFooter />
                 </TextareaSection.TextareaWrapper>
                 <SummarizedText>

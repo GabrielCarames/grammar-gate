@@ -2,7 +2,7 @@ import TextareaSpan from "./TextareaSpan"
 
 const SummarizedText = ({ children }: { children: React.ReactNode }) => {
   return (
-    <section className="flex flex-col border border-gray-2 bg-gray-1 rounded-md w-[50%]">
+    <section className="flex flex-col border border-gray-2 bg-gray-1 rounded-md flex-1">
       {children}
     </section>
   )
