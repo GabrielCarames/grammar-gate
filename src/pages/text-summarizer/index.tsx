@@ -1,10 +1,8 @@
-import Aside from "@/components/Aside"
-// import TextareaSection from "@/components/GrammarChecker/TextareaSection"
 import Navbar from "@/components/Navbar"
 import TextareaSection from "@/components/TextareaSection"
 import Head from "next/head"
 
-export default function GrammarChecker() {
+export default function TextSummarizer() {
   return (
     <>
       <Head>
@@ -20,14 +18,13 @@ export default function GrammarChecker() {
           <div className="w-full h-max md:h-full flex justify-center items-center px-5 relative">
             <TextareaSection>
               <TextareaSection.Header
-                title="Grammar Checker"
-                description="Write your text and let us check your grammar!"
+                title="Text Summarizer"
+                description="Summarize any text in a few seconds!"
               />
               <TextareaSection.TextareaWrapper />
             </TextareaSection>
           </div>
         </div>
-        <Aside />
       </main>
     </>
   )
