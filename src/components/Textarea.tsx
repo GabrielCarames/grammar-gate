@@ -23,7 +23,7 @@ export default function Textarea({
   return (
     <div className="relative w-full px-5">
       <div
-        className="text-transparent caret-white absolute inset-0 bg-transparent w-full max-h-[250px] md:max-h-[500px] h-max md:h-screen outline-none resize-none p-5 text-lg  text-white"
+        className="text-transparent caret-white absolute inset-0 bg-transparent w-full max-h-[250px] md:max-h-[500px] h-max md:h-screen outline-none resize-none p-5 text-base lg:text-lg  text-white"
         spellCheck={false}
       >
         <Highlighter

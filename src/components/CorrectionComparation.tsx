@@ -11,7 +11,7 @@ export default function CorrectionComparation({
   return (
     <div className={`m-max text-center flex gap-5 ${containerClassName}`}>
       <p className="line-through text-red-500">{correction?.result[0]}</p>
-      <ArrowRightIcon className="h-6 w-6 text-pink-1" />
+      <ArrowRightIcon className="h-6 min-w-[1.5rem] text-pink-1" />
       <p className="text-green-500">{correction?.result[1]}</p>
     </div>
   )
