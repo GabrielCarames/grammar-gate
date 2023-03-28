@@ -18,14 +18,16 @@ TextareaSection.Header = function Header({
 }
 
 TextareaSection.TextareaWrapper = function TextareaWrapper({
-  children
+  children,
+  className
 }: {
   children?: React.ReactNode
+  className?: string
 }) {
   const { onChange, loading } = useTextarea()
 
   return (
-    <div className="border border-gray-2 bg-gray-1 rounded-md">
+    <div className={`border border-gray-2 bg-gray-1 rounded-md ${className}`}>
       <Textarea onChange={onChange} />
       {children ? children : <TextareaFooter loading={loading} />}
     </div>

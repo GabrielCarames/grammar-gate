@@ -1,4 +1,5 @@
 import Navbar from "@/components/Navbar"
+import { SummarizedText } from "@/components/SummarizedText"
 import SummarizerTextareaFooter from "@/components/SummarizerTextareaFooter"
 import TextareaSection from "@/components/TextareaSection"
 import Head from "next/head"
@@ -22,9 +23,15 @@ export default function TextSummarizer() {
                 title="Text Summarizer"
                 description="Summarize any text in a few seconds!"
               />
-              <TextareaSection.TextareaWrapper>
-                <SummarizerTextareaFooter />
-              </TextareaSection.TextareaWrapper>
+              <div className="w-full flex gap-5">
+                <TextareaSection.TextareaWrapper className="!w-[50%]">
+                  <SummarizerTextareaFooter />
+                </TextareaSection.TextareaWrapper>
+                <SummarizedText>
+                  <SummarizedText.SummarizedTextContent />
+                  <SummarizedText.SummarizedTextFooter />
+                </SummarizedText>
+              </div>
             </TextareaSection>
           </div>
         </div>
