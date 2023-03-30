@@ -40,11 +40,16 @@ SummarizedText.SummarizedTextContent = function SummarizedTextContent() {
 }
 
 SummarizedText.SummarizedTextFooter = function SummarizedTextFooter() {
+  const { summary } = useSummaryContext()
+
   return (
     <footer className="h-max py-2 px-5">
       <div className="flex gap-5">
-        <TextareaSpan text="Mistakes" data={32} className="!text-green-500 text-center" />
-        <TextareaSpan text="Mistakes" data={32} className="!text-green-500 text-center" />
+        <TextareaSpan
+          text="Words"
+          data={summary.split(" ").length > 1 ? summary.split(" ").length : 0}
+          className="!text-green-500 text-center"
+        />
       </div>
     </footer>
   )
