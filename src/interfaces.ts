@@ -1,6 +1,6 @@
 import { AxiosHeaders } from "axios"
 
-export interface MessageProps {
+export interface ChatGPTMessageProps {
   role: string
   content: string
 }
@@ -27,7 +27,7 @@ export interface MakeRequestProps {
 
 export interface ChatGPTJSON_dataProps {
   model: string
-  messages: MessageProps[]
+  messages: ChatGPTMessageProps[]
   temperature: number
 }
 
