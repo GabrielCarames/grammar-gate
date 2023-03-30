@@ -1,4 +1,5 @@
 import TextareaSpan from "./TextareaSpan"
+import { useSummaryContext } from "@/contexts/SummaryContext"
 
 const SummarizedText = ({ children }: { children: React.ReactNode }) => {
   return (
@@ -9,6 +10,8 @@ const SummarizedText = ({ children }: { children: React.ReactNode }) => {
 }
 
 SummarizedText.SummarizedTextContent = function SummarizedTextContent() {
+  const { summary } = useSummaryContext()
+
   return (
     <div className="max-h-[250px] md:max-h-[500px] h-max md:h-screen p-5 text-base lg:text-lg text-white">
       <textarea
@@ -16,7 +19,8 @@ SummarizedText.SummarizedTextContent = function SummarizedTextContent() {
         name="text"
         cols={30}
         rows={10}
-        // value={"value"}
+        defaultValue={summary}
+        spellCheck={false}
       />
     </div>
   )
