@@ -1,7 +1,7 @@
 import React from "react"
 import { useCorrectionsContext } from "@/contexts/CorrectionsContext"
 import { useValueContext } from "@/contexts/ValueContext"
-import HighlightedText from "./HighlightedText"
+import HighlightedText from "../HighlightedText"
 import { CorrectionsProps } from "@/interfaces"
 const Highlighter = require("react-highlight-words")
 
@@ -12,7 +12,7 @@ const getSearchWords = (corrections: CorrectionsProps) => {
   ]
 }
 
-export default function Textarea({
+export default function GrammarCheckerTextarea({
   onChange
 }: {
   onChange: (e: React.ChangeEvent<HTMLTextAreaElement>) => void
