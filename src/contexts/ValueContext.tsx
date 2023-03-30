@@ -5,20 +5,16 @@ interface ValueContextProps {
   setValue: Dispatch<SetStateAction<string>>
 }
 
-const ValueContextContext = createContext<ValueContextProps>({
+const ValueContext = createContext<ValueContextProps>({
   value: "",
   setValue: () => {}
 })
 
 const ValueProvider = ({ children }: { children: React.ReactNode }) => {
   const [value, setValue] = useState("")
-  return (
-    <ValueContextContext.Provider value={{ value, setValue }}>
-      {children}
-    </ValueContextContext.Provider>
-  )
+  return <ValueContext.Provider value={{ value, setValue }}>{children}</ValueContext.Provider>
 }
 
-const useValueContext = () => useContext(ValueContextContext)
+const useValueContext = () => useContext(ValueContext)
 
 export { ValueProvider, useValueContext }
