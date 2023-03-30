@@ -1,4 +1,5 @@
 import Aside from "@/components/Aside"
+import GrammarCheckerTextareaWrapper from "@/components/GrammarChecker/GrammarCheckerTextareaWrapper"
 import Navbar from "@/components/Navbar"
 import TextareaSection from "@/components/TextareaSection"
 import Head from "next/head"
@@ -22,7 +23,7 @@ export default function GrammarChecker() {
                 title="Grammar Checker"
                 description="Write your text and let us check your grammar!"
               />
-              <TextareaSection.TextareaWrapper />
+              <GrammarCheckerTextareaWrapper />
             </TextareaSection>
           </div>
         </div>
