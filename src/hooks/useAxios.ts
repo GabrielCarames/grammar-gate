@@ -1,3 +1,4 @@
+import { useLoadingContext } from "@/contexts/LoadingContext"
 import { ChatGPTJSON_dataProps, MakeRequestProps } from "@/interfaces"
 import axios, { AxiosHeaders } from "axios"
 import { useState } from "react"
@@ -5,7 +6,7 @@ import { useState } from "react"
 const useAxios = () => {
   const [data, setData] = useState<any>(null)
   const [error, setError] = useState("")
-  const [loading, setLoading] = useState(false)
+  const { loading, setLoading } = useLoadingContext()
 
   const makeRequest: MakeRequestProps = async (
     url: string,
