@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react"
 import useAxios from "./useAxios"
 import { ChatGPTMessageProps } from "@/interfaces"
-import { createConsecutivePrompt, createFirstPrompt } from "@/utils/textSummarizerPrompt"
-import askToChatGPT from "@/utils/askToChatGPT"
 import { toast } from "react-toastify"
+import { createPrompt } from "@/utils/textSummarizerPrompt"
+import askToChatGPT from "@/utils/askToChatGPT"
 import { useSummaryContext } from "@/contexts/SummaryContext"
 import { useValueContext } from "@/contexts/ValueContext"
 
@@ -21,9 +21,8 @@ const rangeValues: RangeValuesProps = {
 export const useTextSummarizer = () => {
   const { summary, setSummary } = useSummaryContext()
   const { value, setValue } = useValueContext()
-
   const [chatGPTMessages, setChatGPTMessages] = useState<ChatGPTMessageProps[]>([])
-  const { makeRequest, data, error, loading } = useAxios()
+  const { makeRequest, data, loading } = useAxios()
 
   useEffect(() => {
     if (chatGPTMessages.length === 0) return
@@ -41,19 +40,10 @@ export const useTextSummarizer = () => {
   }, [data])
 
   const addChatGPTMessage = (textToSummarize: string, summaryLength: string) => {
-    if (chatGPTMessages.length === 0)
-      setChatGPTMessages([
-        ...chatGPTMessages,
-        { role: "user", content: createFirstPrompt(textToSummarize, summaryLength) }
-      ])
-    // else
-    //   setChatGPTMessages([
-    //     ...chatGPTMessages,
-    //     {
-    //       role: "user",
-    //       content: createConsecutivePrompt(value, corrections.textCorrected)
-    //     }
-    //   ])
+    setChatGPTMessages([
+      ...chatGPTMessages,
+      { role: "user", content: createPrompt(textToSummarize, summaryLength) }
+    ])
   }
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
