@@ -1,4 +1,4 @@
-import { ChatGPTJSON_dataProps, MakeRequestProps, MessageProps } from "@/interfaces"
+import { ChatGPTJSON_dataProps, MakeRequestProps, ChatGPTMessageProps } from "@/interfaces"
 
 const headers = {
   "Content-Type": "application/json",
@@ -7,13 +7,13 @@ const headers = {
 
 const url = "https://api.openai.com/v1/chat/completions"
 
-const askForGrammarCheck = async (
-  currentMessages: MessageProps[],
+const askToChatGPT = async (
+  currentChatGPTMessages: ChatGPTMessageProps[],
   makeRequest: MakeRequestProps
 ) => {
   const json_data: ChatGPTJSON_dataProps = {
     model: "gpt-3.5-turbo",
-    messages: [...currentMessages],
+    messages: [...currentChatGPTMessages],
     temperature: 1
   }
   const res = await makeRequest(url, json_data, headers)
@@ -21,4 +21,4 @@ const askForGrammarCheck = async (
   return chatinatorAnswer
 }
 
-export default askForGrammarCheck
+export default askToChatGPT
