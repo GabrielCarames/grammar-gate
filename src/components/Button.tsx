@@ -2,23 +2,27 @@ import { ThreeDots } from "react-loader-spinner"
 
 export default function Button({
   onClick,
-  availableData,
+  disabled,
   loading,
-  text
+  text,
+  type,
+  className
 }: {
-  onClick: () => void
-  availableData: boolean
+  onClick?: () => void
+  disabled: boolean
   loading: boolean
   text: string
+  type: "submit" | "button"
+  className?: string
 }) {
   return (
     <button
-      className={`p-4 py-1 rounded-full text-sm md:text-md font-bold duration-200
-        ${availableData ? "!bg-pink-1 hover:!bg-pink-2 !text-white" : "bg-gray-500 text-gray-600"}
-        ${availableData && loading ? "!bg-pink-1" : "bg-gray-500 text-gray-600"}
+      className={`p-4 py-1 rounded-full text-sm md:text-md font-bold duration-200 bg-pink-1
+        ${className}
         `}
       onClick={onClick}
-      disabled={availableData}
+      disabled={disabled}
+      type={type}
     >
       {!loading ? (
         <span>{text}</span>
