@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react"
-import askForGrammarCheck from "@/utils/askForGrammarCheck"
+import askToChatGPT from "@/utils/askToChatGPT"
 import useAxios from "./useAxios"
-import { createConsecutivePrompt, createFirstPrompt } from "@/utils/prompt"
-import { MessageProps } from "@/interfaces"
+import { createConsecutivePrompt, createFirstPrompt } from "@/utils/grammarCheckerPrompt"
+import { ChatGPTMessageProps } from "@/interfaces"
 import { useValueContext } from "@/contexts/ValueContext"
 import { useCorrectionsContext } from "@/contexts/CorrectionsContext"
 import { toast } from "react-toastify"
@@ -11,15 +11,18 @@ export const useTextarea = () => {
   const { setValue } = useValueContext()
   const { corrections, setCorrections } = useCorrectionsContext()
   const [textToCorrect, setTextToCorrect] = useState("")
-  const [messages, setMessages] = useState<MessageProps[]>([])
+  const [chatGPTMessages, setChatGPTMessages] = useState<ChatGPTMessageProps[]>([])
   const { makeRequest, data, error, loading } = useAxios()
 
-  const createNewMessage = (message: string) => {
-    if (messages.length === 0)
-      setMessages([...messages, { role: "user", content: createFirstPrompt(message) }])
+  const addChatGPTMessage = (message: string) => {
+    if (chatGPTMessages.length === 0)
+      setChatGPTMessages([
+        ...chatGPTMessages,
+        { role: "user", content: createFirstPrompt(message) }
+      ])
     else
-      setMessages([
-        ...messages,
+      setChatGPTMessages([
+        ...chatGPTMessages,
         {
           role: "user",
           content: createConsecutivePrompt(message, corrections.textCorrected)
@@ -28,14 +31,14 @@ export const useTextarea = () => {
   }
 
   useEffect(() => {
-    if (messages.length === 0) return
-    askForGrammarCheck(messages, makeRequest)
-  }, [messages])
+    if (chatGPTMessages.length === 0) return
+    askToChatGPT(chatGPTMessages, makeRequest)
+  }, [chatGPTMessages])
 
   useEffect(() => {
     if (textToCorrect?.length <= 1) return
     const timeout = setTimeout(() => {
-      createNewMessage(textToCorrect)
+      addChatGPTMessage(textToCorrect)
     }, 1000)
 
     return () => {
