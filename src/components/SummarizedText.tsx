@@ -1,6 +1,9 @@
 import TextareaSpan from "./TextareaSpan"
 import { useSummaryContext } from "@/contexts/SummaryContext"
 import useAxios from "@/hooks/useAxios"
+import { DocumentDuplicateIcon } from "@heroicons/react/24/solid"
+import Image from "next/image"
+import copyIcon from "../../public/copy-icon.svg"
 
 const SummarizedText = ({ children }: { children: React.ReactNode }) => {
   return (
@@ -41,15 +44,25 @@ SummarizedText.SummarizedTextContent = function SummarizedTextContent() {
 
 SummarizedText.SummarizedTextFooter = function SummarizedTextFooter() {
   const { summary } = useSummaryContext()
-
+  console.log(summary)
   return (
     <footer className="h-full flex items-center py-2 px-5 border-t-[.5px] border-gray-2">
-      <div className="border-[.5px] border-gray-2 sm:border-none sm:p-0 p-1 px-1 rounded-md flex items-center">
-        <TextareaSpan
-          text="Words"
-          data={summary.split(" ").length > 1 ? summary.split(" ").length : 0}
-          className="!text-green-500 text-center"
-        />
+      <div className="w-full flex justify-between">
+        <div className="border-[.5px] border-gray-2 sm:border-none sm:p-0 p-1 px-1 rounded-md flex items-center">
+          <TextareaSpan
+            text="Words"
+            data={summary.split(" ").length > 1 ? summary.split(" ").length : 0}
+            className="!text-green-500 text-center"
+          />
+        </div>
+        <div className="flex gap-5">
+          <button
+            className="rounded-full p-2 hover:bg-pink-1 duration-150"
+            onClick={() => navigator.clipboard.writeText(summary)}
+          >
+            <Image src={copyIcon} alt="Copy summary icon" className="w-5 h-5" />
+          </button>
+        </div>
       </div>
     </footer>
   )
