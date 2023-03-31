@@ -13,7 +13,7 @@ export default function TextSummarizer() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className="flex flex-wrap gap-y-10 md:flex-nowrap bg-black text-white w-full h-screen md:pt-0">
+      <main className="flex flex-wrap gap-y-10 md:flex-nowrap bg-black text-white w-full h-max min-h-screen pb-5 md:pt-0">
         <div id="modal-root"></div>
         <div className="flex flex-col w-full">
           <Navbar />
@@ -23,7 +23,7 @@ export default function TextSummarizer() {
                 title="Text Summarizer"
                 description="Summarize any text in a few seconds!"
               />
-              <div className="w-full flex flex-wrap items-center justify-center gap-5">
+              <div className="w-full flex flex-col lg:flex-row justify-center gap-5">
                 <TextSummarizerTextareaWrapper />
                 <SummarizedText>
                   <SummarizedText.SummarizedTextContent />
