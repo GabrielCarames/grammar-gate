@@ -1,9 +1,12 @@
-import Image from "next/image"
 import Link from "next/link"
 
 const Item = ({ children, className }: { children: React.ReactNode; className: string }) => {
   return (
-    <li className={`h-max rounded-md hover:bg-gray-3 duration-150 ${className}`}>{children}</li>
+    <li
+      className={`h-full rounded-md dark:duration-0 text-gray-1 dark:text-white hover:bg-white-2 dark:hover:bg-gray-3 duration-150 ${className}`}
+    >
+      {children}
+    </li>
   )
 }
 
@@ -31,26 +34,6 @@ Item.ImageWrapper = function ImageWrapper({
   className: string
 }) {
   return <div className={`rounded-full p-2 ${className}`}>{children}</div>
-}
-
-Item.ItemImage = function ItemImage({
-  src,
-  alt,
-  className
-}: {
-  src: string
-  alt: string
-  className: string
-}) {
-  return (
-    <Image
-      className={`w-3 h-3 md:w-5 md:h-5 ${className}`}
-      src={src}
-      width={20}
-      height={20}
-      alt={`${alt} icon`}
-    />
-  )
 }
 
 Item.Text = function Text({
