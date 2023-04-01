@@ -1,5 +1,6 @@
 import { useLoadingContext } from "@/contexts/LoadingContext"
 import { ChatGPTJSON_dataProps, MakeRequestProps } from "@/interfaces"
+import { NotificationFailure } from "@/utils/toastNotifications"
 import axios, { AxiosHeaders } from "axios"
 import { useState } from "react"
 
@@ -19,6 +20,7 @@ const useAxios = () => {
       setData(response.data)
     } catch (error: any) {
       setError(error.message)
+      NotificationFailure("Something went wrong. Please try again later")
     } finally {
       setLoading(false)
     }

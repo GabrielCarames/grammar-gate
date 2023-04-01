@@ -4,10 +4,10 @@ import { CorrectionsProvider } from "@/contexts/CorrectionsContext"
 import { SummaryProvider } from "@/contexts/SummaryContext"
 import { LoadingProvider } from "@/contexts/LoadingContext"
 import { ValueProvider } from "@/contexts/ValueContext"
+import ThemeWrapper from "@/components/ThemeWrapper"
+import { ThemeProvider } from "next-themes"
 import "react-toastify/dist/ReactToastify.css"
 import "@/styles/globals.css"
-import { ThemeProvider } from "next-themes"
-import ThemeWrapper from "@/components/ThemeWrapper"
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
@@ -17,7 +17,7 @@ export default function App({ Component, pageProps }: AppProps) {
           <SummaryProvider>
             <CorrectionsProvider>
               <ThemeWrapper>
-                <ToastContainer />
+                <ToastContainer limit={2} />
                 <Component {...pageProps} />
               </ThemeWrapper>
             </CorrectionsProvider>
