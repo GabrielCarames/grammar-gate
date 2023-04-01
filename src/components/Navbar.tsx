@@ -17,7 +17,9 @@ export default function Navbar() {
       <div className="w-full h-full flex flex-wrap lg:flex-row md:flex-nowrap items-center justify-center lg:justify-start px-5">
         <div className="w-full md:max-w-max flex justify-between py-2 sm:py-0 border-b-[0.5px] md:border-none border-gray-3">
           <Link href="/">
-            <h2 className="text-base md:text-lg font-semibold">Grammar Gate</h2>
+            <h2 className="text-base md:text-lg font-semibold text-gray-1 dark:text-white">
+              Grammar Gate
+            </h2>
           </Link>
           <button
             className="w-[40px] sm:hidden flex justify-center items-center bg-gray-1 dark:bg-white-2 dark:text-white rounded-[10px] p-3 box-border"
