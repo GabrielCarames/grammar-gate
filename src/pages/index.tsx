@@ -2,6 +2,7 @@ import Head from "next/head"
 import homeText from "../utils/homeText.json"
 import links from "../utils/grammarGateLinks"
 import { Item } from "../components/GrammarGateItem"
+import IconWrapper from "@/components/IconWrapper"
 
 export default function Home() {
   return (
@@ -31,11 +32,7 @@ export default function Home() {
               >
                 <Item.ItemLink href={link?.href} className="flex flex-col items-center gap-2 p-5">
                   <Item.ImageWrapper className={`p-4 sm:!p-5 ${link?.backgroundColor}`}>
-                    <Item.ItemImage
-                      src={link?.icon}
-                      alt="Image Alt Text"
-                      className="w-5 h-5 sm:!w-10 sm:!h-10"
-                    />
+                    <IconWrapper icon={<link.icon />} className={`w-5 h-5 sm:!w-10 sm:!h-10`} />
                   </Item.ImageWrapper>
                   <Item.Text className="!text-lg">{link?.name}</Item.Text>
                   <p className="w-full max-w-[400px] font-normal text-center text-sm md:text-base">

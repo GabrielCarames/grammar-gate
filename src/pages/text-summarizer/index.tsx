@@ -13,7 +13,7 @@ export default function TextSummarizer() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className="flex flex-wrap gap-y-10 md:flex-nowrap bg-white dark:bg-black text-white w-full h-max min-h-screen pb-5 md:pt-0">
+      <main className="flex flex-wrap gap-y-10 md:flex-nowrap bg-white-1 dark:bg-black text-white w-full h-max min-h-screen pb-5 md:pt-0">
         <div id="modal-root"></div>
         <div className="flex flex-col w-full">
           <Navbar />

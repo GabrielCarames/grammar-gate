@@ -1,8 +1,7 @@
 import TextareaSpan from "./TextareaSpan"
 import { useSummaryContext } from "@/contexts/SummaryContext"
 import useAxios from "@/hooks/useAxios"
-import Image from "next/image"
-import copyIcon from "../../public/copy-icon.svg"
+import CopyIcon from "../../public/copy-icon.svg"
 import { TrashIcon } from "@heroicons/react/24/solid"
 
 const SummarizedText = ({ children }: { children: React.ReactNode }) => {
@@ -60,7 +59,7 @@ SummarizedText.SummarizedTextFooter = function SummarizedTextFooter() {
             className="rounded-full p-2 hover:bg-pink-1 duration-150"
             onClick={() => navigator.clipboard.writeText(summary)}
           >
-            <Image src={copyIcon} alt="Copy summary icon" className="w-5 h-5" />
+            <CopyIcon className="w-5 h-5" />
           </button>
           <button
             className="rounded-full p-2 hover:bg-pink-1 duration-150"
