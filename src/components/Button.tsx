@@ -31,7 +31,7 @@ export default function Button({
           height="24"
           width="50"
           radius="9"
-          color="#F9F871"
+          color="#FFF056"
           ariaLabel="three-dots-loading"
           wrapperStyle={{}}
           visible={true}
