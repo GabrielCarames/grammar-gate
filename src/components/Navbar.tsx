@@ -11,9 +11,9 @@ export default function Navbar() {
   return (
     <section className="w-full h-max bg-white dark:bg-gray-1 border-r dark:border-r-gray-2 mb-5 2xl:mb-0 shadow-md">
       <div className="w-full h-full flex flex-wrap lg:flex-row md:flex-nowrap items-center justify-center lg:justify-start md:px-5">
-        <div className="w-full md:max-w-max flex justify-between py-2 border-b-[0.5px] md:border-none border-white-2 dark:border-gray-3 px-5">
-          <Link href="/" className="w-max">
-            <h2 className="text-base md:text-lg text-gray-1 dark:text-white relative pl-4">
+        <div className="w-full md:max-w-max flex justify-between items-center py-2 border-b-[0.5px] md:border-none border-white-2 dark:border-gray-3 px-5 md:px-0">
+          <Link href="/">
+            <h2 className="text-base md:text-lg text-gray-1 dark:text-white">
               <span className="text-pink-1 font-bold text-xl">G</span>
               rammar Gate
             </h2>
