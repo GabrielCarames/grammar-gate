@@ -33,6 +33,7 @@ darkMode: "class",
         "orange-1": "#DC7A6C",
         "orange-2": "#FEB362",
         "yellow-1": "#FFF056",
+        "text-gray": "#475569"
       }
     },
   },
