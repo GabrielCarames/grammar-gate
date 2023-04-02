@@ -1,4 +1,4 @@
-import Aside from "@/components/Aside"
+import Aside from "@/components/GrammarChecker/Aside"
 import GrammarCheckerTextareaWrapper from "@/components/GrammarChecker/GrammarCheckerTextareaWrapper"
 import Navbar from "@/components/Navbar"
 import TextareaSection from "@/components/TextareaSection"

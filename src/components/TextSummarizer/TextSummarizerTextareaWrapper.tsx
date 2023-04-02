@@ -1,4 +1,4 @@
-import SummarizerTextareaFooter from "./SummarizerTextareaFooter"
+import TextSummarizerTextareaFooter from "./TextSummarizerTextareaFooter"
 import { useTextSummarizer } from "@/hooks/useTextSummarizer"
 
 export default function TextSummarizerTextareaWrapper() {
@@ -15,7 +15,7 @@ export default function TextSummarizerTextareaWrapper() {
           spellCheck={false}
           onChange={e => setValue(e.target.value)}
         />
-        <SummarizerTextareaFooter value={value} loading={loading} />
+        <TextSummarizerTextareaFooter value={value} loading={loading} />
       </form>
     </section>
   )

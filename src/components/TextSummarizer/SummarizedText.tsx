@@ -1,7 +1,7 @@
-import TextareaSpan from "./TextareaSpan"
+import Span from "../Span"
 import { useSummaryContext } from "@/contexts/SummaryContext"
 import useAxios from "@/hooks/useAxios"
-import CopyIcon from "../../public/copy-icon.svg"
+import CopyIcon from "../../../public/copy-icon.svg"
 import { TrashIcon } from "@heroicons/react/24/solid"
 
 const SummarizedText = ({ children }: { children: React.ReactNode }) => {
@@ -48,7 +48,7 @@ SummarizedText.SummarizedTextFooter = function SummarizedTextFooter() {
     <footer className="h-full flex items-center py-2 px-5 border-t-[.5px] border-white-2 dark:border-gray-2 text-text-gray dark:text-white">
       <div className="w-full flex justify-between">
         <div className="border-[.5px] dark:border-gray-2 sm:border-none sm:p-0 p-1 px-1 rounded-md flex items-center">
-          <TextareaSpan
+          <Span
             text="Words"
             data={summary.split(" ").length > 1 ? summary.split(" ").length : 0}
             className="!text-green-500 text-center"

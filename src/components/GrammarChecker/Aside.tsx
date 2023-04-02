@@ -1,6 +1,6 @@
 import { useCorrectionsContext } from "@/contexts/CorrectionsContext"
 import { CorrectionProps } from "@/interfaces"
-import Correction from "./Correction"
+import Correction from "../Correction"
 
 export default function Aside() {
   const { corrections } = useCorrectionsContext()

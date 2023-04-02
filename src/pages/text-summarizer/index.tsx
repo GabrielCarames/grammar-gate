@@ -1,5 +1,5 @@
 import Navbar from "@/components/Navbar"
-import { SummarizedText } from "@/components/SummarizedText"
+import { SummarizedText } from "@/components/TextSummarizer/SummarizedText"
 import TextSummarizerTextareaWrapper from "@/components/TextSummarizer/TextSummarizerTextareaWrapper"
 import TextareaSection from "@/components/TextareaSection"
 

@@ -1,13 +1,13 @@
 import { useTextareaFooter } from "@/hooks/useTextareaFooter"
-import Button from "./Button"
-import TextareaSpan from "./TextareaSpan"
+import Button from "../Button"
+import Span from "../Span"
 
-export default function TextareaFooter({ loading }: { loading: boolean }) {
+export default function GrammarCheckerTextareaFooter({ loading }: { loading: boolean }) {
   const { corrections, wordsCount, correctionsCount, fixEverything } = useTextareaFooter()
 
   return (
     <div className="w-full h-12 flex justify-between items-center px-5 text-sm md:text-base text-text-gray dark:text-white">
-      <TextareaSpan text="Words" data={wordsCount()} />
+      <Span text="Words" data={wordsCount()} />
       <Button
         disabled={corrections.corrections.length <= 0}
         onClick={fixEverything}
@@ -25,11 +25,7 @@ export default function TextareaFooter({ loading }: { loading: boolean }) {
             : "!bg-gray-500 text-gray-600"
         }`}
       />
-      <TextareaSpan
-        text="Mistakes"
-        data={correctionsCount()}
-        className="!text-red-500 text-center"
-      />
+      <Span text="Mistakes" data={correctionsCount()} className="!text-red-500 text-center" />
     </div>
   )
 }

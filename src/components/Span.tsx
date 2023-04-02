@@ -1,4 +1,4 @@
-export default function TextareaSpan({
+export default function Span({
   text,
   className,
   data
