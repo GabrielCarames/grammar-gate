@@ -13,7 +13,7 @@ export default function Navbar() {
   const { theme, setTheme } = useTheme()
 
   return (
-    <section className="w-full h-max max-h-32 bg-white dark:bg-gray-1 border-r border-r-gray-2 mb-5 2xl:mb-0 shadow-md">
+    <section className="w-full h-max max-h-32 bg-white dark:bg-gray-1 border-r dark:border-r-gray-2 mb-5 2xl:mb-0 shadow-md">
       <div className="w-full h-full flex flex-wrap lg:flex-row md:flex-nowrap items-center justify-center lg:justify-start px-5">
         <div className="w-full md:max-w-max flex justify-between py-2 sm:py-0 border-b-[0.5px] md:border-none border-gray-3">
           <Link href="/">
