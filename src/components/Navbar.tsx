@@ -1,16 +1,12 @@
 import { useRouter } from "next/router"
-import links from "../utils/grammarGateLinks"
-import { Item } from "./GrammarGateItem"
 import Link from "next/link"
-import { useTheme } from "next-themes"
-import Icon from "./IconWrapper"
-import SunIcon from "../../public/sun-icon.svg"
-import MoonIcon from "../../public/moon-icon.svg"
+import { Item } from "./GrammarGateItem"
+import links from "../utils/grammarGateLinks"
 import IconWrapper from "./IconWrapper"
+import ThemeButton from "./ThemeButton"
 
 export default function Navbar() {
   const router = useRouter()
-  const { theme, setTheme } = useTheme()
 
   return (
     <section className="w-full h-max max-h-32 bg-white dark:bg-gray-1 border-r dark:border-r-gray-2 mb-5 2xl:mb-0 shadow-md">
@@ -21,17 +17,7 @@ export default function Navbar() {
               Grammar Gate
             </h2>
           </Link>
-          <button
-            className="w-[40px] sm:hidden flex justify-center items-center bg-gray-1 dark:bg-white-2 dark:text-white rounded-[10px] p-3 box-border"
-            onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-          >
-            <Icon
-              icon={theme === "dark" ? <SunIcon /> : <MoonIcon />}
-              className="min-w-[15px]"
-              fill={`${theme === "dark" ? "!fill-black" : "!fill-white"}`}
-              alt="Toggle dark mode"
-            />
-          </button>
+          <ThemeButton />
         </div>
         <nav className="w-full flex justify-center border-b-[0.5px] md:border-none border-gray-3">
           <ul className="flex gap-1 px-5 h-full">
@@ -60,17 +46,7 @@ export default function Navbar() {
             ))}
           </ul>
         </nav>
-        <button
-          className="hidden w-[40px] sm:flex justify-center items-center bg-gray-1 dark:bg-white-2 dark:text-white rounded-[10px] p-3 box-border"
-          onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-        >
-          <Icon
-            icon={theme === "dark" ? <SunIcon /> : <MoonIcon />}
-            className="min-w-[15px]"
-            fill={`${theme === "dark" ? "!fill-black" : "!fill-white"}`}
-            alt="Toggle dark mode"
-          />
-        </button>
+        <ThemeButton className="!hidden sm:!flex" />
       </div>
     </section>
   )
