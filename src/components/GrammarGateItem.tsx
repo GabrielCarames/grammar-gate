@@ -3,7 +3,7 @@ import Link from "next/link"
 const Item = ({ children, className }: { children: React.ReactNode; className: string }) => {
   return (
     <li
-      className={`h-full rounded-md dark:duration-0 text-gray-1 dark:text-white hover:bg-white-2 dark:hover:bg-gray-3 duration-150 ${className}`}
+      className={`h-full rounded-md dark:duration-0 text-text-gray dark:text-white hover:bg-white-2 dark:hover:bg-gray-3 duration-150 ${className}`}
     >
       {children}
     </li>

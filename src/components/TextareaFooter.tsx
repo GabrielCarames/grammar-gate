@@ -6,7 +6,7 @@ export default function TextareaFooter({ loading }: { loading: boolean }) {
   const { corrections, wordsCount, correctionsCount, fixEverything } = useTextareaFooter()
 
   return (
-    <div className="w-full h-12 flex justify-between items-center px-5 text-sm md:text-base text-gray-1 dark:text-white">
+    <div className="w-full h-12 flex justify-between items-center px-5 text-sm md:text-base text-text-gray dark:text-white">
       <TextareaSpan text="Words" data={wordsCount()} />
       <Button
         disabled={corrections.corrections.length <= 0}

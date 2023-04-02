@@ -12,7 +12,7 @@ export default function SummarizerTextareaFooter({
   return (
     <footer className="w-full h-max flex flex-wrap flex-col sm:flex-row justify-center gap-y-2 sm:justify-between items-center px-0 sm:px-5 py-2 border-t-[.5px] border-white-2 dark:border-gray-2">
       <div className="h-max flex xs:justify-center gap-1 xs:gap-5 md:justify-start">
-        <div className="border-[.5px] dark:border-gray-2 sm:border-none sm:p-0 p-1 px-1 rounded-md flex items-center text-gray-1 dark:text-white">
+        <div className="border-[.5px] dark:border-gray-2 sm:border-none sm:p-0 p-1 px-1 rounded-md flex items-center text-text-gray dark:text-white">
           <TextareaSpan text="Words" data={32} />
         </div>
         <SummaryLength />
