@@ -11,7 +11,7 @@ export default function Aside() {
       {corrections?.corrections?.length === 0 && (
         <p className="text-center text-sm lg:text-base">No corrections available. Well done!</p>
       )}
-      <ul className="h-[calc(100%-100px)] flex flex-col gap-5 overflow-y-auto">
+      <ul className="h-max md:h-[calc(100%-100px)] flex flex-col gap-5 overflow-y-auto">
         {corrections?.corrections?.map((correction: CorrectionProps) => (
           <Correction correction={correction} key={correction.id} />
         ))}

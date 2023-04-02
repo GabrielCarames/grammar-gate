@@ -6,7 +6,7 @@ import { TrashIcon } from "@heroicons/react/24/solid"
 
 const SummarizedText = ({ children }: { children: React.ReactNode }) => {
   return (
-    <section className="w-full flex flex-col border border-white-2 dark:border-gray-2 bg-white dark:bg-gray-1 rounded-md md:flex-1">
+    <section className="w-full flex flex-col border border-white-2 dark:border-gray-2 bg-white dark:bg-gray-1 rounded-md md:flex-1 shadow-lg">
       {children}
     </section>
   )
@@ -47,7 +47,7 @@ SummarizedText.SummarizedTextFooter = function SummarizedTextFooter() {
   return (
     <footer className="h-full flex items-center py-2 px-5 border-t-[.5px] border-white-2 dark:border-gray-2 text-gray-1 dark:text-white">
       <div className="w-full flex justify-between">
-        <div className="border-[.5px] border-gray-2 sm:border-none sm:p-0 p-1 px-1 rounded-md flex items-center">
+        <div className="border-[.5px] dark:border-gray-2 sm:border-none sm:p-0 p-1 px-1 rounded-md flex items-center">
           <TextareaSpan
             text="Words"
             data={summary.split(" ").length > 1 ? summary.split(" ").length : 0}

@@ -5,7 +5,7 @@ export default function TextSummarizerTextareaWrapper() {
   const { handleSubmit, value, loading, setValue } = useTextSummarizer()
 
   return (
-    <div className="md:flex-1 w-full border dark:border-gray-2 bg-white dark:bg-gray-1 rounded-md shadow-lg">
+    <section className="md:flex-1 w-full border dark:border-gray-2 bg-white dark:bg-gray-1 rounded-md shadow-lg">
       <form onSubmit={handleSubmit}>
         <textarea
           className="w-full max-h-[250px] lg:max-h-[500px] bg-white dark:bg-gray-1 text-gray-1 dark:text-white h-max md:h-screen rounded-md outline-none resize-none p-5 text-base lg:text-lg"
@@ -17,6 +17,6 @@ export default function TextSummarizerTextareaWrapper() {
         />
         <SummarizerTextareaFooter value={value} loading={loading} />
       </form>
-    </div>
+    </section>
   )
 }
