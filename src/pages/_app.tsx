@@ -8,22 +8,25 @@ import ThemeWrapper from "@/components/ThemeWrapper"
 import { ThemeProvider } from "next-themes"
 import "react-toastify/dist/ReactToastify.css"
 import "@/styles/globals.css"
+import HeadWrapper from "@/components/HeadWrapper"
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <ThemeProvider>
-      <LoadingProvider>
-        <ValueProvider>
-          <SummaryProvider>
-            <CorrectionsProvider>
-              <ThemeWrapper>
-                <ToastContainer limit={2} />
-                <Component {...pageProps} />
-              </ThemeWrapper>
-            </CorrectionsProvider>
-          </SummaryProvider>
-        </ValueProvider>
-      </LoadingProvider>
-    </ThemeProvider>
+    <HeadWrapper>
+      <ThemeProvider>
+        <LoadingProvider>
+          <ValueProvider>
+            <SummaryProvider>
+              <CorrectionsProvider>
+                <ThemeWrapper>
+                  <ToastContainer limit={2} />
+                  <Component {...pageProps} />
+                </ThemeWrapper>
+              </CorrectionsProvider>
+            </SummaryProvider>
+          </ValueProvider>
+        </LoadingProvider>
+      </ThemeProvider>
+    </HeadWrapper>
   )
 }
