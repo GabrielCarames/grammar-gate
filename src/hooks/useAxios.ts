@@ -1,13 +1,13 @@
-import { useLoadingContext } from "@/contexts/LoadingContext"
 import { ChatGPTJSON_dataProps, MakeRequestProps } from "@/interfaces"
 import { NotificationFailure } from "@/utils/toastNotifications"
+import { useBoundStore } from "@/zustand/useBoundStore"
 import axios, { AxiosHeaders } from "axios"
 import { useState } from "react"
 
 const useAxios = () => {
   const [data, setData] = useState<any>(null)
   const [error, setError] = useState("")
-  const { loading, setLoading } = useLoadingContext()
+  const { loading, setLoading } = useBoundStore()
 
   const makeRequest: MakeRequestProps = async (
     url: string,
