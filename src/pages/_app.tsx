@@ -5,8 +5,18 @@ import ThemeWrapper from "@/components/ThemeWrapper"
 import HeadWrapper from "@/components/HeadWrapper"
 import "react-toastify/dist/ReactToastify.css"
 import "@/styles/globals.css"
+import { useBoundStore } from "@/zustand/useBoundStore"
+import { useEffect } from "react"
 
 export default function App({ Component, pageProps }: AppProps) {
+  const { clearCorrections, clearSummary, clearValue } = useBoundStore()
+
+  useEffect(() => {
+    clearCorrections()
+    clearSummary()
+    clearValue()
+  }, [])
+
   return (
     <HeadWrapper>
       <ThemeProvider>
