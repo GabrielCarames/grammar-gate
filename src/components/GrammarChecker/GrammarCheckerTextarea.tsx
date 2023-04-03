@@ -41,6 +41,7 @@ export default function GrammarCheckerTextarea({
         onChange={onChange}
         placeholder="Write your text here..."
         spellCheck={false}
+        autoFocus
       />
     </div>
   )

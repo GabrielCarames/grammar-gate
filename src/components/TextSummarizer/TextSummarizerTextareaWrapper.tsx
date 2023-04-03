@@ -16,6 +16,8 @@ export default function TextSummarizerTextareaWrapper() {
           rows={10}
           spellCheck={false}
           onChange={e => setValue(e.target.value)}
+          placeholder="Write your text here..."
+          autoFocus
         />
         <TextSummarizerTextareaFooter value={value} loading={loading} />
       </form>
