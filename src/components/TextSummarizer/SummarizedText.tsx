@@ -1,8 +1,8 @@
 import Span from "../Span"
-import { useSummaryContext } from "@/contexts/SummaryContext"
 import useAxios from "@/hooks/useAxios"
 import CopyIcon from "../../../public/copy-icon.svg"
 import { TrashIcon } from "@heroicons/react/24/solid"
+import { useBoundStore } from "@/zustand/useBoundStore"
 
 const SummarizedText = ({ children }: { children: React.ReactNode }) => {
   return (
@@ -13,7 +13,7 @@ const SummarizedText = ({ children }: { children: React.ReactNode }) => {
 }
 
 SummarizedText.SummarizedTextContent = function SummarizedTextContent() {
-  const { summary } = useSummaryContext()
+  const { summary } = useBoundStore()
   const { loading } = useAxios()
 
   return (
@@ -27,7 +27,7 @@ SummarizedText.SummarizedTextContent = function SummarizedTextContent() {
         </div>
       ) : (
         <textarea
-          className="w-full max-h-[250px] lg:max-h-[500px] bg-white dark:bg-gray-1 h-max md:h-screen outline-none resize-none text-base lg:text-lg text-gray-1 dark:text-white"
+          className="w-full max-h-[250px] lg:max-h-[500px] bg-white dark:bg-gray-1 h-max md:h-screen outline-none resize-none text-base lg:text-lg text-text-gray dark:text-white"
           name="text"
           cols={30}
           rows={10}
@@ -42,7 +42,7 @@ SummarizedText.SummarizedTextContent = function SummarizedTextContent() {
 }
 
 SummarizedText.SummarizedTextFooter = function SummarizedTextFooter() {
-  const { summary, setSummary } = useSummaryContext()
+  const { summary, setSummary } = useBoundStore()
 
   return (
     <footer className="h-full flex items-center py-2 px-5 border-t-[.5px] border-white-2 dark:border-gray-2 text-text-gray dark:text-white">

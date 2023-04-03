@@ -4,7 +4,7 @@ import { ChatGPTMessageProps } from "@/interfaces"
 import { toast } from "react-toastify"
 import { createPrompt } from "@/utils/textSummarizerPrompt"
 import askToChatGPT from "@/utils/askToChatGPT"
-import { useSummaryContext } from "@/contexts/SummaryContext"
+import { useBoundStore } from "@/zustand/useBoundStore"
 
 type RangeValuesProps = {
   [key: string]: string
@@ -18,7 +18,7 @@ const rangeValues: RangeValuesProps = {
 }
 
 export const useTextSummarizer = () => {
-  const { summary, setSummary } = useSummaryContext()
+  const { summary, setSummary } = useBoundStore()
   const [chatGPTMessages, setChatGPTMessages] = useState<ChatGPTMessageProps[]>([])
   const { makeRequest, data, loading } = useAxios()
 
