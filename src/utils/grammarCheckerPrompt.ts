@@ -21,7 +21,7 @@ export const createFirstPrompt = (textToCheck: string) => {
             "result": ["palabra u oración que tengas que corregir", "palabra u oración ya corregida"]
           }
         ],
-        "textCorrected": "texto completo ya corregido con las correcciones que hiciste"
+        "correctedText": "texto completo ya corregido con las correcciones que hiciste"
     }
 
     Este es el texto para corregir: ${textToCheck}
