@@ -5,7 +5,9 @@ export const useHandleCorrection = () => {
   const { removeCorrection, value, setValue } = useBoundStore()
 
   const handleCorrection = (correction: CorrectionProps) => {
-    const correctedText = value.replace(correction.result[0], correction.result[1])
+    const textToCorrect = correction.result[0]
+    const availableCorrection = correction.result[1]
+    const correctedText = value.replace(textToCorrect, availableCorrection)
     setValue(correctedText)
     removeCorrection(correction.id)
   }
