@@ -12,9 +12,9 @@ export interface CorrectionProps {
   result: string[]
 }
 
-export interface CorrectionsProps {
+export interface TextWithCorrectionsProps {
   corrections: CorrectionProps[]
-  textCorrected: string
+  correctedText: string
 }
 
 export interface MakeRequestProps {

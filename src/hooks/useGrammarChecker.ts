@@ -3,16 +3,14 @@ import askToChatGPT from "@/utils/askToChatGPT"
 import useAxios from "./useAxios"
 import { createConsecutivePrompt, createFirstPrompt } from "@/utils/grammarCheckerPrompt"
 import { ChatGPTMessageProps } from "@/interfaces"
-import { useValueContext } from "@/contexts/ValueContext"
-import { useCorrectionsContext } from "@/contexts/CorrectionsContext"
 import { toast } from "react-toastify"
+import { useBoundStore } from "@/zustand/useBoundStore"
 
-export const useTextarea = () => {
-  const { setValue } = useValueContext()
-  const { corrections, setCorrections } = useCorrectionsContext()
+export const useGrammarChecker = () => {
+  const { textWithCorrections, addCorrection, value, setValue } = useBoundStore()
   const [textToCorrect, setTextToCorrect] = useState("")
   const [chatGPTMessages, setChatGPTMessages] = useState<ChatGPTMessageProps[]>([])
-  const { makeRequest, data, error, loading } = useAxios()
+  const { makeRequest, data, loading } = useAxios()
 
   const addChatGPTMessage = (message: string) => {
     if (chatGPTMessages.length === 0)
@@ -25,7 +23,7 @@ export const useTextarea = () => {
         ...chatGPTMessages,
         {
           role: "user",
-          content: createConsecutivePrompt(message, corrections.textCorrected)
+          content: createConsecutivePrompt(message, textWithCorrections.correctedText)
         }
       ])
   }
@@ -49,12 +47,16 @@ export const useTextarea = () => {
   useEffect(() => {
     if (!data) return
     try {
-      const correction = JSON.parse(data.choices[0].message.content)
-      setCorrections(correction)
+      const textWithCorrections = JSON.parse(data.choices[0].message.content)
+      addCorrection(textWithCorrections)
     } catch {
       toast.error("Something went wrong, please try again later")
     }
   }, [data])
+
+  useEffect(() => {
+    console.log(value)
+  }, [value])
 
   const onChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setTextToCorrect(e.target.value)

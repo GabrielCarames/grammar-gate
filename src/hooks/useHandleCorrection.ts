@@ -1,23 +1,16 @@
-import { useCorrectionsContext } from "@/contexts/CorrectionsContext"
-import { useValueContext } from "@/contexts/ValueContext"
-import { CorrectionProps, CorrectionsProps } from "@/interfaces"
+import { CorrectionProps } from "@/interfaces"
+import { useBoundStore } from "@/zustand/useBoundStore"
 
 export const useHandleCorrection = () => {
-  const { value, setValue } = useValueContext()
-  const { setCorrections } = useCorrectionsContext()
+  const { removeCorrection, value, setValue } = useBoundStore()
 
   const handleCorrection = (correction: CorrectionProps) => {
-    const correctedText = value.replace(correction.result[0], correction.result[1])
+    const textToCorrect = correction.result[0]
+    const availableCorrection = correction.result[1]
+    const correctedText = value.replace(textToCorrect, availableCorrection)
     setValue(correctedText)
-    setCorrections((prev: CorrectionsProps) => {
-      return {
-        corrections: prev.corrections.filter(
-          (prevCorrection: CorrectionProps) => prevCorrection.id !== correction.id
-        ),
-        textCorrected: prev.textCorrected
-      }
-    })
+    removeCorrection(correction.id)
   }
 
-  return {handleCorrection}
+  return { handleCorrection }
 }
