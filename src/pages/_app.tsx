@@ -2,7 +2,6 @@ import type { AppProps } from "next/app"
 import { ToastContainer } from "react-toastify"
 import { SummaryProvider } from "@/contexts/SummaryContext"
 import { LoadingProvider } from "@/contexts/LoadingContext"
-import { ValueProvider } from "@/contexts/ValueContext"
 import ThemeWrapper from "@/components/ThemeWrapper"
 import { ThemeProvider } from "next-themes"
 import "react-toastify/dist/ReactToastify.css"
@@ -14,14 +13,12 @@ export default function App({ Component, pageProps }: AppProps) {
     <HeadWrapper>
       <ThemeProvider>
         <LoadingProvider>
-          <ValueProvider>
-            <SummaryProvider>
-              <ThemeWrapper>
-                <ToastContainer limit={2} />
-                <Component {...pageProps} />
-              </ThemeWrapper>
-            </SummaryProvider>
-          </ValueProvider>
+          <SummaryProvider>
+            <ThemeWrapper>
+              <ToastContainer limit={2} />
+              <Component {...pageProps} />
+            </ThemeWrapper>
+          </SummaryProvider>
         </LoadingProvider>
       </ThemeProvider>
     </HeadWrapper>
