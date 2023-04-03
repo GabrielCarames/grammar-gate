@@ -1,8 +1,10 @@
+import { useBoundStore } from "@/zustand/useBoundStore"
 import TextSummarizerTextareaFooter from "./TextSummarizerTextareaFooter"
 import { useTextSummarizer } from "@/hooks/useTextSummarizer"
 
 export default function TextSummarizerTextareaWrapper() {
-  const { handleSubmit, value, loading, setValue } = useTextSummarizer()
+  const { handleSubmit, loading } = useTextSummarizer()
+  const { value, setValue } = useBoundStore()
 
   return (
     <section className="md:flex-1 w-full border dark:border-gray-2 bg-white dark:bg-gray-1 rounded-md shadow-lg">

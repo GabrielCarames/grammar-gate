@@ -3,13 +3,11 @@ import askToChatGPT from "@/utils/askToChatGPT"
 import useAxios from "./useAxios"
 import { createConsecutivePrompt, createFirstPrompt } from "@/utils/grammarCheckerPrompt"
 import { ChatGPTMessageProps } from "@/interfaces"
-import { useValueContext } from "@/contexts/ValueContext"
 import { toast } from "react-toastify"
 import { useBoundStore } from "@/zustand/useBoundStore"
 
 export const useTextarea = () => {
-  const { setValue } = useValueContext()
-  const { textWithCorrections, addCorrection } = useBoundStore()
+  const { textWithCorrections, addCorrection, value, setValue } = useBoundStore()
   const [textToCorrect, setTextToCorrect] = useState("")
   const [chatGPTMessages, setChatGPTMessages] = useState<ChatGPTMessageProps[]>([])
   const { makeRequest, data, loading } = useAxios()
@@ -55,6 +53,10 @@ export const useTextarea = () => {
       toast.error("Something went wrong, please try again later")
     }
   }, [data])
+
+  useEffect(() => {
+    console.log(value)
+  }, [value])
 
   const onChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setTextToCorrect(e.target.value)

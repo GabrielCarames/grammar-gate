@@ -1,5 +1,4 @@
 import React from "react"
-import { useValueContext } from "@/contexts/ValueContext"
 import HighlightedText from "../HighlightedText"
 import { TextWithCorrectionsProps } from "@/interfaces"
 import { useBoundStore } from "@/zustand/useBoundStore"
@@ -17,8 +16,7 @@ export default function GrammarCheckerTextarea({
 }: {
   onChange: (e: React.ChangeEvent<HTMLTextAreaElement>) => void
 }) {
-  const { textWithCorrections } = useBoundStore()
-  const { value } = useValueContext()
+  const { textWithCorrections, value } = useBoundStore()
 
   return (
     <div className="relative w-full px-5">

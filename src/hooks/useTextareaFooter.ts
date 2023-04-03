@@ -1,9 +1,7 @@
-import { useValueContext } from "@/contexts/ValueContext"
 import { useBoundStore } from "@/zustand/useBoundStore"
 
 export const useTextareaFooter = () => {
-  const { value, setValue } = useValueContext()
-  const { textWithCorrections, clearCorrections } = useBoundStore()
+  const { textWithCorrections, clearCorrections, value, setValue } = useBoundStore()
 
   const wordsCount = () => (value?.split(" ").length >= 1 ? value?.split(" ").length : "0")
 
