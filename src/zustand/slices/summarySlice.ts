@@ -6,8 +6,10 @@ export type SummarySlice = {
   clearSummary: () => void
 }
 
+const initialState = { summary: "" }
+
 export const createSummarySlice: StateCreator<SummarySlice> = set => ({
-  summary: "",
+  ...initialState,
   setSummary: newSummary => set({ summary: newSummary }),
-  clearSummary: () => set({ summary: "" })
+  clearSummary: () => set(initialState)
 })

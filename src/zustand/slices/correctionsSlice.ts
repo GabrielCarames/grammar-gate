@@ -8,11 +8,15 @@ export type CorrectionsSlice = {
   clearCorrections: () => void
 }
 
-export const createCorrectionsSlice: StateCreator<CorrectionsSlice> = set => ({
+const initialState = {
   textWithCorrections: {
     corrections: [],
     correctedText: ""
-  },
+  }
+}
+
+export const createCorrectionsSlice: StateCreator<CorrectionsSlice> = set => ({
+  ...initialState,
   removeCorrection: correctionId =>
     set(state => {
       const filteredCorrections = state.textWithCorrections.corrections.filter(
@@ -23,5 +27,5 @@ export const createCorrectionsSlice: StateCreator<CorrectionsSlice> = set => ({
       }
     }),
   addCorrection: newTextWithCorrections => set({ textWithCorrections: newTextWithCorrections }),
-  clearCorrections: () => set({ textWithCorrections: { corrections: [], correctedText: "" } })
+  clearCorrections: () => set(initialState)
 })

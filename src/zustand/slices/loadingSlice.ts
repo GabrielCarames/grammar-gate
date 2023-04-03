@@ -5,7 +5,9 @@ export type LoadingSlice = {
   setLoading: (newLoadingState: boolean) => void
 }
 
+const initialState = { loading: false }
+
 export const createLoadingSlice: StateCreator<LoadingSlice> = set => ({
-  loading: false,
-  setLoading: newLoadingState => set({ loading: newLoadingState })
+  ...initialState,
+  setLoading: newLoadingState => set(initialState)
 })

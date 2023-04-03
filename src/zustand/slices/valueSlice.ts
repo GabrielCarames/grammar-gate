@@ -6,8 +6,10 @@ export type ValueSlice = {
   clearValue: () => void
 }
 
+const initialState = { value: "" }
+
 export const createValueSlice: StateCreator<ValueSlice> = set => ({
-  value: "",
+  ...initialState,
   setValue: newValue => set({ value: newValue }),
-  clearValue: () => set({ value: "" })
+  clearValue: () => set(initialState)
 })
