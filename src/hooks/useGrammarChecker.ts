@@ -6,7 +6,7 @@ import { ChatGPTMessageProps } from "@/interfaces"
 import { toast } from "react-toastify"
 import { useBoundStore } from "@/zustand/useBoundStore"
 
-export const useTextarea = () => {
+export const useGrammarChecker = () => {
   const { textWithCorrections, addCorrection, value, setValue } = useBoundStore()
   const [textToCorrect, setTextToCorrect] = useState("")
   const [chatGPTMessages, setChatGPTMessages] = useState<ChatGPTMessageProps[]>([])
