@@ -4,15 +4,15 @@ import useAxios from "./useAxios"
 import { createConsecutivePrompt, createFirstPrompt } from "@/utils/grammarCheckerPrompt"
 import { ChatGPTMessageProps } from "@/interfaces"
 import { useValueContext } from "@/contexts/ValueContext"
-import { useCorrectionsContext } from "@/contexts/CorrectionsContext"
 import { toast } from "react-toastify"
+import { useBoundStore } from "@/zustand/useBoundStore"
 
 export const useTextarea = () => {
   const { setValue } = useValueContext()
-  const { corrections, setCorrections } = useCorrectionsContext()
+  const { textWithCorrections, addCorrection } = useBoundStore()
   const [textToCorrect, setTextToCorrect] = useState("")
   const [chatGPTMessages, setChatGPTMessages] = useState<ChatGPTMessageProps[]>([])
-  const { makeRequest, data, error, loading } = useAxios()
+  const { makeRequest, data, loading } = useAxios()
 
   const addChatGPTMessage = (message: string) => {
     if (chatGPTMessages.length === 0)
@@ -25,7 +25,7 @@ export const useTextarea = () => {
         ...chatGPTMessages,
         {
           role: "user",
-          content: createConsecutivePrompt(message, corrections.textCorrected)
+          content: createConsecutivePrompt(message, textWithCorrections.correctedText)
         }
       ])
   }
@@ -49,8 +49,8 @@ export const useTextarea = () => {
   useEffect(() => {
     if (!data) return
     try {
-      const correction = JSON.parse(data.choices[0].message.content)
-      setCorrections(correction)
+      const textWithCorrections = JSON.parse(data.choices[0].message.content)
+      addCorrection(textWithCorrections)
     } catch {
       toast.error("Something went wrong, please try again later")
     }

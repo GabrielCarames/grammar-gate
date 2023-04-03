@@ -1,19 +1,19 @@
-import { useCorrectionsContext } from "@/contexts/CorrectionsContext"
 import { useValueContext } from "@/contexts/ValueContext"
+import { useBoundStore } from "@/zustand/useBoundStore"
 
 export const useTextareaFooter = () => {
   const { value, setValue } = useValueContext()
-  const { corrections, setCorrections } = useCorrectionsContext()
+  const { textWithCorrections, clearCorrections } = useBoundStore()
 
   const wordsCount = () => (value?.split(" ").length >= 1 ? value?.split(" ").length : "0")
 
   const correctionsCount = () =>
-    corrections?.corrections?.length >= 1 ? corrections?.corrections?.length : "0"
+    textWithCorrections?.corrections?.length >= 1 ? textWithCorrections?.corrections?.length : "0"
 
   const fixEverything = () => {
-    setValue(corrections.textCorrected)
-    setCorrections({ ...corrections, corrections: [] })
+    setValue(textWithCorrections.correctedText)
+    clearCorrections()
   }
 
-  return { corrections, wordsCount, correctionsCount, fixEverything }
+  return { textWithCorrections, wordsCount, correctionsCount, fixEverything }
 }
