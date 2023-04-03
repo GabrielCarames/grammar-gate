@@ -25,7 +25,8 @@
     "react-loader-spinner": "^5.3.4",
     "react-string-replace": "^1.1.0",
     "react-toastify": "^9.1.1",
-    "typescript": "5.0.2"
+    "typescript": "5.0.2",
+    "zustand": "^4.3.7"
   },
   "devDependencies": {
     "@svgr/webpack": "^7.0.0",
