@@ -9,5 +9,5 @@ const initialState = { loading: false }
 
 export const createLoadingSlice: StateCreator<LoadingSlice> = set => ({
   ...initialState,
-  setLoading: newLoadingState => set(initialState)
+  setLoading: newLoadingState => set({ loading: newLoadingState })
 })
