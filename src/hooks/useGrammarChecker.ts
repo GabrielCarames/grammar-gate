@@ -7,7 +7,7 @@ import { toast } from "react-toastify"
 import { useBoundStore } from "@/zustand/useBoundStore"
 
 export const useGrammarChecker = () => {
-  const { textWithCorrections, addCorrection, value, setValue } = useBoundStore()
+  const { textWithCorrections, addCorrection, setValue } = useBoundStore()
   const [textToCorrect, setTextToCorrect] = useState("")
   const [chatGPTMessages, setChatGPTMessages] = useState<ChatGPTMessageProps[]>([])
   const { makeRequest, data, loading } = useAxios()
@@ -53,10 +53,6 @@ export const useGrammarChecker = () => {
       toast.error("Something went wrong, please try again later")
     }
   }, [data])
-
-  useEffect(() => {
-    console.log(value)
-  }, [value])
 
   const onChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setTextToCorrect(e.target.value)
