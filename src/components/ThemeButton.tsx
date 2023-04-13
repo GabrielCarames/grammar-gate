@@ -1,9 +1,14 @@
 import { useTheme } from "next-themes"
+import { type FC } from "react"
 import SunIcon from "../../public/sun-icon.svg"
 import MoonIcon from "../../public/moon-icon.svg"
 import IconWrapper from "./IconWrapper"
 
-export default function ThemeButton({ className }: { className?: string }) {
+interface ThemeButtonProps {
+  className?: string
+}
+
+const ThemeButton: FC<ThemeButtonProps> = ({ className }) => {
   const { theme, setTheme } = useTheme()
 
   return (
@@ -20,3 +25,5 @@ export default function ThemeButton({ className }: { className?: string }) {
     </button>
   )
 }
+
+export default ThemeButton

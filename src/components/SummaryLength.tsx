@@ -1,4 +1,6 @@
-export default function SummaryLength() {
+import { type FC } from "react"
+
+const SummaryLength: FC = () => {
   return (
     <div className="flex items-center gap-3 border-[.5px] dark:border-gray-2 sm:border-none sm:p-0 p-1 sm:px-3 rounded-md text-sm md:text-md text-text-gray dark:text-white">
       <span>Short</span>
@@ -17,3 +19,5 @@ export default function SummaryLength() {
     </div>
   )
 }
+
+export default SummaryLength

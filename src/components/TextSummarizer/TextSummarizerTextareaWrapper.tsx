@@ -2,7 +2,7 @@ import { useBoundStore } from "@/zustand/useBoundStore"
 import TextSummarizerTextareaFooter from "./TextSummarizerTextareaFooter"
 import { useTextSummarizer } from "@/hooks/useTextSummarizer"
 
-export default function TextSummarizerTextareaWrapper() {
+const TextSummarizerTextareaWrapper = (): JSX.Element => {
   const { handleSubmit, loading } = useTextSummarizer()
   const { value, setValue } = useBoundStore()
 
@@ -24,3 +24,5 @@ export default function TextSummarizerTextareaWrapper() {
     </section>
   )
 }
+
+export default TextSummarizerTextareaWrapper

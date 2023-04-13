@@ -3,8 +3,16 @@ import useAxios from "@/hooks/useAxios"
 import CopyIcon from "../../../public/copy-icon.svg"
 import { TrashIcon } from "@heroicons/react/24/solid"
 import { useBoundStore } from "@/zustand/useBoundStore"
+import { type FC } from "react"
 
-const SummarizedText = ({ children }: { children: React.ReactNode }) => {
+interface SummarizedTextProps {
+  children: React.ReactNode
+}
+
+const SummarizedText: FC<SummarizedTextProps> & {
+  SummarizedTextContent: FC
+  SummarizedTextFooter: FC
+} = ({ children }) => {
   return (
     <section className="w-full flex flex-col border border-white-2 dark:border-gray-2 bg-white dark:bg-gray-1 rounded-md md:flex-1 shadow-lg">
       {children}
@@ -12,7 +20,7 @@ const SummarizedText = ({ children }: { children: React.ReactNode }) => {
   )
 }
 
-SummarizedText.SummarizedTextContent = function SummarizedTextContent() {
+const SummarizedTextContent: FC = () => {
   const { summary } = useBoundStore()
   const { loading } = useAxios()
 
@@ -41,7 +49,7 @@ SummarizedText.SummarizedTextContent = function SummarizedTextContent() {
   )
 }
 
-SummarizedText.SummarizedTextFooter = function SummarizedTextFooter() {
+const SummarizedTextFooter: FC = () => {
   const { summary, setSummary } = useBoundStore()
 
   return (
@@ -72,5 +80,8 @@ SummarizedText.SummarizedTextFooter = function SummarizedTextFooter() {
     </footer>
   )
 }
+
+SummarizedText.SummarizedTextContent = SummarizedTextContent
+SummarizedText.SummarizedTextFooter = SummarizedTextFooter
 
 export { SummarizedText }

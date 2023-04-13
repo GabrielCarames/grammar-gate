@@ -1,7 +1,12 @@
 import Head from "next/head"
 import logo from "../../public/short-logo.png"
+import { type FC } from "react"
 
-export default function HeadWrapper({ children }: { children: React.ReactNode }) {
+interface HeadWrapperProps {
+  children: React.ReactNode
+}
+
+const HeadWrapper: FC<HeadWrapperProps> = ({ children }) => {
   return (
     <>
       <Head>
@@ -14,3 +19,5 @@ export default function HeadWrapper({ children }: { children: React.ReactNode })
     </>
   )
 }
+
+export default HeadWrapper

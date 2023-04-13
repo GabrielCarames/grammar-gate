@@ -1,8 +1,8 @@
 import { useGrammarChecker } from "@/hooks/useGrammarChecker"
-import GrammarCheckerTextarea from "./GrammarCheckerTextarea"
 import GrammarCheckerTextareaFooter from "./GrammarCheckerTextareaFooter"
+import GrammarCheckerTextarea from "./GrammarCheckerTextarea"
 
-export default function GrammarCheckerTextareaWrapper() {
+const GrammarCheckerTextareaWrapper = (): JSX.Element => {
   const { onChange, loading } = useGrammarChecker()
 
   return (
@@ -12,3 +12,5 @@ export default function GrammarCheckerTextareaWrapper() {
     </div>
   )
 }
+
+export default GrammarCheckerTextareaWrapper

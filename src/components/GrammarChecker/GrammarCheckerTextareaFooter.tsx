@@ -1,8 +1,13 @@
 import { useTextareaFooter } from "@/hooks/useTextareaFooter"
 import Button from "../Button"
 import Span from "../Span"
+import { type FC } from "react"
 
-export default function GrammarCheckerTextareaFooter({ loading }: { loading: boolean }) {
+interface GrammarCheckerTextareaFooterProps {
+  loading: boolean
+}
+
+const GrammarCheckerTextareaFooter: FC<GrammarCheckerTextareaFooterProps> = ({ loading }) => {
   const { textWithCorrections, wordsCount, correctionsCount, fixEverything } = useTextareaFooter()
 
   return (
@@ -29,3 +34,5 @@ export default function GrammarCheckerTextareaFooter({ loading }: { loading: boo
     </div>
   )
 }
+
+export default GrammarCheckerTextareaFooter

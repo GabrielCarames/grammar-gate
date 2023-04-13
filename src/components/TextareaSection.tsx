@@ -1,15 +1,23 @@
+import { type FC } from "react"
 import Banner from "./Banner"
 
-export default function TextareaSection({ children }: { children: React.ReactNode }) {
-  return <section className="w-full h-max max-w-[1000px]">{children}</section>
+interface TextareaSectionProps {
+  children: React.ReactNode
 }
 
-TextareaSection.Header = function Header({
-  title,
-  description
-}: {
+interface HeaderProps {
   title: string
   description: string
-}) {
-  return <Banner title={title} description={description} />
 }
+
+const TextareaSection: FC<TextareaSectionProps> & { Header: FC<HeaderProps> } = ({ children }) => (
+  <section className="w-full h-max max-w-[1000px]">{children}</section>
+)
+
+const Header: FC<HeaderProps> = ({ title, description }) => (
+  <Banner title={title} description={description} />
+)
+
+TextareaSection.Header = Header
+
+export default TextareaSection

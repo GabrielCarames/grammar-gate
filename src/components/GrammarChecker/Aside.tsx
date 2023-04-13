@@ -2,7 +2,7 @@ import { CorrectionProps } from "@/interfaces"
 import Correction from "../Correction"
 import { useBoundStore } from "@/zustand/useBoundStore"
 
-export default function Aside() {
+const Aside = (): JSX.Element => {
   const { textWithCorrections } = useBoundStore()
 
   return (
@@ -21,3 +21,5 @@ export default function Aside() {
     </aside>
   )
 }
+
+export default Aside

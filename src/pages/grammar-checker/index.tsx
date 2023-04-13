@@ -1,9 +1,9 @@
-import Aside from "@/components/GrammarChecker/Aside"
 import GrammarCheckerTextareaWrapper from "@/components/GrammarChecker/GrammarCheckerTextareaWrapper"
-import Navbar from "@/components/Navbar"
 import TextareaSection from "@/components/TextareaSection"
+import Aside from "@/components/GrammarChecker/Aside"
+import Navbar from "@/components/Navbar"
 
-export default function GrammarChecker() {
+const GrammarChecker = (): JSX.Element => {
   return (
     <main className="flex flex-wrap gap-y-5 lg:flex-nowrap bg-white-1 dark:bg-black text-white w-full h-screen md:pt-0">
       <div id="modal-root"></div>
@@ -23,3 +23,5 @@ export default function GrammarChecker() {
     </main>
   )
 }
+
+export default GrammarChecker

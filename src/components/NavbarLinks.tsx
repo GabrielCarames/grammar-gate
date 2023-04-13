@@ -2,8 +2,9 @@ import { Item } from "./GrammarGateItem"
 import links from "../utils/grammarGateLinks"
 import IconWrapper from "./IconWrapper"
 import { useRouter } from "next/router"
+import { type FC } from "react"
 
-export default function NavbarLinks() {
+const NavbarLinks: FC = () => {
   const router = useRouter()
 
   return (
@@ -33,3 +34,5 @@ export default function NavbarLinks() {
     </nav>
   )
 }
+
+export default NavbarLinks

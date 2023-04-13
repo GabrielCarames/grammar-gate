@@ -1,8 +1,13 @@
 import { CorrectionProps } from "@/interfaces"
 import CorrectionComparation from "./CorrectionComparation"
 import { useHandleCorrection } from "@/hooks/useHandleCorrection"
+import { type FC } from "react"
 
-export default function Correction({ correction }: { correction: CorrectionProps }) {
+interface _CorrectionProps {
+  correction: CorrectionProps
+}
+
+const Correction: FC<_CorrectionProps> = ({ correction }) => {
   const { handleCorrection } = useHandleCorrection()
 
   return (
@@ -21,3 +26,5 @@ export default function Correction({ correction }: { correction: CorrectionProps
     </li>
   )
 }
+
+export default Correction

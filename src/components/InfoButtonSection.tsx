@@ -1,9 +1,9 @@
 import { InformationCircleIcon } from "@heroicons/react/24/solid"
-import { useState } from "react"
+import { type FC, useState } from "react"
 import Modal from "./Modal"
 import ModalContent from "./ModalContent"
 
-export default function InfoButtonSection() {
+const InfoButtonSection: FC = () => {
   const [showInfo, setShowInfo] = useState(false)
   const handleCloseModal = () => setShowInfo(!showInfo)
 
@@ -20,3 +20,5 @@ export default function InfoButtonSection() {
     </div>
   )
 }
+
+export default InfoButtonSection

@@ -1,13 +1,16 @@
 import { CorrectionProps } from "@/interfaces"
 import { ArrowRightIcon } from "@heroicons/react/24/solid"
+import { type FC } from "react"
 
-export default function CorrectionComparation({
-  correction,
-  containerClassName
-}: {
+interface CorrectionComparationProps {
   correction: CorrectionProps
   containerClassName?: string
-}) {
+}
+
+const CorrectionComparation: FC<CorrectionComparationProps> = ({
+  correction,
+  containerClassName
+}) => {
   return (
     <div className={`m-max text-center flex gap-5 ${containerClassName}`}>
       <p className="line-through text-red-500">{correction?.result[0]}</p>
@@ -16,3 +19,5 @@ export default function CorrectionComparation({
     </div>
   )
 }
+
+export default CorrectionComparation

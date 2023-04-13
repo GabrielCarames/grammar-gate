@@ -1,14 +1,13 @@
-export default function IconWrapper({
-  icon,
-  className,
-  fill,
-  alt
-}: {
+import { type FC } from "react"
+
+interface IconWrapperProps {
   icon: any
   className?: string
   fill?: string
   alt?: string
-}) {
+}
+
+const IconWrapper: FC<IconWrapperProps> = ({ icon, className, fill, alt }) => {
   const Icon = () => icon
 
   return (
@@ -23,3 +22,5 @@ export default function IconWrapper({
     </div>
   )
 }
+
+export default IconWrapper

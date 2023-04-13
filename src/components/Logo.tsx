@@ -1,7 +1,8 @@
 import Link from "next/link"
 import ThemeButton from "./ThemeButton"
+import { type FC } from "react"
 
-export default function Logo() {
+const Logo: FC = () => {
   return (
     <div className="w-full md:max-w-max flex justify-between items-center py-2 border-b-[0.5px] md:border-none border-white-2 dark:border-gray-3 px-5 md:px-0">
       <Link href="/">
@@ -14,3 +15,5 @@ export default function Logo() {
     </div>
   )
 }
+
+export default Logo

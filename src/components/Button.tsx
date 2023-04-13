@@ -1,20 +1,16 @@
+import { type FC } from "react"
 import { ThreeDots } from "react-loader-spinner"
 
-export default function Button({
-  onClick,
-  disabled,
-  loading,
-  text,
-  type,
-  className
-}: {
+interface ButtonProps {
   onClick?: () => void
   disabled: boolean
   loading: boolean
   text: string
   type: "submit" | "button"
   className?: string
-}) {
+}
+
+const Button: FC<ButtonProps> = ({ onClick, disabled, loading, text, type, className }) => {
   return (
     <button
       className={`p-4 py-1 rounded-full text-sm md:text-md font-bold duration-200 bg-pink-1
@@ -40,3 +36,5 @@ export default function Button({
     </button>
   )
 }
+
+export default Button

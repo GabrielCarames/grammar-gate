@@ -1,7 +1,8 @@
 import Link from "next/link"
 import GrammarCheckerInfo from "../utils/GrammarCheckerInfo.json"
+import { type FC } from "react"
 
-export default function ModalContent() {
+const ModalContent: FC = () => {
   const sections = Object.entries(GrammarCheckerInfo)
 
   return (
@@ -39,3 +40,5 @@ export default function ModalContent() {
     </div>
   )
 }
+
+export default ModalContent

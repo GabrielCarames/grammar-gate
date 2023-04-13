@@ -1,8 +1,12 @@
-import React from "react"
+import { type FC, type ChangeEvent } from "react"
 import HighlightedText from "../HighlightedText"
 import { TextWithCorrectionsProps } from "@/interfaces"
 import { useBoundStore } from "@/zustand/useBoundStore"
-const Highlighter = require("react-highlight-words")
+import Highlighter from "react-highlight-words"
+
+interface GrammarCheckerTextareaProps {
+  onChange: (e: ChangeEvent<HTMLTextAreaElement>) => void
+}
 
 const getSearchWords = (textWithCorrections: TextWithCorrectionsProps) => {
   return [
@@ -11,11 +15,7 @@ const getSearchWords = (textWithCorrections: TextWithCorrectionsProps) => {
   ]
 }
 
-export default function GrammarCheckerTextarea({
-  onChange
-}: {
-  onChange: (e: React.ChangeEvent<HTMLTextAreaElement>) => void
-}) {
+const GrammarCheckerTextarea: FC<GrammarCheckerTextareaProps> = ({ onChange }) => {
   const { textWithCorrections, value } = useBoundStore()
 
   return (
@@ -46,3 +46,5 @@ export default function GrammarCheckerTextarea({
     </div>
   )
 }
+
+export default GrammarCheckerTextarea

@@ -1,8 +1,9 @@
+import { type FC } from "react"
 import ThemeButton from "./ThemeButton"
-import Logo from "./Logo"
 import NavbarLinks from "./NavbarLinks"
+import Logo from "./Logo"
 
-export default function Navbar() {
+const Navbar: FC = () => {
   return (
     <section className="w-full h-max bg-white dark:bg-gray-1 border-r dark:border-r-gray-2 mb-5 2xl:mb-0 shadow-md">
       <div className="w-full h-full flex flex-wrap lg:flex-row md:flex-nowrap items-center justify-center lg:justify-start md:px-5">
@@ -13,3 +14,5 @@ export default function Navbar() {
     </section>
   )
 }
+
+export default Navbar

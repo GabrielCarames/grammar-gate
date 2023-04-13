@@ -1,7 +1,13 @@
 import { XCircleIcon } from "@heroicons/react/24/solid"
+import { type FC } from "react"
 import ReactDOM from "react-dom"
 
-function Modal({ onClose, children }: { onClose: () => void; children: React.ReactNode }) {
+interface ModalProps {
+  onClose: () => void
+  children: React.ReactNode
+}
+
+const Modal: FC<ModalProps> = ({ onClose, children }) => {
   return ReactDOM.createPortal(
     <div className="fixed inset-0 flex justify-center items-center w-full h-screen z-10 bg-black bg-opacity-70">
       <section className="absolute w-full max-w-[400px] h-[650px] bg-white dark:bg-gray-2 z-10 px-1 text-gray-1 dark:text-white">
