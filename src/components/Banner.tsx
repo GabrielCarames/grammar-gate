@@ -1,10 +1,6 @@
 import { type FC } from "react"
 import InfoButtonSection from "./InfoButtonSection"
-
-interface BannerProps {
-  title: string
-  description: string
-}
+import { BannerProps } from "@/interfaces"
 
 const Banner: FC<BannerProps> = ({ title, description }) => {
   return (

@@ -1,4 +1,5 @@
 import { AxiosHeaders } from "axios"
+import { HeaderDescription, HeaderTitle } from "./enums"
 
 export interface ChatGPTMessageProps {
   role: string
@@ -36,4 +37,9 @@ export interface NavbarLinkProps {
   href: string
   icon: string
   backgroundColor: string
+}
+
+export interface BannerProps {
+  title: HeaderTitle
+  description: HeaderDescription
 }
