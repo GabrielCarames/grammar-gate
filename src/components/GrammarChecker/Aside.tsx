@@ -1,4 +1,4 @@
-import { CorrectionProps } from "@/interfaces"
+import type { CorrectionProps } from "@/interfaces"
 import Correction from "../Correction"
 import { useBoundStore } from "@/zustand/useBoundStore"
 
