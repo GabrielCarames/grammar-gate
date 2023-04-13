@@ -1,12 +1,14 @@
 import { type FC } from "react"
 import { ThreeDots } from "react-loader-spinner"
 
+type ButtonType = "submit" | "button"
+
 interface ButtonProps {
   onClick?: () => void
   disabled: boolean
   loading: boolean
   text: string
-  type: "submit" | "button"
+  type: ButtonType
   className?: string
 }
 

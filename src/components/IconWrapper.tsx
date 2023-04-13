@@ -1,7 +1,7 @@
 import { type FC } from "react"
 
 interface IconWrapperProps {
-  icon: any
+  icon: JSX.Element
   className?: string
   fill?: string
   alt?: string

@@ -1,9 +1,11 @@
 import { type FC } from "react"
 
+type DataType = number | string
+
 interface SpanProps {
   text: string
   className?: string
-  data: number | string
+  data: DataType
 }
 
 const Span: FC<SpanProps> = ({ text, className, data }) => {

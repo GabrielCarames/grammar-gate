@@ -1,20 +1,27 @@
 import { useEffect, useState } from "react"
 import useAxios from "./useAxios"
 import { ChatGPTMessageProps } from "@/interfaces"
-import { toast } from "react-toastify"
 import { createPrompt } from "@/utils/textSummarizerPrompt"
 import askToChatGPT from "@/utils/askToChatGPT"
 import { useBoundStore } from "@/zustand/useBoundStore"
+import { NotificationFailure } from "@/utils/toastNotifications"
+
+enum RangeValuesEnums {
+  VERY_SHORT = "very short",
+  SHORT = "short",
+  MEDIUM = "medium",
+  LONG = "long"
+}
 
 type RangeValuesProps = {
-  [key: string]: string
+  [key: string]: RangeValuesEnums
 }
 
 const rangeValues: RangeValuesProps = {
-  "0": "very short",
-  "1": "short",
-  "2": "medium",
-  "3": "long"
+  "0": RangeValuesEnums.VERY_SHORT,
+  "1": RangeValuesEnums.SHORT,
+  "2": RangeValuesEnums.MEDIUM,
+  "3": RangeValuesEnums.LONG
 }
 
 export const useTextSummarizer = () => {
@@ -33,7 +40,7 @@ export const useTextSummarizer = () => {
       const summary = JSON.parse(data.choices[0].message.content).summary
       setSummary(summary)
     } catch {
-      toast.error("Something went wrong, please try again later")
+      NotificationFailure("Something went wrong, please try again later")
     }
   }, [data])
 
