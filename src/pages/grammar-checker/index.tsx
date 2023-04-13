@@ -2,6 +2,7 @@ import GrammarCheckerTextareaWrapper from "@/components/GrammarChecker/GrammarCh
 import TextareaSection from "@/components/TextareaSection"
 import Aside from "@/components/GrammarChecker/Aside"
 import Navbar from "@/components/Navbar"
+import { HeaderDescription, HeaderTitle } from "@/enums.d"
 
 const GrammarChecker = (): JSX.Element => {
   return (
@@ -12,8 +13,8 @@ const GrammarChecker = (): JSX.Element => {
         <div className="w-full h-max md:h-full flex justify-center items-center px-5 relative">
           <TextareaSection>
             <TextareaSection.Header
-              title="Grammar Checker"
-              description="Write your text and let us check your grammar!"
+              title={HeaderTitle.GRAMMAR_CHECKER}
+              description={HeaderDescription.GRAMMAR_CHECKER}
             />
             <GrammarCheckerTextareaWrapper />
           </TextareaSection>

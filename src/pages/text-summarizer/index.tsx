@@ -1,7 +1,8 @@
-import Navbar from "@/components/Navbar"
-import { SummarizedText } from "@/components/TextSummarizer/SummarizedText"
 import TextSummarizerTextareaWrapper from "@/components/TextSummarizer/TextSummarizerTextareaWrapper"
+import { SummarizedText } from "@/components/TextSummarizer/SummarizedText"
 import TextareaSection from "@/components/TextareaSection"
+import Navbar from "@/components/Navbar"
+import { HeaderDescription, HeaderTitle } from "@/enums.d"
 
 export default function TextSummarizer() {
   return (
@@ -12,8 +13,8 @@ export default function TextSummarizer() {
         <div className="w-full h-max md:h-full flex justify-center items-center px-5 relative">
           <TextareaSection>
             <TextareaSection.Header
-              title="Text Summarizer"
-              description="Summarize any text in a few seconds!"
+              title={HeaderTitle.TEXT_SUMMARIZER}
+              description={HeaderDescription.TEXT_SUMMARIZER}
             />
             <div className="w-full flex flex-col lg:flex-row justify-center gap-5">
               <TextSummarizerTextareaWrapper />
