@@ -1,12 +1,9 @@
 import Head from "next/head"
 import logo from "../../public/short-logo.png"
 import { type FC } from "react"
+import { ChildrenProps } from "@/interfaces"
 
-interface HeadWrapperProps {
-  children: React.ReactNode
-}
-
-const HeadWrapper: FC<HeadWrapperProps> = ({ children }) => {
+const HeadWrapper: FC<ChildrenProps> = ({ children }) => {
   return (
     <>
       <Head>

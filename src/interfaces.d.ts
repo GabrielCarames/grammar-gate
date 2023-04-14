@@ -43,3 +43,7 @@ export interface BannerProps {
   title: HeaderTitle
   description: HeaderDescription
 }
+
+export interface ChildrenProps {
+  children: React.ReactNode
+}

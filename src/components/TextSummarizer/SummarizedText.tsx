@@ -4,12 +4,9 @@ import CopyIcon from "../../../public/copy-icon.svg"
 import { TrashIcon } from "@heroicons/react/24/solid"
 import { useBoundStore } from "@/zustand/useBoundStore"
 import { type FC } from "react"
+import { ChildrenProps } from "@/interfaces"
 
-interface SummarizedTextProps {
-  children: React.ReactNode
-}
-
-const SummarizedText: FC<SummarizedTextProps> & {
+const SummarizedText: FC<ChildrenProps> & {
   SummarizedTextContent: FC
   SummarizedTextFooter: FC
 } = ({ children }) => {

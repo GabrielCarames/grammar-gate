@@ -1,12 +1,8 @@
 import { type FC } from "react"
 import Banner from "./Banner"
-import { BannerProps } from "@/interfaces"
+import { BannerProps, ChildrenProps } from "@/interfaces"
 
-interface TextareaSectionProps {
-  children: React.ReactNode
-}
-
-const TextareaSection: FC<TextareaSectionProps> & { Header: FC<BannerProps> } = ({ children }) => (
+const TextareaSection: FC<ChildrenProps> & { Header: FC<BannerProps> } = ({ children }) => (
   <section className="w-full h-max max-w-[1000px]">{children}</section>
 )
 
