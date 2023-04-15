@@ -18,11 +18,7 @@ const askToChatGPT = async (
       messages: [...currentChatGPTMessages],
       temperature: 1
     }
-    const res = await makeRequest(url, json_data, headers)
-    if (!res?.choices || res.choices.length === 0)
-      return NotificationFailure("Something went wrong, please try again later")
-    const chatinatorAnswer = res.choices[0].message.content
-    return chatinatorAnswer
+    await makeRequest(url, json_data, headers)
   } catch (error) {
     return NotificationFailure("Something went wrong, please try again later")
   }
