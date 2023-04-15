@@ -4,7 +4,8 @@ import CopyIcon from "../../../public/copy-icon.svg"
 import { TrashIcon } from "@heroicons/react/24/solid"
 import { useBoundStore } from "@/zustand/useBoundStore"
 import { type FC } from "react"
-import { ChildrenProps } from "@/interfaces"
+import { type ChildrenProps } from "@/interfaces"
+import { wordsCount } from "@/utils/wordsCount"
 
 const SummarizedText: FC<ChildrenProps> & {
   SummarizedTextContent: FC
@@ -53,11 +54,7 @@ const SummarizedTextFooter: FC = () => {
     <footer className="h-full flex items-center py-2 px-5 border-t-[.5px] border-white-2 dark:border-gray-2 text-text-gray dark:text-white">
       <div className="w-full flex justify-between">
         <div className="border-[.5px] dark:border-gray-2 sm:border-none sm:p-0 p-1 px-1 rounded-md flex items-center">
-          <Span
-            text="Words"
-            data={summary.split(" ").length > 1 ? summary.split(" ").length : 0}
-            className="!text-green-500 text-center"
-          />
+          <Span text="Words" data={wordsCount(summary)} className="!text-green-500 text-center" />
         </div>
         <div className="flex gap-2">
           <button

@@ -1,9 +1,10 @@
+import { wordsCount } from "@/utils/wordsCount"
 import { useBoundStore } from "@/zustand/useBoundStore"
 
 export const useTextareaFooter = () => {
   const { textWithCorrections, clearCorrections, value, setValue } = useBoundStore()
 
-  const wordsCount = () => (value?.split(" ").length >= 1 ? value?.split(" ").length : "0")
+  const getWordsCount = () => wordsCount(value)
 
   const correctionsCount = () =>
     textWithCorrections?.corrections?.length >= 1 ? textWithCorrections?.corrections?.length : "0"
@@ -13,5 +14,5 @@ export const useTextareaFooter = () => {
     clearCorrections()
   }
 
-  return { textWithCorrections, wordsCount, correctionsCount, fixEverything }
+  return { textWithCorrections, getWordsCount, correctionsCount, fixEverything }
 }
