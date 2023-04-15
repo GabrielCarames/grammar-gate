@@ -3,9 +3,11 @@ import HighlightedText from "../HighlightedText"
 import { TextWithCorrectionsProps } from "@/interfaces"
 import { useBoundStore } from "@/zustand/useBoundStore"
 import Highlighter from "react-highlight-words"
+import ExampleTextButton from "../ExampleTextButton"
 
 interface GrammarCheckerTextareaProps {
   onChange: (e: ChangeEvent<HTMLTextAreaElement>) => void
+  setTextToCorrect: (text: string) => void
 }
 
 const getSearchWords = (textWithCorrections: TextWithCorrectionsProps) => {
@@ -15,7 +17,13 @@ const getSearchWords = (textWithCorrections: TextWithCorrectionsProps) => {
   ]
 }
 
-const GrammarCheckerTextarea: FC<GrammarCheckerTextareaProps> = ({ onChange }) => {
+const EXAMPLE_TEXT =
+  "Me and my friend goes to the park last weekend, we plays on the swings, seesaw, and slides, and we have so much fun together."
+
+const GrammarCheckerTextarea: FC<GrammarCheckerTextareaProps> = ({
+  onChange,
+  setTextToCorrect
+}) => {
   const { textWithCorrections, value } = useBoundStore()
 
   return (
@@ -43,6 +51,9 @@ const GrammarCheckerTextarea: FC<GrammarCheckerTextareaProps> = ({ onChange }) =
         spellCheck={false}
         autoFocus
       />
+      {value.length <= 0 && (
+        <ExampleTextButton exampleText={EXAMPLE_TEXT} additionalSetState={setTextToCorrect} />
+      )}
     </div>
   )
 }

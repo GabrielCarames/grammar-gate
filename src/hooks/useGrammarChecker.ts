@@ -7,8 +7,8 @@ import {
   createFirstUserPrompt
 } from "@/utils/grammarCheckerPrompt"
 import { ChatGPTMessageProps } from "@/interfaces"
-import { toast } from "react-toastify"
 import { useBoundStore } from "@/zustand/useBoundStore"
+import { NotificationFailure } from "@/utils/toastNotifications"
 
 export const useGrammarChecker = () => {
   const { textWithCorrections, addCorrection, setValue } = useBoundStore()
@@ -52,7 +52,7 @@ export const useGrammarChecker = () => {
       const textWithCorrections = JSON.parse(data.choices[0].message.content)
       addCorrection(textWithCorrections)
     } catch {
-      toast.error("Something went wrong, please try again later")
+      NotificationFailure("Something went wrong, please try again later")
     }
   }, [data])
 
@@ -61,5 +61,5 @@ export const useGrammarChecker = () => {
     setValue(e.target.value)
   }
 
-  return { onChange, loading }
+  return { onChange, loading, setTextToCorrect }
 }
