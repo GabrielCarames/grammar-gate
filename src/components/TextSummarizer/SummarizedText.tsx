@@ -6,6 +6,7 @@ import { useBoundStore } from "@/zustand/useBoundStore"
 import { type FC } from "react"
 import { type ChildrenProps } from "@/interfaces"
 import { wordsCount } from "@/utils/wordsCount"
+import SkeletonText from "../SkeletonText"
 
 const SummarizedText: FC<ChildrenProps> & {
   SummarizedTextContent: FC
@@ -25,12 +26,7 @@ const SummarizedTextContent: FC = () => {
   return (
     <div className="max-h-[250px] lg:max-h-[500px] h-max md:h-screen p-5 text-base lg:text-lg text-text-gray dark:text-white">
       {loading ? (
-        <div className="flex flex-col gap-2 w-full max-h-[240px] md:max-h-[490px] bg-white dark:bg-gray-1 h-max md:h-screen text-base lg:text-lg animate-pulse">
-          <div className="w-full h-5 bg-white-2 dark:bg-gray-2 rounded-md"></div>
-          <div className="w-[75%] h-5 bg-white-2 dark:bg-gray-2 rounded-md"></div>
-          <div className="w-[25%] h-5 bg-white-2 dark:bg-gray-2 rounded-md"></div>
-          <div className="w-[50%] h-5 bg-white-2 dark:bg-gray-2 rounded-md"></div>
-        </div>
+        <SkeletonText />
       ) : (
         <textarea
           className="w-full max-h-[250px] lg:max-h-[500px] bg-white dark:bg-gray-1 h-max md:h-screen outline-none resize-none text-base lg:text-lg text-text-gray dark:text-white"
