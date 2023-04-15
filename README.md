@@ -41,12 +41,14 @@ pnpm run dev
 ```
 
 ## Environment variables 🏭
+> ***Warning***: You need an OpenAI API key to run this app locally. You can get one here for free: https://platform.openai.com/account/api-keys 
+
 The app needs to use the variables located in the "env.example" file. To access them, follow the following steps:
  - Create a new file named "**.env**" in the root of the app.
  - Copy and paste everything in the "**.env.example**" file into the **.env** file. 
 
 ## Deployment 🚀
-You can view the deployment by [clicking here]().
+You can view the deployment by [clicking here](https://grammar-gate-gabrielcarames.vercel.app/).
 
 ## Disclaimer ⚠️
 
