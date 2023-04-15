@@ -15,9 +15,11 @@ identifies grammatical errors in your text and provides you with a list of sugge
 
 ## Desktop site 🖥️
 
+https://user-images.githubusercontent.com/49535753/232237052-61e0e621-af85-4761-bf07-5bd240851a6a.mp4
 
 ## Mobile site 📱
 
+https://user-images.githubusercontent.com/49535753/232238492-324875ab-a0fb-4f4a-b9ad-699b116ff935.mp4
 
 ## Technologies 💫
 [![NextJS](https://img.shields.io/badge/-Next.JS-black?style=for-the-badge&logo=Next.js)](https://nextjs.org/)
