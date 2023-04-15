@@ -10,11 +10,11 @@ const GrammarChecker: FC = () => {
   useCleaner()
 
   return (
-    <main className="flex flex-wrap gap-y-5 lg:flex-nowrap bg-white-1 dark:bg-black text-white w-full h-screen md:pt-0">
+    <div className="flex flex-wrap gap-y-5 lg:flex-nowrap bg-white-1 dark:bg-black text-white w-full h-screen md:pt-0">
       <div id="modal-root"></div>
       <div className="flex flex-col w-full">
         <Navbar />
-        <div className="w-full h-max md:h-full flex justify-center items-center px-5 relative">
+        <main className="w-full h-max md:h-full flex justify-center items-center px-5 relative">
           <TextareaSection>
             <TextareaSection.Header
               title={HeaderTitle.GRAMMAR_CHECKER}
@@ -22,10 +22,10 @@ const GrammarChecker: FC = () => {
             />
             <GrammarCheckerTextareaWrapper />
           </TextareaSection>
-        </div>
+        </main>
       </div>
       <Aside />
-    </main>
+    </div>
   )
 }
 

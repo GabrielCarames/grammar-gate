@@ -6,9 +6,9 @@ import ThemeButton from "@/components/ThemeButton"
 
 export default function Home() {
   return (
-    <main className="flex justify-center items-center bg-white dark:bg-black text-text-gray dark:text-white w-full min-h-screen h-max">
+    <div className="flex justify-center items-center bg-white dark:bg-black text-text-gray dark:text-white w-full min-h-screen h-max">
       <ThemeButton className="!flex absolute right-2 top-2 z-10" />
-      <section className="flex flex-col sm:items-center gap-12 md:gap-20 w-full max-w-max h-full px-5 py-10 relative">
+      <main className="flex flex-col sm:items-center gap-12 md:gap-20 w-full max-w-max h-full px-5 py-10 relative">
         <header className="flex flex-col gap-5 items-center justify-center w-full max-w-[900px]">
           <h1 className="text-3xl lg:text-5xl text-[#F380F0] text-center">
             <strong>{homeText?.name}</strong>
@@ -38,7 +38,7 @@ export default function Home() {
             </Item>
           ))}
         </ul>
-      </section>
-    </main>
+      </main>
+    </div>
   )
 }

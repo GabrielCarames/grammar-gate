@@ -10,11 +10,11 @@ const TextSummarizer: FC = () => {
   useCleaner()
 
   return (
-    <main className="flex flex-wrap gap-y-10 md:flex-nowrap bg-white-1 dark:bg-black text-white w-full h-max min-h-screen pb-5 md:pt-0">
+    <div className="flex flex-wrap gap-y-10 md:flex-nowrap bg-white-1 dark:bg-black text-white w-full h-max min-h-screen pb-5 md:pt-0">
       <div id="modal-root"></div>
       <div className="flex flex-col w-full">
         <Navbar />
-        <div className="w-full h-max md:h-full flex justify-center items-center px-5 relative">
+        <main className="w-full h-max md:h-full flex justify-center items-center px-5 relative">
           <TextareaSection>
             <TextareaSection.Header
               title={HeaderTitle.TEXT_SUMMARIZER}
@@ -28,9 +28,9 @@ const TextSummarizer: FC = () => {
               </SummarizedText>
             </div>
           </TextareaSection>
-        </div>
+        </main>
       </div>
-    </main>
+    </div>
   )
 }
 
