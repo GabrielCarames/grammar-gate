@@ -12,7 +12,7 @@ const ExampleTextButton: FC<ExampleTextButtonProps> = ({ exampleText, additional
 
   return (
     <button
-      className="w-max h-5 absolute left-5 top-16 z-[1000] text-yellow-1 hover:text-yellow-400 text-sm font-semibold flex gap-1"
+      className="w-max h-5 absolute left-5 top-16 z-[1000] text-orange-1 hover:text-orange-2 dark:text-yellow-1 dark:hover:text-yellow-400 text-sm font-semibold flex gap-1"
       onClick={() => {
         setValue(exampleText)
         additionalSetState && additionalSetState(exampleText)
