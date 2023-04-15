@@ -10,14 +10,8 @@ const toastConfig: ToastContainerProps = {
   theme: "colored"
 }
 
-export const NotificationSuccess = (text: string) => {
-  return toast.success(text, toastConfig)
-}
+export const NotificationSuccess = (text: string) => toast.success(text, toastConfig)
 
-export const NotificationFailure = (text: string) => {
-  return toast.error(text, toastConfig)
-}
+export const NotificationFailure = (text: string) => toast.error(text, toastConfig)
 
-export const NotificationWarning = (text: string) => {
-  return toast.warning(text, toastConfig)
-}
+export const NotificationWarning = (text: string) => toast.warning(text, toastConfig)

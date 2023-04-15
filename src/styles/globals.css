@@ -5,3 +5,7 @@
 body {
   font-family: "Inter", sans-serif;
 }
+
+.Toastify__toast-theme--colored.Toastify__toast--warning {
+  color: #03041a;
+}
