@@ -3,8 +3,12 @@ import { SummarizedText } from "@/components/TextSummarizer/SummarizedText"
 import TextareaSection from "@/components/TextareaSection"
 import Navbar from "@/components/Navbar"
 import { HeaderDescription, HeaderTitle } from "@/enums.d"
+import { useCleaner } from "@/hooks/useCleaner"
+import { type FC } from "react"
 
-export default function TextSummarizer() {
+const TextSummarizer: FC = () => {
+  useCleaner()
+
   return (
     <main className="flex flex-wrap gap-y-10 md:flex-nowrap bg-white-1 dark:bg-black text-white w-full h-max min-h-screen pb-5 md:pt-0">
       <div id="modal-root"></div>
@@ -29,3 +33,5 @@ export default function TextSummarizer() {
     </main>
   )
 }
+
+export default TextSummarizer
