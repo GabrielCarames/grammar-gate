@@ -7,6 +7,7 @@ import { type FC } from "react"
 import { type ChildrenProps } from "@/interfaces"
 import { wordsCount } from "@/utils/wordsCount"
 import SkeletonText from "../SkeletonText"
+import { NotificationSuccess } from "@/utils/toastNotifications"
 
 const SummarizedText: FC<ChildrenProps> & {
   SummarizedTextContent: FC
@@ -55,7 +56,10 @@ const SummarizedTextFooter: FC = () => {
         <div className="flex gap-2">
           <button
             className="rounded-full p-2 hover:bg-white-2 dark:hover:bg-pink-1 duration-150"
-            onClick={() => navigator.clipboard.writeText(summary)}
+            onClick={() => {
+              navigator.clipboard.writeText(summary)
+              NotificationSuccess("Text copied to clipboard")
+            }}
           >
             <CopyIcon className="w-5 h-5 !fill-text-gray dark:!fill-white" />
           </button>
