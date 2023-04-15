@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import useAxios from "./useAxios"
 import { ChatGPTMessageProps } from "@/interfaces"
-import { createPrompt } from "@/utils/textSummarizerPrompt"
+import { createFirstSystemPrompt, createUserPrompt } from "@/utils/textSummarizerPrompt"
 import askToChatGPT from "@/utils/askToChatGPT"
 import { useBoundStore } from "@/zustand/useBoundStore"
 import { NotificationFailure } from "@/utils/toastNotifications"
@@ -45,10 +45,13 @@ export const useTextSummarizer = () => {
   }, [data])
 
   const addChatGPTMessage = (textToSummarize: string, summaryLength: string) => {
-    setChatGPTMessages([
-      ...chatGPTMessages,
-      { role: "user", content: createPrompt(textToSummarize, summaryLength) }
-    ])
+    if (chatGPTMessages.length === 0)
+      setChatGPTMessages([
+        ...chatGPTMessages,
+        createFirstSystemPrompt(),
+        createUserPrompt(textToSummarize, summaryLength)
+      ])
+    else setChatGPTMessages([...chatGPTMessages, createUserPrompt(textToSummarize, summaryLength)])
   }
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {

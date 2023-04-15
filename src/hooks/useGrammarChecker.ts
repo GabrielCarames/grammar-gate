@@ -1,7 +1,11 @@
 import { useEffect, useState } from "react"
 import askToChatGPT from "@/utils/askToChatGPT"
 import useAxios from "./useAxios"
-import { createConsecutivePrompt, createFirstPrompt } from "@/utils/grammarCheckerPrompt"
+import {
+  createConsecutivePrompt,
+  createFirstSystemPrompt,
+  createFirstUserPrompt
+} from "@/utils/grammarCheckerPrompt"
 import { ChatGPTMessageProps } from "@/interfaces"
 import { toast } from "react-toastify"
 import { useBoundStore } from "@/zustand/useBoundStore"
@@ -16,15 +20,13 @@ export const useGrammarChecker = () => {
     if (chatGPTMessages.length === 0)
       setChatGPTMessages([
         ...chatGPTMessages,
-        { role: "user", content: createFirstPrompt(message) }
+        createFirstSystemPrompt(),
+        createFirstUserPrompt(message)
       ])
     else
       setChatGPTMessages([
         ...chatGPTMessages,
-        {
-          role: "user",
-          content: createConsecutivePrompt(message, textWithCorrections.correctedText)
-        }
+        createConsecutivePrompt(message, textWithCorrections.correctedText)
       ])
   }
 
