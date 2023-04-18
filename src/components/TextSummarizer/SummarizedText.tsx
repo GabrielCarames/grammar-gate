@@ -36,8 +36,8 @@ const SummarizedTextContent: FC = () => {
           rows={10}
           defaultValue={summary}
           spellCheck={false}
-          readOnly={summary.length <= 0}
-          disabled={summary.length <= 0}
+          readOnly={summary?.length <= 0}
+          disabled={summary?.length <= 0}
         />
       )}
     </div>
