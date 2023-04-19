@@ -24,7 +24,7 @@ export default function Home() {
           {links?.map((link, index) => (
             <Item
               className={`w-max !h-auto flex flex-col gap-1 border-[2px] dark:border-gray-1 rounded-md ${link?.borderColor} hover:bg-gray-3`}
-              key={index}
+              key={link?.name}
             >
               <Item.ItemLink href={link?.href} className="flex flex-col items-center gap-2 p-5">
                 <Item.ImageWrapper className={`p-4 sm:!p-5 ${link?.backgroundColor}`}>
@@ -32,7 +32,7 @@ export default function Home() {
                 </Item.ImageWrapper>
                 <Item.Text className="!text-lg">{link?.name}</Item.Text>
                 <p className="w-full max-w-[400px] font-normal text-center text-sm md:text-base">
-                  {homeText.functionalities[index].description}
+                  {homeText?.functionalities[index]?.description}
                 </p>
               </Item.ItemLink>
             </Item>

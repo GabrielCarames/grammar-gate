@@ -1,18 +1,18 @@
 import { type FC, type ChangeEvent } from "react"
 import HighlightedText from "../HighlightedText"
-import { TextWithCorrectionsProps } from "@/interfaces"
 import { useBoundStore } from "@/zustand/useBoundStore"
 import Highlighter from "react-highlight-words"
 import ExampleTextButton from "../ExampleTextButton"
+import { CorrectionsProps } from "@/interfaces"
 
 interface GrammarCheckerTextareaProps {
   onChange: (e: ChangeEvent<HTMLTextAreaElement>) => void
   setTextToCorrect: (text: string) => void
 }
 
-const getSearchWords = (textWithCorrections: TextWithCorrectionsProps) => {
+const getSearchWords = (corrections: CorrectionsProps) => {
   return [
-    `\\b(${textWithCorrections.corrections.map(correction => correction.result[0]).join("|")})\\b`,
+    `\\b(${corrections?.correctionsList.map(correction => correction.result[0]).join("|")})\\b`,
     "gi"
   ]
 }
@@ -24,7 +24,7 @@ const GrammarCheckerTextarea: FC<GrammarCheckerTextareaProps> = ({
   onChange,
   setTextToCorrect
 }) => {
-  const { textWithCorrections, value } = useBoundStore()
+  const { corrections, value } = useBoundStore()
 
   return (
     <div className="relative w-full px-5">
@@ -33,7 +33,7 @@ const GrammarCheckerTextarea: FC<GrammarCheckerTextareaProps> = ({
         spellCheck={false}
       >
         <Highlighter
-          searchWords={getSearchWords(textWithCorrections)}
+          searchWords={getSearchWords(corrections)}
           autoEscape={false}
           textToHighlight={value}
           highlightTag={HighlightedText}

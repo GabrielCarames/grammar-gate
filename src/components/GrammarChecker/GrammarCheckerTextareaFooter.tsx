@@ -8,25 +8,24 @@ interface GrammarCheckerTextareaFooterProps {
 }
 
 const GrammarCheckerTextareaFooter: FC<GrammarCheckerTextareaFooterProps> = ({ loading }) => {
-  const { textWithCorrections, getWordsCount, correctionsCount, fixEverything } =
-    useTextareaFooter()
+  const { corrections, getWordsCount, correctionsCount, fixEverything } = useTextareaFooter()
 
   return (
     <div className="w-full h-12 flex justify-between items-center px-5 text-sm md:text-base text-text-gray dark:text-white">
       <Span text="Words" data={getWordsCount()} />
       <Button
-        disabled={textWithCorrections.corrections.length <= 0}
+        disabled={corrections?.correctionsList?.length <= 0}
         onClick={fixEverything}
         loading={loading}
         text="Fix everything"
         type="button"
         className={`${
-          textWithCorrections.corrections.length >= 1
+          corrections?.correctionsList?.length >= 1
             ? "!bg-pink-1 hover:!bg-pink-2 !text-white"
             : "!bg-gray-500 text-gray-600"
         }
         ${
-          textWithCorrections.corrections.length <= 0 && loading
+          corrections?.correctionsList?.length <= 0 && loading
             ? "!bg-pink-1"
             : "!bg-gray-500 text-gray-600"
         }`}
