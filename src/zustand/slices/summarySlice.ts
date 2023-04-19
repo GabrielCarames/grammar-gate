@@ -1,8 +1,9 @@
+import { SetSummaryProps } from "@/interfaces"
 import { StateCreator } from "zustand"
 
 export type SummarySlice = {
   summary: string
-  setSummary: (newSummary: string) => void
+  setSummary: SetSummaryProps
   clearSummary: () => void
 }
 
@@ -10,6 +11,6 @@ const initialState = { summary: "" }
 
 export const createSummarySlice: StateCreator<SummarySlice> = set => ({
   ...initialState,
-  setSummary: newSummary => set({ summary: newSummary }),
+  setSummary: (newSummary: string) => set({ summary: newSummary }),
   clearSummary: () => set(initialState)
 })
