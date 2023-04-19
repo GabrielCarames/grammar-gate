@@ -5,14 +5,14 @@ const SYSTEM_PROMPT = `
   Do not include any other field or value. Do not include any other text or explanation without me asking you to do so.
 `
 
-const USER_PROMPT = (summaryLength: string, textToSummarize: string) => `
+const createUserPrompt = (summaryLength: string, textToSummarize: string) => `
   Your summary should must be ${summaryLength} long and should accurately capture the main points and ideas of the original text.
   This is the text to summarize: ${textToSummarize}
 `
 
-export const createFirstSystemPrompt = () => ({ role: "system", content: SYSTEM_PROMPT })
+export const createSystemMessage = () => ({ role: "system", content: SYSTEM_PROMPT })
 
-export const createUserPrompt = (textToSummarize: string, summaryLength: string) => ({
+export const createUserMessage = (textToSummarize: string, summaryLength: string) => ({
   role: "user",
-  content: USER_PROMPT(summaryLength, textToSummarize)
+  content: createUserPrompt(summaryLength, textToSummarize)
 })
