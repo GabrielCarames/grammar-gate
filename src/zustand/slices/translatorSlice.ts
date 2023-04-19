@@ -1,16 +1,15 @@
 import { Languages } from "@/enums.d"
+import { FromLanguageProps, TranslatorProps, FromText, TranslatedText } from "@/interfaces.d"
 import { StateCreator } from "zustand"
 
-export type TranslatorSlice = {
-  fromLanguage: Languages
-  toLanguage: Languages
-  fromText: string
-  translatedText: string
-  setFromLanguage: (language: Languages) => void
+interface TranslatorMethodsProps {
+  setFromLanguage: (language: FromLanguageProps) => void
   setToLanguage: (language: Languages) => void
-  setFromText: (text: string) => void
-  setTranslatedText: (text: string) => void
+  setFromText: (text: FromText) => void
+  setTranslatedText: (text: TranslatedText) => void
 }
+
+export interface TranslatorSlice extends TranslatorProps, TranslatorMethodsProps {}
 
 const initialState = {
   fromLanguage: Languages.ENGLISH,

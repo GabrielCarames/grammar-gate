@@ -1,5 +1,11 @@
 import { AxiosHeaders } from "axios"
-import { HeaderDescription, HeaderTitle, Languages, ResponseProperties } from "./enums"
+import {
+  AUTO_LANGUAGE,
+  HeaderDescription,
+  HeaderTitle,
+  Languages,
+  ResponseProperties
+} from "./enums"
 
 export interface ChatGPTMessageProps {
   role: string
@@ -50,18 +56,6 @@ export interface ChildrenProps {
   children: React.ReactNode
 }
 
-export type fromText = string
-export type translatedText = string
-
-export interface TranslatorProps {
-  fromLanguage: Languages
-  toLanguage: Languages
-  fromText: fromText
-  translatedText: translatedText
-}
-
-export interface OriginTranslator extends Omit<TranslatorProps, "translatedText"> {}
-
 export type AddCorrectionProps = (newCorrections: CorrectionsProps) => void
 
 export type SetSummaryProps = (newSummary: string) => void
@@ -71,3 +65,16 @@ export interface UseChatGPTProps {
   customProperty: ResponseProperties
   customSetState: AddCorrectionProps | SetSummaryProps
 }
+
+export type FromText = string
+export type TranslatedText = string
+export type FromLanguageProps = Languages | typeof AUTO_LANGUAGE
+
+export interface TranslatorProps {
+  fromLanguage: FromLanguageProps
+  toLanguage: Languages
+  fromText: FromText
+  translatedText: TranslatedText
+}
+
+export interface OriginTranslator extends Omit<TranslatorProps, "translatedText"> {}

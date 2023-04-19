@@ -8,6 +8,8 @@ export enum HeaderDescription {
   TEXT_SUMMARIZER = "Summarize any text in a few seconds!"
 }
 
+export const AUTO_LANGUAGE = "auto"
+
 export enum Languages {
   ENGLISH = "en",
   SPANISH = "es",
