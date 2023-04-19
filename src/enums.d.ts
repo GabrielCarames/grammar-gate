@@ -7,3 +7,21 @@ export enum HeaderDescription {
   GRAMMAR_CHECKER = "Write your text and let us check your grammar!",
   TEXT_SUMMARIZER = "Summarize any text in a few seconds!"
 }
+
+export enum Languages {
+  ENGLISH = "en",
+  SPANISH = "es",
+  FRENCH = "fr",
+  GERMAN = "de",
+  ITALIAN = "it",
+  PORTUGUESE = "pt",
+  RUSSIAN = "ru",
+  CHINESE = "zh",
+  JAPANESE = "ja",
+  KOREAN = "ko"
+}
+
+export enum ResponseProperties {
+  CORRECTIONS = "corrections",
+  SUMMARY = "summary"
+}
