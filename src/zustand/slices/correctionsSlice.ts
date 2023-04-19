@@ -1,16 +1,16 @@
-import { CorrectionProps, TextWithCorrectionsProps } from "@/interfaces"
+import { AddCorrectionProps, CorrectionProps, CorrectionsProps } from "@/interfaces"
 import { StateCreator } from "zustand"
 
 export type CorrectionsSlice = {
-  textWithCorrections: TextWithCorrectionsProps
+  corrections: CorrectionsProps
   removeCorrection: (correctionId: CorrectionProps["id"]) => void
-  addCorrection: (newTextWithCorrections: TextWithCorrectionsProps) => void
+  addCorrection: AddCorrectionProps
   clearCorrections: () => void
 }
 
 const initialState = {
-  textWithCorrections: {
-    corrections: [],
+  corrections: {
+    correctionsList: [],
     correctedText: ""
   }
 }
@@ -19,13 +19,13 @@ export const createCorrectionsSlice: StateCreator<CorrectionsSlice> = set => ({
   ...initialState,
   removeCorrection: correctionId =>
     set(state => {
-      const filteredCorrections = state.textWithCorrections.corrections.filter(
+      const filteredCorrections = state.corrections.correctionsList.filter(
         (prevCorrection: CorrectionProps) => prevCorrection.id !== correctionId
       )
       return {
-        textWithCorrections: { ...state.textWithCorrections, corrections: filteredCorrections }
+        corrections: { ...state.corrections, correctionsList: filteredCorrections }
       }
     }),
-  addCorrection: newTextWithCorrections => set({ textWithCorrections: newTextWithCorrections }),
+  addCorrection: newCorrections => set({ corrections: newCorrections }),
   clearCorrections: () => set(initialState)
 })
