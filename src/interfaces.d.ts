@@ -1,5 +1,5 @@
 import { AxiosHeaders } from "axios"
-import { HeaderDescription, HeaderTitle } from "./enums"
+import { HeaderDescription, HeaderTitle, Languages, ResponseProperties } from "./enums"
 
 export interface ChatGPTMessageProps {
   role: string
@@ -13,8 +13,10 @@ export interface CorrectionProps {
   result: string[]
 }
 
-export interface TextWithCorrectionsProps {
-  corrections: CorrectionProps[]
+export interface CorrectionsListProps extends Array<CorrectionProps> {}
+
+export interface CorrectionsProps {
+  correctionsList: CorrectionsListProps
   correctedText: string
 }
 
@@ -46,4 +48,26 @@ export interface BannerProps {
 
 export interface ChildrenProps {
   children: React.ReactNode
+}
+
+export type fromText = string
+export type translatedText = string
+
+export interface TranslatorProps {
+  fromLanguage: Languages
+  toLanguage: Languages
+  fromText: fromText
+  translatedText: translatedText
+}
+
+export interface OriginTranslator extends Omit<TranslatorProps, "translatedText"> {}
+
+export type AddCorrectionProps = (newCorrections: CorrectionsProps) => void
+
+export type SetSummaryProps = (newSummary: string) => void
+
+export interface UseChatGPTProps {
+  initialPrompt: ChatGPTMessageProps
+  customProperty: ResponseProperties
+  customSetState: AddCorrectionProps | SetSummaryProps
 }
