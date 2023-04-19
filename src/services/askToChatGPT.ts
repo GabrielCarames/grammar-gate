@@ -1,5 +1,5 @@
 import { ChatGPTJSON_dataProps, MakeRequestProps, ChatGPTMessageProps } from "@/interfaces"
-import { NotificationFailure } from "./toastNotifications"
+import { NotificationFailure } from "../utils/toastNotifications"
 
 const headers = {
   "Content-Type": "application/json",
@@ -16,7 +16,7 @@ const askToChatGPT = async (
     const json_data: ChatGPTJSON_dataProps = {
       model: "gpt-3.5-turbo",
       messages: [...currentChatGPTMessages],
-      temperature: 1
+      temperature: 0
     }
     await makeRequest(url, json_data, headers)
   } catch (error) {
