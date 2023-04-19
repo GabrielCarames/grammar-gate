@@ -23,5 +23,6 @@ export enum Languages {
 
 export enum ResponseProperties {
   CORRECTIONS = "corrections",
-  SUMMARY = "summary"
+  SUMMARY = "summary",
+  TRANSLATION = "translation"
 }
