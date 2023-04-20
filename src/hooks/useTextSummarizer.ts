@@ -22,7 +22,7 @@ const rangeValues: RangeValuesProps = {
 }
 
 export const useTextSummarizer = () => {
-  const { summary, setSummary } = useBoundStore()
+  const { summary, setSummary, setValue } = useBoundStore()
   const { addChatGPTMessage, loading } = useChatGPT({
     initialPrompt: createSystemMessage(),
     customProperty: ResponseProperties.SUMMARY,
@@ -40,5 +40,9 @@ export const useTextSummarizer = () => {
     addChatGPTMessage(userMessage)
   }
 
-  return { handleSubmit, loading, summary }
+  const onChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    setValue(e.target.value)
+  }
+
+  return { handleSubmit, loading, summary, onChange }
 }

@@ -4,6 +4,7 @@ import { useBoundStore } from "@/zustand/useBoundStore"
 import Highlighter from "react-highlight-words"
 import ExampleTextButton from "../ExampleTextButton"
 import { CorrectionsProps } from "@/interfaces"
+import Textarea from "../Textarea"
 
 interface GrammarCheckerTextareaProps {
   onChange: (e: ChangeEvent<HTMLTextAreaElement>) => void
@@ -40,16 +41,11 @@ const GrammarCheckerTextarea: FC<GrammarCheckerTextareaProps> = ({
           caseSensitive={true}
         />
       </div>
-      <textarea
-        className="relative w-full max-h-[250px] md:max-h-[500px] h-max md:h-screen outline-none resize-none pt-5 text-base lg:text-lg bg-transparent text-text-gray dark:text-white"
-        name="text"
-        cols={30}
-        rows={10}
-        value={value}
+      <Textarea
         onChange={onChange}
-        placeholder="Write your text here..."
-        spellCheck={false}
-        autoFocus
+        value={value}
+        name="text"
+        className="relative md:!max-h-[500px] bg-transparent p-0 pt-5"
       />
       {value.length <= 0 && (
         <ExampleTextButton exampleText={EXAMPLE_TEXT} additionalSetState={setTextToCorrect} />
