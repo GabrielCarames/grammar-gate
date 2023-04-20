@@ -5,6 +5,7 @@ import Textarea from "@/components/Textarea"
 import Navbar from "@/components/Navbar"
 import { AUTO_LANGUAGE, HeaderDescription, HeaderTitle, Languages } from "@/enums.d"
 import { type FC } from "react"
+import { ArrowsRightLeftIcon } from "@heroicons/react/24/solid"
 
 const Translator: FC = () => {
   const {
@@ -14,7 +15,8 @@ const Translator: FC = () => {
     handleToLanguage,
     onFromLanguageChange,
     translatedText,
-    fromText
+    fromText,
+    switchLanguages
   } = useTranslator()
   const LanguagesList = Object.values(Languages)
   const [en, es] = LanguagesList
@@ -34,19 +36,35 @@ const Translator: FC = () => {
               <LanguageSelector
                 onSelectChange={handleFromLanguage}
                 selectName="from-languages"
+                value={fromLanguage}
                 defaultValue={en}
                 options={LanguagesList}
                 defaultOption={[AUTO_LANGUAGE]}
               >
                 <Textarea value={fromText} onChange={onFromLanguageChange} name="fromLanguage" />
               </LanguageSelector>
+              <button
+                className={`w-max h-max  rounded-full p-2 duration-150 ${
+                  fromLanguage === AUTO_LANGUAGE ? "opacity-50" : "hover:bg-gray-1"
+                }`}
+                onClick={switchLanguages}
+                disabled={fromLanguage === AUTO_LANGUAGE}
+              >
+                <ArrowsRightLeftIcon className="w-7 h-7" />
+              </button>
               <LanguageSelector
                 onSelectChange={handleToLanguage}
                 selectName="to-languages"
+                value={toLanguage}
                 defaultValue={es}
                 options={LanguagesList}
               >
-                <Textarea value={translatedText} readOnly={true} name="toLanguage" />
+                <Textarea
+                  value={translatedText}
+                  readOnly={true}
+                  name="toLanguage"
+                  placeholder="Translation"
+                />
               </LanguageSelector>
             </div>
           </TextareaSection>

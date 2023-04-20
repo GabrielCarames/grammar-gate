@@ -13,7 +13,8 @@ export const useTranslator = () => {
     toLanguage,
     setToLanguage,
     translatedText,
-    setTranslatedText
+    setTranslatedText,
+    switchLanguages
   } = useBoundStore()
   const { addChatGPTMessage, loading } = useChatGPT({
     initialPrompt: createSystemMessage(),
@@ -53,6 +54,7 @@ export const useTranslator = () => {
     handleToLanguage,
     onFromLanguageChange,
     translatedText,
-    fromText
+    fromText,
+    switchLanguages
   }
 }
