@@ -1,6 +1,9 @@
-import Navbar from "@/components/Navbar"
-import { Languages } from "@/enums"
+import TextareaSection from "@/components/TextareaSection"
 import { useTranslator } from "@/hooks/useTranslator"
+import Textarea from "@/components/Textarea"
+import Navbar from "@/components/Navbar"
+import Select from "@/components/Select"
+import { AUTO_LANGUAGE, HeaderDescription, HeaderTitle, Languages } from "@/enums.d"
 import { type FC } from "react"
 
 const Translator: FC = () => {
@@ -13,6 +16,8 @@ const Translator: FC = () => {
     translatedText,
     fromText
   } = useTranslator()
+  const LanguagesList = Object.values(Languages)
+  const [en, es] = LanguagesList
 
   return (
     <div className="flex flex-wrap gap-y-10 md:flex-nowrap bg-white-1 dark:bg-black text-white w-full h-max min-h-screen pb-5 md:pt-0">
@@ -20,42 +25,35 @@ const Translator: FC = () => {
       <div className="flex flex-col w-full">
         <Navbar />
         <main className="w-full h-max md:h-full flex justify-center items-center px-5 relative">
-          <section className="flex gap-5">
-            <div className="flex flex-col gap-2">
-              <select
-                name="from-languages"
-                id=""
-                onChange={e => handleFromLanguage(e.target.value as Languages)}
-              >
-                <option value={fromLanguage} className="capitalize">
-                  {fromLanguage}
-                </option>
-              </select>
-              <textarea
-                name="fromLanguage"
-                className="w-80 h-40 outline-none"
-                value={fromText}
-                onChange={onFromLanguageChange}
-              ></textarea>
+          <TextareaSection>
+            <TextareaSection.Header
+              title={HeaderTitle.TRANSLATOR}
+              description={HeaderDescription.TRANSLATOR}
+            />
+            <div className="flex gap-5">
+              <div className="flex flex-col gap-2">
+                <Select
+                  onChange={e => handleFromLanguage(e.target.value as Languages)}
+                  name="from-languages"
+                  defaultValue={en}
+                >
+                  <Select.Option options={[AUTO_LANGUAGE]} />
+                  <Select.Option options={LanguagesList} />
+                </Select>
+                <Textarea value={fromText} onChange={onFromLanguageChange} name="fromLanguage" />
+              </div>
+              <div className="flex flex-col gap-2">
+                <Select
+                  onChange={e => handleToLanguage(e.target.value as Languages)}
+                  name="to-languages"
+                  defaultValue={es}
+                >
+                  <Select.Option options={LanguagesList} />
+                </Select>
+                <Textarea value={translatedText} readOnly={true} name="toLanguage" />
+              </div>
             </div>
-            <div className="flex flex-col gap-2">
-              <select
-                name="from-languages"
-                id=""
-                onChange={e => handleToLanguage(e.target.value as Languages)}
-              >
-                <option value={toLanguage} className="capitalize">
-                  {toLanguage}
-                </option>
-              </select>
-              <textarea
-                name="fromLanguage"
-                className="w-80 h-40 outline-none"
-                value={translatedText}
-                readOnly
-              ></textarea>
-            </div>
-          </section>
+          </TextareaSection>
         </main>
       </div>
     </div>
