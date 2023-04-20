@@ -1,8 +1,10 @@
 import { AUTO_LANGUAGE, Languages } from "@/enums"
+import { useBoundStore } from "@/zustand/useBoundStore"
 import { type FC } from "react"
 
 interface SelectProps {
   onChange: React.ChangeEventHandler<HTMLSelectElement>
+  value: Languages | typeof AUTO_LANGUAGE
   defaultValue?: string
   children: React.ReactNode
   className?: string
@@ -17,6 +19,7 @@ interface OptionProps {
 
 const Select: FC<SelectProps> & { Option: FC<OptionProps> } = ({
   onChange,
+  value,
   defaultValue,
   children,
   className,
@@ -29,6 +32,7 @@ const Select: FC<SelectProps> & { Option: FC<OptionProps> } = ({
       id={id}
       className={`${className}`}
       onChange={onChange}
+      value={value}
       defaultValue={defaultValue}
     >
       {children}
@@ -37,10 +41,16 @@ const Select: FC<SelectProps> & { Option: FC<OptionProps> } = ({
 }
 
 const Option: FC<OptionProps> = ({ options, className }) => {
+  const { fromLanguage, toLanguage } = useBoundStore()
   return (
     <>
       {options?.map(option => (
-        <option value={option} className={`capitalize ${className}`} key={option}>
+        <option
+          value={option}
+          className={`capitalize ${className}`}
+          key={option}
+          disabled={fromLanguage === option || toLanguage === option}
+        >
           {option}
         </option>
       ))}
