@@ -1,8 +1,8 @@
+import LanguageSelector from "@/components/Translator/LanguageSelector"
 import TextareaSection from "@/components/TextareaSection"
 import { useTranslator } from "@/hooks/useTranslator"
 import Textarea from "@/components/Textarea"
 import Navbar from "@/components/Navbar"
-import Select from "@/components/Select"
 import { AUTO_LANGUAGE, HeaderDescription, HeaderTitle, Languages } from "@/enums.d"
 import { type FC } from "react"
 
@@ -31,27 +31,23 @@ const Translator: FC = () => {
               description={HeaderDescription.TRANSLATOR}
             />
             <div className="flex gap-5">
-              <div className="flex flex-col gap-2">
-                <Select
-                  onChange={e => handleFromLanguage(e.target.value as Languages)}
-                  name="from-languages"
-                  defaultValue={en}
-                >
-                  <Select.Option options={[AUTO_LANGUAGE]} />
-                  <Select.Option options={LanguagesList} />
-                </Select>
+              <LanguageSelector
+                onSelectChange={handleFromLanguage}
+                selectName="from-languages"
+                defaultValue={en}
+                options={LanguagesList}
+                defaultOption={[AUTO_LANGUAGE]}
+              >
                 <Textarea value={fromText} onChange={onFromLanguageChange} name="fromLanguage" />
-              </div>
-              <div className="flex flex-col gap-2">
-                <Select
-                  onChange={e => handleToLanguage(e.target.value as Languages)}
-                  name="to-languages"
-                  defaultValue={es}
-                >
-                  <Select.Option options={LanguagesList} />
-                </Select>
+              </LanguageSelector>
+              <LanguageSelector
+                onSelectChange={handleToLanguage}
+                selectName="to-languages"
+                defaultValue={es}
+                options={LanguagesList}
+              >
                 <Textarea value={translatedText} readOnly={true} name="toLanguage" />
-              </div>
+              </LanguageSelector>
             </div>
           </TextareaSection>
         </main>

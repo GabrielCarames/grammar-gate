@@ -1,3 +1,4 @@
+import { AUTO_LANGUAGE, Languages } from "@/enums"
 import { type FC } from "react"
 
 interface SelectProps {
@@ -10,7 +11,7 @@ interface SelectProps {
 }
 
 interface OptionProps {
-  options: string[]
+  options: Languages[] | typeof AUTO_LANGUAGE[]
   className?: string
 }
 
