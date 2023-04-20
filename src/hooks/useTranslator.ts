@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import { useBoundStore } from "@/zustand/useBoundStore"
 import { useChatGPT } from "./useChatGPT"
 import { Languages, ResponseProperties } from "@/enums.d"
-import { createSystemMessage, createUserMessage } from "@/utils/translatorPrompt"
+import { createSystemMessage, createUserMessage } from "@/prompts/translatorPrompt"
 
 export const useTranslator = () => {
   const {

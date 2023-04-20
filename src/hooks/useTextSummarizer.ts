@@ -1,6 +1,6 @@
 import { useBoundStore } from "@/zustand/useBoundStore"
 import { useChatGPT } from "./useChatGPT"
-import { createSystemMessage, createUserMessage } from "@/utils/textSummarizerPrompt"
+import { createSystemMessage, createUserMessage } from "@/prompts/textSummarizerPrompt"
 import { ResponseProperties } from "@/enums.d"
 
 enum RangeValuesEnums {

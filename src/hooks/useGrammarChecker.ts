@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { createSystemMessage, createUserMessage } from "@/utils/grammarCheckerPrompt"
+import { createSystemMessage, createUserMessage } from "@/prompts/grammarCheckerPrompt"
 import { useBoundStore } from "@/zustand/useBoundStore"
 import { useChatGPT } from "./useChatGPT"
 import { ResponseProperties } from "@/enums.d"
