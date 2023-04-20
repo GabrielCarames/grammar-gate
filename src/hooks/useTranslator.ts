@@ -36,11 +36,13 @@ export const useTranslator = () => {
     setFromText(e.target.value)
   }
 
-  const handleFromLanguage = (language: Languages) => {
+  const handleFromLanguage = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const language = e.target.value as Languages
     setFromLanguage(language)
   }
 
-  const handleToLanguage = (language: Languages) => {
+  const handleToLanguage = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const language = e.target.value as Languages
     setToLanguage(language)
   }
 
