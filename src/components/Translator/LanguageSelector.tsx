@@ -7,12 +7,14 @@ interface LanguageSelectorProps {
   selectName: string
   options: Languages[]
   defaultOption?: Languages[] | typeof AUTO_LANGUAGE[]
+  value: Languages | typeof AUTO_LANGUAGE
   defaultValue: Languages
   children: React.ReactNode
 }
 
 const LanguageSelector: FC<LanguageSelectorProps> = ({
   selectName,
+  value,
   defaultValue,
   options,
   defaultOption,
@@ -20,8 +22,8 @@ const LanguageSelector: FC<LanguageSelectorProps> = ({
   children
 }) => {
   return (
-    <div className="flex flex-col gap-2">
-      <Select onChange={onSelectChange} name={selectName} defaultValue={defaultValue}>
+    <div className="flex flex-1 flex-col gap-2">
+      <Select onChange={onSelectChange} value={value} name={selectName} defaultValue={defaultValue}>
         {defaultOption && <Select.Option options={defaultOption} />}
         <Select.Option options={options} />
       </Select>
