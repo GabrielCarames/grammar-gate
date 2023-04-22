@@ -10,19 +10,19 @@ export enum HeaderDescription {
   TRANSLATOR = "Choose a language and translate your text!"
 }
 
-export const AUTO_LANGUAGE = "auto"
+export const AUTO_LANGUAGE = "Auto"
 
 export enum Languages {
-  ENGLISH = "en",
-  SPANISH = "es",
-  FRENCH = "fr",
-  GERMAN = "de",
-  ITALIAN = "it",
-  PORTUGUESE = "pt",
-  RUSSIAN = "ru",
-  CHINESE = "zh",
-  JAPANESE = "ja",
-  KOREAN = "ko"
+  ENGLISH = "English",
+  SPANISH = "Spanish",
+  FRENCH = "French",
+  GERMAN = "German",
+  ITALIAN = "Italian",
+  PORTUGUESE = "Portuguese",
+  RUSSIAN = "Russian",
+  CHINESE = "Chinese",
+  JAPANESE = "Japanese",
+  KOREAN = "Korean"
 }
 
 export enum ResponseProperties {
