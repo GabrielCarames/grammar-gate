@@ -5,7 +5,9 @@ import Textarea from "@/components/Textarea"
 import Navbar from "@/components/Navbar"
 import { AUTO_LANGUAGE, HeaderDescription, HeaderTitle, Languages } from "@/enums.d"
 import { type FC } from "react"
-import { ArrowsRightLeftIcon } from "@heroicons/react/24/solid"
+import TextareaFooter from "@/components/TextareaFooter"
+import TextareaWrapper from "@/components/TextareaWrapper"
+import SwitchButton from "@/components/SwitchButton"
 
 const Translator: FC = () => {
   const {
@@ -27,7 +29,6 @@ const Translator: FC = () => {
       <div className="flex flex-col w-full">
         <Navbar />
         <main className="w-full h-max md:h-full flex justify-center items-center px-5 relative">
-          <span>{`${fromLanguage} ${translation.detectedLanguage} hola`}</span>
           <TextareaSection>
             <TextareaSection.Header
               title={HeaderTitle.TRANSLATOR}
@@ -35,39 +36,47 @@ const Translator: FC = () => {
               className="bg-red-1"
             />
             <div className="flex gap-5">
-              <LanguageSelector
-                onSelectChange={handleFromLanguage}
-                selectName="from-languages"
-                value={fromLanguage}
-                defaultValue={en}
-                options={LanguagesList}
-                defaultOption={[AUTO_LANGUAGE]}
-              >
+              <TextareaWrapper>
+                <LanguageSelector
+                  onSelectChange={handleFromLanguage}
+                  selectName="from-languages"
+                  value={fromLanguage}
+                  defaultValue={en}
+                  options={LanguagesList}
+                  defaultOption={[AUTO_LANGUAGE]}
+                />
                 <Textarea value={fromText} onChange={onFromLanguageChange} name="fromLanguage" />
-              </LanguageSelector>
-              <button
-                className={`w-max h-max  rounded-full p-2 duration-150 ${
-                  fromLanguage === AUTO_LANGUAGE ? "opacity-50" : "hover:bg-gray-1"
-                }`}
+                <TextareaFooter>
+                  {translation?.detectedLanguage && (
+                    <span>{`${translation?.detectedLanguage} (detected)`}</span>
+                  )}
+                </TextareaFooter>
+              </TextareaWrapper>
+              <SwitchButton
+                className={fromLanguage === AUTO_LANGUAGE ? "opacity-50" : "hover:bg-gray-1"}
                 onClick={switchLanguages}
                 disabled={fromLanguage === AUTO_LANGUAGE}
-              >
-                <ArrowsRightLeftIcon className="w-7 h-7" />
-              </button>
-              <LanguageSelector
-                onSelectChange={handleToLanguage}
-                selectName="to-languages"
-                value={toLanguage}
-                defaultValue={es}
-                options={LanguagesList}
-              >
+              />
+              <TextareaWrapper>
+                <LanguageSelector
+                  onSelectChange={handleToLanguage}
+                  selectName="to-languages"
+                  value={toLanguage}
+                  defaultValue={es}
+                  options={LanguagesList}
+                />
                 <Textarea
                   value={translation.translatedText}
                   readOnly={true}
                   name="toLanguage"
                   placeholder="Translation"
                 />
-              </LanguageSelector>
+                <TextareaFooter>
+                  {translation?.detectedLanguage && (
+                    <span>{`${translation?.detectedLanguage} (detected)`}</span>
+                  )}
+                </TextareaFooter>
+              </TextareaWrapper>
             </div>
           </TextareaSection>
         </main>
