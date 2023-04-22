@@ -21,8 +21,8 @@ const links = [
     name: "Translator",
     href: "/translator",
     icon: TranslatorIcon,
-    backgroundColor: "bg-red-500",
-    borderColor: "!border-b-red-500"
+    backgroundColor: "bg-orange-500",
+    borderColor: "!border-b-orange-500"
   }
 ]
 

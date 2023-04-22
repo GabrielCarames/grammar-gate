@@ -22,7 +22,13 @@ const ToLanguage: FC<Omit<LanguageSectionProps, "textareaOnchange">> = ({
         defaultValue={languageSelectorDefaultValue}
         options={options}
       />
-      <Textarea value={textareaValue} readOnly={true} name="toLanguage" placeholder="Translation" />
+      <Textarea
+        value={textareaValue}
+        readOnly={true}
+        name="toLanguage"
+        placeholder="Translation"
+        className={`${textareaValue ? "cursor-auto" : "cursor-default"}`}
+      />
       <TextareaFooter>
         <CopyButton text={textareaValue} />
       </TextareaFooter>

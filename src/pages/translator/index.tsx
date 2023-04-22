@@ -31,7 +31,7 @@ const Translator: FC = () => {
             <TextareaSection.Header
               title={HeaderTitle.TRANSLATOR}
               description={HeaderDescription.TRANSLATOR}
-              className="bg-red-1"
+              className="bg-orange-500"
             />
             <div className="flex gap-5">
               <FromLanguage
