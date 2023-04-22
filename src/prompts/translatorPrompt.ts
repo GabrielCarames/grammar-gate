@@ -7,7 +7,7 @@ const SYSTEM_MESSAGE = `
   You just have to answer me in this following JSON format:
   translation: {
     translatedText: "This is the translated text"
-    detectedLanguage: "This is the detected language"
+    detectedLanguage: "This is the detected language (include the complete name of the language)"
   }
 `
 
