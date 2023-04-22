@@ -45,10 +45,14 @@ const GrammarCheckerTextarea: FC<GrammarCheckerTextareaProps> = ({
         onChange={onChange}
         value={value}
         name="text"
-        className="relative md:!max-h-[500px] bg-transparent p-0 pt-5"
+        className="relative md:!max-h-[500px] bg-transparent p-0 pt-5 !pl-0"
       />
       {value.length <= 0 && (
-        <ExampleTextButton exampleText={EXAMPLE_TEXT} additionalSetState={setTextToCorrect} />
+        <ExampleTextButton
+          exampleText={EXAMPLE_TEXT}
+          additionalSetState={setTextToCorrect}
+          className="text-pink-500"
+        />
       )}
     </div>
   )

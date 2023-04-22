@@ -29,7 +29,8 @@ const TextSummarizerTextareaFooter: FC<TextSummarizerTextareaFooterProps> = ({
           text="Summarize"
           type="submit"
           className={`
-          ${value.length >= 1 && loading ? "!bg-pink-1" : ""}
+          !bg-green-500
+          ${value.length >= 1 && loading ? "!bg-green-500" : ""}
           ${value.length <= 0 ? "!bg-gray-500 text-white-2 dark:text-gray-600" : ""}`}
         />
       </div>

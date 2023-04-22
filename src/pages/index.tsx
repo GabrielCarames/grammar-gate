@@ -13,7 +13,7 @@ export default function Home() {
           <h1 className="text-3xl lg:text-5xl text-[#F380F0] text-center">
             <strong>{homeText?.name}</strong>
           </h1>
-          <h2 className="text-xl lg:text-3xl text-orange-1 dark:text-yellow-1 font-bold text-center">
+          <h2 className="text-xl lg:text-3xl text-orange-500 dark:text-yellow-1 font-bold text-center">
             {homeText?.title}
           </h2>
           <p className="text-center text-base sm:text-lg font-semibold max-w-xl lg:max-w-none">

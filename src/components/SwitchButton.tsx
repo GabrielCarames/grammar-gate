@@ -10,11 +10,11 @@ interface SwitchButtonProps {
 const SwitchButton: FC<SwitchButtonProps> = ({ className, onClick, disabled }) => {
   return (
     <button
-      className={`w-max h-max  rounded-full p-2 duration-150 ${className}`}
+      className={`w-max h-max rounded-full p-2 duration-150 ${className}`}
       onClick={onClick}
       disabled={disabled}
     >
-      <ArrowsRightLeftIcon className="w-7 h-7" />
+      <ArrowsRightLeftIcon className="w-7 h-7 fill-black dark:fill-white" />
     </button>
   )
 }

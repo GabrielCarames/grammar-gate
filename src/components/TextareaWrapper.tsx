@@ -8,7 +8,7 @@ interface TextareaWrapperProps {
 const TextareaWrapper: FC<TextareaWrapperProps> = ({ children, className }) => {
   return (
     <section
-      className={`md:flex-1 w-full border dark:border-gray-2 bg-white dark:bg-gray-1 rounded-md shadow-lg relative ${className}`}
+      className={`md:flex-1 flex flex-col w-full border dark:border-gray-2 bg-white dark:bg-gray-1 rounded-md shadow-lg relative ${className}`}
     >
       {children}
     </section>

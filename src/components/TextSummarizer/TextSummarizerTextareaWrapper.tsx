@@ -16,7 +16,9 @@ const TextSummarizerTextareaWrapper = (): JSX.Element => {
     <TextareaWrapper>
       <form onSubmit={handleSubmit}>
         <Textarea onChange={onChange} value={value} name="textarea" />
-        {value.length <= 0 && <ExampleTextButton exampleText={EXAMPLE_TEXT} />}
+        {value.length <= 0 && (
+          <ExampleTextButton exampleText={EXAMPLE_TEXT} className="!text-green-500" />
+        )}
         <TextSummarizerTextareaFooter value={value} loading={loading} />
       </form>
     </TextareaWrapper>

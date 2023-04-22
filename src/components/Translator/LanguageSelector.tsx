@@ -30,13 +30,13 @@ const LanguageSelector: FC<LanguageSelectorProps> = ({
         value={value}
         name={selectName}
         defaultValue={defaultValue}
-        className={`h-10 rounded-md appearance-none bg-no-repeat bg-right pl-5 py-2 pr-10 cursor-pointer rounded-b-none border-b dark:border-gray-2`}
+        className={`h-10 rounded-md appearance-none bg-gray-3 pl-5 py-2 pr-10 cursor-pointer rounded-b-none border-b dark:border-gray-2`}
       >
         {defaultOption && <Select.Option options={defaultOption} />}
         <Select.Option options={options} />
       </Select>
       <button className="pointer-events-none absolute top-0 right-0 pr-5 h-[40px] flex items-center">
-        <IconWrapper icon={<BottomArrow className="w-7 h-7" />} className="!w-7" />
+        <IconWrapper icon={<BottomArrow className="w-7 h-7 !fill-orange-500" />} className="!w-7" />
       </button>
       {children}
     </div>

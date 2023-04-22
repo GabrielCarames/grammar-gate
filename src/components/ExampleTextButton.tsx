@@ -5,14 +5,19 @@ import { type FC } from "react"
 interface ExampleTextButtonProps {
   exampleText: string
   additionalSetState?: (text: string) => void
+  className?: string
 }
 
-const ExampleTextButton: FC<ExampleTextButtonProps> = ({ exampleText, additionalSetState }) => {
+const ExampleTextButton: FC<ExampleTextButtonProps> = ({
+  exampleText,
+  additionalSetState,
+  className
+}) => {
   const { setValue } = useBoundStore()
 
   return (
     <button
-      className="w-max h-5 absolute left-5 top-16 z-[1000] text-orange-1 hover:text-orange-2 dark:text-yellow-1 dark:hover:text-yellow-400 text-sm font-semibold flex gap-1"
+      className={`w-max h-5 absolute left-4 top-16 z-[1000] text-orange-500 hover:text-orange-400 dark:text-yellow-1 dark:hover:text-yellow-400 text-sm font-semibold flex gap-1 ${className}`}
       onClick={() => {
         setValue(exampleText)
         additionalSetState && additionalSetState(exampleText)

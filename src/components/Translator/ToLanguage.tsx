@@ -11,7 +11,8 @@ const ToLanguage: FC<Omit<LanguageSectionProps, "textareaOnchange">> = ({
   languageSelectorValue,
   languageSelectorDefaultValue,
   options,
-  textareaValue
+  textareaValue,
+  loading
 }) => {
   return (
     <TextareaWrapper>
@@ -26,10 +27,12 @@ const ToLanguage: FC<Omit<LanguageSectionProps, "textareaOnchange">> = ({
         value={textareaValue}
         readOnly={true}
         name="toLanguage"
-        placeholder="Translation"
-        className={`${textareaValue ? "cursor-auto" : "cursor-default"}`}
+        className={`!bg-gray-200 dark:!bg-[#242432] rounded-t-none rounded-b-none ${
+          textareaValue ? "cursor-auto" : "cursor-default"
+        }`}
+        placeholder={loading ? "Translating..." : "Translation"}
       />
-      <TextareaFooter>
+      <TextareaFooter className="!bg-gray-200 dark:!bg-[#242432] border-gray-300">
         <CopyButton text={textareaValue} />
       </TextareaFooter>
     </TextareaWrapper>
