@@ -1,8 +1,9 @@
-import { useEffect, useState } from "react"
+import { useEffect } from "react"
 import { useBoundStore } from "@/zustand/useBoundStore"
 import { useChatGPT } from "./useChatGPT"
 import { Languages, ResponseProperties } from "@/enums.d"
 import { createSystemMessage, createUserMessage } from "@/prompts/translatorPrompt"
+import type { TranslationProps } from "@/interfaces"
 
 export const useTranslator = () => {
   const {
@@ -25,6 +26,8 @@ export const useTranslator = () => {
   useEffect(() => {
     if (fromText?.length <= 1) return
     const timeout = setTimeout(() => {
+      const translatedTextCleared: TranslationProps = { ...translation, translatedText: "" }
+      setTranslation(translatedTextCleared)
       const userMessage = createUserMessage({ fromText, fromLanguage, toLanguage })
       addChatGPTMessage(userMessage)
     }, 1000)
@@ -55,6 +58,8 @@ export const useTranslator = () => {
     onFromLanguageChange,
     translation,
     fromText,
-    switchLanguages
+    setFromText,
+    switchLanguages,
+    loading
   }
 }
