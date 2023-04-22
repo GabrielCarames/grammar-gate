@@ -6,8 +6,8 @@ const TextareaSection: FC<ChildrenProps> & { Header: FC<BannerProps> } = ({ chil
   <section className="w-full h-max max-w-[1000px]">{children}</section>
 )
 
-const Header: FC<BannerProps> = ({ title, description }) => (
-  <Banner title={title} description={description} />
+const Header: FC<BannerProps> = ({ title, description, className }) => (
+  <Banner title={title} description={description} className={className} />
 )
 
 TextareaSection.Header = Header

@@ -50,6 +50,7 @@ export interface NavbarLinkProps {
 export interface BannerProps {
   title: HeaderTitle
   description: HeaderDescription
+  className?: string
 }
 
 export interface ChildrenProps {
@@ -60,21 +61,28 @@ export type AddCorrectionProps = (newCorrections: CorrectionsProps) => void
 
 export type SetSummaryProps = (newSummary: string) => void
 
+export type SetTranslationProps = (text: TranslationProps) => void
+
 export interface UseChatGPTProps {
   initialPrompt: ChatGPTMessageProps
   customProperty: ResponseProperties
-  customSetState: AddCorrectionProps | SetSummaryProps
+  customSetState: AddCorrectionProps | SetSummaryProps | SetTranslationProps
 }
 
 export type FromText = string
 export type TranslatedText = string
+export type detectedLanguage = null | Language
 export type FromLanguageProps = Languages | typeof AUTO_LANGUAGE
+export type TranslationProps = {
+  translatedText: TranslatedText
+  detectedLanguage: detectedLanguage
+}
 
 export interface TranslatorProps {
   fromLanguage: FromLanguageProps
   toLanguage: Languages
   fromText: FromText
-  translatedText: TranslatedText
+  translation: TranslationProps
 }
 
-export interface OriginTranslator extends Omit<TranslatorProps, "translatedText"> {}
+export interface OriginTranslator extends Omit<TranslatorProps, "translation"> {}
