@@ -1,10 +1,10 @@
 import { type FC } from "react"
 import useAxios from "@/hooks/useAxios"
-import { TrashIcon } from "@heroicons/react/24/solid"
 import { useBoundStore } from "@/zustand/useBoundStore"
 import { type ChildrenProps } from "@/interfaces"
 import { wordsCount } from "@/utils/wordsCount"
 import SkeletonText from "../SkeletonText"
+import TrashButton from "../TrashButton"
 import CopyButton from "../CopyButton"
 import Span from "../Span"
 
@@ -54,12 +54,7 @@ const SummarizedTextFooter: FC = () => {
         </div>
         <div className="flex gap-2">
           <CopyButton text={summary} />
-          <button
-            className="rounded-full p-2 hover:bg-white-2 dark:hover:bg-pink-1 duration-150"
-            onClick={() => setSummary("")}
-          >
-            <TrashIcon className="w-5 h-5 text-white !fill-text-gray dark:!fill-white" />
-          </button>
+          <TrashButton deleteText={() => setSummary("")} />
         </div>
       </div>
     </footer>
