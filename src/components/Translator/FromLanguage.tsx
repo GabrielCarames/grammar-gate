@@ -6,15 +6,21 @@ import LanguageSelector from "./LanguageSelector"
 import TextareaFooter from "../TextareaFooter"
 import CopyButton from "../CopyButton"
 import Textarea from "../Textarea"
+import ExampleTextButton from "../ExampleTextButton"
+
+const EXAMPLE_TEXT =
+  "The sun was setting behind the mountains as the weary travelers finally reached the end of their long journey. They set up camp and cooked a simple meal before falling into a deep sleep under the starry sky."
 
 const FromLanguage: FC<LanguageSectionProps> = ({
+  fromLanguage,
   onSelectChange,
   languageSelectorValue,
   languageSelectorDefaultValue,
   options,
   textareaValue,
   textareaOnchange,
-  translation
+  translation,
+  setFromText
 }) => {
   return (
     <TextareaWrapper>
@@ -27,9 +33,16 @@ const FromLanguage: FC<LanguageSectionProps> = ({
         defaultOption={[AUTO_LANGUAGE]}
       />
       <Textarea value={textareaValue} onChange={textareaOnchange} name="fromLanguage" />
+      {textareaValue.length <= 0 && (
+        <ExampleTextButton
+          exampleText={EXAMPLE_TEXT}
+          className="top-[105px]"
+          additionalSetState={setFromText}
+        />
+      )}
       <TextareaFooter>
-        {translation?.detectedLanguage && (
-          <span>{`${translation?.detectedLanguage} (detected)`}</span>
+        {fromLanguage === AUTO_LANGUAGE && translation?.detectedLanguage && (
+          <span className="text-text-gray dark:text-white">{`${translation?.detectedLanguage} (detected)`}</span>
         )}
         <CopyButton text={textareaValue} />
       </TextareaFooter>
