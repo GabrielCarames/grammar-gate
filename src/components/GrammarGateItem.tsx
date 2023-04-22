@@ -16,7 +16,7 @@ const Item: FC<ItemProps> & {
   Text: FC<ItemProps>
 } = ({ children, className }) => (
   <li
-    className={`md:min-w-[156px] h-full rounded-md dark:duration-0 text-text-gray dark:text-white hover:bg-white-2 dark:hover:bg-gray-3 duration-150 ${className}`}
+    className={`md:min-w-[156px] max-h-[72px] rounded-md dark:duration-0 text-text-gray dark:text-white hover:bg-white-2 dark:hover:bg-gray-3 duration-150 ${className}`}
   >
     {children}
   </li>

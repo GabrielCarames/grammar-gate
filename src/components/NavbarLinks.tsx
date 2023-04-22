@@ -21,7 +21,7 @@ const NavbarLinks: FC = () => {
               <Item.ImageWrapper className={`${link?.backgroundColor}`}>
                 <IconWrapper icon={<link.icon />} className={`!w-3 !h-3 md:!w-5 md:!h-5`} />
               </Item.ImageWrapper>
-              <Item.Text className="text-xs md:text-sm lg:text-md font-semibold text-gray-200">
+              <Item.Text className="text-xs md:text-sm lg:text-md font-semibold text-text-gray dark:text-gray-200">
                 {link?.name}
               </Item.Text>
             </Item.ItemLink>
@@ -38,5 +38,3 @@ const NavbarLinks: FC = () => {
 }
 
 export default NavbarLinks
-// text summarizer
-// grammar checker
