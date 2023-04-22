@@ -1,13 +1,12 @@
-import Span from "../Span"
+import { type FC } from "react"
 import useAxios from "@/hooks/useAxios"
-import CopyIcon from "../../../public/copy-icon.svg"
 import { TrashIcon } from "@heroicons/react/24/solid"
 import { useBoundStore } from "@/zustand/useBoundStore"
-import { type FC } from "react"
 import { type ChildrenProps } from "@/interfaces"
 import { wordsCount } from "@/utils/wordsCount"
 import SkeletonText from "../SkeletonText"
-import { NotificationSuccess } from "@/utils/toastNotifications"
+import CopyButton from "../CopyButton"
+import Span from "../Span"
 
 const SummarizedText: FC<ChildrenProps> & {
   SummarizedTextContent: FC
@@ -54,15 +53,7 @@ const SummarizedTextFooter: FC = () => {
           <Span text="Words" data={wordsCount(summary)} className="!text-green-500 text-center" />
         </div>
         <div className="flex gap-2">
-          <button
-            className="rounded-full p-2 hover:bg-white-2 dark:hover:bg-pink-1 duration-150"
-            onClick={() => {
-              navigator.clipboard.writeText(summary)
-              NotificationSuccess("Text copied to clipboard")
-            }}
-          >
-            <CopyIcon className="w-5 h-5 !fill-text-gray dark:!fill-white" />
-          </button>
+          <CopyButton text={summary} />
           <button
             className="rounded-full p-2 hover:bg-white-2 dark:hover:bg-pink-1 duration-150"
             onClick={() => setSummary("")}
