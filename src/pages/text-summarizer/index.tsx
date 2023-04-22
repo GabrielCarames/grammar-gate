@@ -19,6 +19,7 @@ const TextSummarizer: FC = () => {
             <TextareaSection.Header
               title={HeaderTitle.TEXT_SUMMARIZER}
               description={HeaderDescription.TEXT_SUMMARIZER}
+              className="bg-green-1"
             />
             <div className="w-full flex flex-col lg:flex-row justify-center gap-5">
               <TextSummarizerTextareaWrapper />

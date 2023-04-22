@@ -14,7 +14,7 @@ const Translator: FC = () => {
     toLanguage,
     handleToLanguage,
     onFromLanguageChange,
-    translatedText,
+    translation,
     fromText,
     switchLanguages
   } = useTranslator()
@@ -27,10 +27,12 @@ const Translator: FC = () => {
       <div className="flex flex-col w-full">
         <Navbar />
         <main className="w-full h-max md:h-full flex justify-center items-center px-5 relative">
+          <span>{`${fromLanguage} ${translation.detectedLanguage} hola`}</span>
           <TextareaSection>
             <TextareaSection.Header
               title={HeaderTitle.TRANSLATOR}
               description={HeaderDescription.TRANSLATOR}
+              className="bg-red-1"
             />
             <div className="flex gap-5">
               <LanguageSelector
@@ -60,7 +62,7 @@ const Translator: FC = () => {
                 options={LanguagesList}
               >
                 <Textarea
-                  value={translatedText}
+                  value={translation.translatedText}
                   readOnly={true}
                   name="toLanguage"
                   placeholder="Translation"

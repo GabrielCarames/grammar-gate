@@ -1,12 +1,18 @@
 import { AUTO_LANGUAGE, Languages } from "@/enums.d"
-import { FromLanguageProps, TranslatorProps, FromText, TranslatedText } from "@/interfaces.d"
+import {
+  FromLanguageProps,
+  TranslatorProps,
+  FromText,
+  TranslatedText,
+  TranslationProps
+} from "@/interfaces.d"
 import { StateCreator } from "zustand"
 
 interface TranslatorMethodsProps {
   setFromLanguage: (language: FromLanguageProps) => void
   setToLanguage: (language: Languages) => void
   setFromText: (text: FromText) => void
-  setTranslatedText: (text: TranslatedText) => void
+  setTranslation: (text: TranslationProps) => void
   switchLanguages: any
 }
 
@@ -16,7 +22,10 @@ const initialState = {
   fromLanguage: Languages.ENGLISH,
   toLanguage: Languages.SPANISH,
   fromText: "",
-  translatedText: ""
+  translation: {
+    translatedText: "",
+    detectedLanguage: null
+  }
 }
 
 export const createTranslatorSlice: StateCreator<TranslatorSlice> = set => ({
@@ -24,15 +33,15 @@ export const createTranslatorSlice: StateCreator<TranslatorSlice> = set => ({
   setFromLanguage: language => set({ fromLanguage: language }),
   setToLanguage: language => set({ toLanguage: language }),
   setFromText: text => set({ fromText: text }),
-  setTranslatedText: text => set({ translatedText: text }),
+  setTranslation: translation => set({ translation: translation }),
   switchLanguages: () => {
     return set(state => {
       if (state.fromLanguage === AUTO_LANGUAGE) return state
       const newState: TranslatorProps = {
         fromLanguage: state.toLanguage,
         toLanguage: state.fromLanguage,
-        fromText: state.translatedText,
-        translatedText: state.fromText
+        fromText: state.translation.translatedText,
+        translation: { ...state.translation, translatedText: state.fromText }
       }
       return newState
     })
