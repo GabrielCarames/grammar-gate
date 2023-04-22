@@ -1,5 +1,6 @@
 import GrammarCheckerIcon from "../../public/grammar-checker-icon.svg"
-import TextSummarizer from "../../public/text-summarizer-icon.svg"
+import TextSummarizerIcon from "../../public/text-summarizer-icon.svg"
+import TranslatorIcon from "../../public/translator-icon.svg"
 
 const links = [
   {
@@ -12,9 +13,16 @@ const links = [
   {
     name: "Text Summarizer",
     href: "/text-summarizer",
-    icon: TextSummarizer,
+    icon: TextSummarizerIcon,
     backgroundColor: "bg-green-500",
     borderColor: "!border-b-green-500"
+  },
+   {
+    name: "Translator",
+    href: "/translator",
+    icon: TranslatorIcon,
+    backgroundColor: "bg-red-500",
+    borderColor: "!border-b-red-500"
   }
 ]
 
