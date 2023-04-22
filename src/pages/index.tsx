@@ -23,7 +23,7 @@ export default function Home() {
         <ul className="h-full flex flex-wrap justify-center gap-x-20 gap-y-5 font-bold">
           {links?.map((link, index) => (
             <Item
-              className={`w-max !h-auto flex flex-col gap-1 border-[2px] dark:border-gray-1 rounded-md ${link?.borderColor} hover:bg-gray-3`}
+              className={`w-max !h-auto max-h-none flex flex-col gap-1 border-[2px] dark:border-gray-1 rounded-md ${link?.borderColor} hover:bg-gray-3`}
               key={link?.name}
             >
               <Item.ItemLink href={link?.href} className="flex flex-col items-center gap-2 p-5">
