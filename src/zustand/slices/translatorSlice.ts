@@ -1,11 +1,5 @@
 import { AUTO_LANGUAGE, Languages } from "@/enums.d"
-import {
-  FromLanguageProps,
-  TranslatorProps,
-  FromText,
-  TranslatedText,
-  TranslationProps
-} from "@/interfaces.d"
+import { FromLanguageProps, TranslatorProps, FromText, TranslationProps } from "@/interfaces.d"
 import { StateCreator } from "zustand"
 
 interface TranslatorMethodsProps {
@@ -13,7 +7,8 @@ interface TranslatorMethodsProps {
   setToLanguage: (language: Languages) => void
   setFromText: (text: FromText) => void
   setTranslation: (text: TranslationProps) => void
-  switchLanguages: any
+  switchLanguages: () => void
+  clearTranslation: () => void
 }
 
 export interface TranslatorSlice extends TranslatorProps, TranslatorMethodsProps {}
@@ -45,5 +40,6 @@ export const createTranslatorSlice: StateCreator<TranslatorSlice> = set => ({
       }
       return newState
     })
-  }
+  },
+  clearTranslation: () => set(initialState)
 })

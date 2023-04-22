@@ -6,8 +6,10 @@ import TextareaSection from "@/components/TextareaSection"
 import SwitchButton from "@/components/SwitchButton"
 import Navbar from "@/components/Navbar"
 import { useTranslator } from "@/hooks/useTranslator"
+import { useCleaner } from "@/hooks/useCleaner"
 
 const Translator: FC = () => {
+  useCleaner()
   const {
     fromLanguage,
     handleFromLanguage,
@@ -16,7 +18,9 @@ const Translator: FC = () => {
     onFromLanguageChange,
     translation,
     fromText,
-    switchLanguages
+    setFromText,
+    switchLanguages,
+    loading
   } = useTranslator()
   const LanguagesList = Object.values(Languages)
   const [en, es] = LanguagesList
@@ -33,8 +37,9 @@ const Translator: FC = () => {
               description={HeaderDescription.TRANSLATOR}
               className="bg-orange-500"
             />
-            <div className="flex gap-5">
+            <div className="flex flex-wrap justify-center gap-5">
               <FromLanguage
+                fromLanguage={fromLanguage}
                 onSelectChange={handleFromLanguage}
                 languageSelectorValue={fromLanguage}
                 languageSelectorDefaultValue={en}
@@ -42,12 +47,19 @@ const Translator: FC = () => {
                 textareaValue={fromText}
                 textareaOnchange={onFromLanguageChange}
                 translation={translation}
+                setFromText={setFromText}
               />
-              <SwitchButton
-                className={fromLanguage === AUTO_LANGUAGE ? "opacity-50" : "hover:bg-gray-1"}
-                onClick={switchLanguages}
-                disabled={fromLanguage === AUTO_LANGUAGE}
-              />
+              <aside className="w-min flex flex-col items-center gap-40">
+                <SwitchButton
+                  className={
+                    fromLanguage === AUTO_LANGUAGE
+                      ? "opacity-50"
+                      : "hover:bg-gray-300 dark:hover:bg-gray-600"
+                  }
+                  onClick={switchLanguages}
+                  disabled={fromLanguage === AUTO_LANGUAGE}
+                />
+              </aside>
               <ToLanguage
                 onSelectChange={handleToLanguage}
                 languageSelectorValue={toLanguage}
@@ -55,6 +67,7 @@ const Translator: FC = () => {
                 options={LanguagesList}
                 textareaValue={translation?.translatedText}
                 translation={translation}
+                loading={loading}
               />
             </div>
           </TextareaSection>
