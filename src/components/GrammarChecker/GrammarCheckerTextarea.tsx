@@ -51,7 +51,7 @@ const GrammarCheckerTextarea: FC<GrammarCheckerTextareaProps> = ({
         <ExampleTextButton
           exampleText={EXAMPLE_TEXT}
           additionalSetState={setTextToCorrect}
-          className="text-pink-500"
+          className="text-pink-500 dark:text-pink-500"
         />
       )}
     </div>
