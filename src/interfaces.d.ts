@@ -86,6 +86,7 @@ export interface TranslatorProps {
 }
 
 export interface LanguageSectionProps {
+  fromLanguage?: FromLanguageProps
   onSelectChange: (e: React.ChangeEvent<HTMLSelectElement>) => void
   languageSelectorValue: FromLanguageProps
   languageSelectorDefaultValue: Languages
@@ -93,6 +94,8 @@ export interface LanguageSectionProps {
   textareaValue: string
   textareaOnchange: (e: React.ChangeEvent<HTMLTextAreaElement>) => void
   translation: TranslationProps
+  loading?: boolean
+  setFromText?: (text: FromText) => void
 }
 
 export interface OriginTranslator extends Omit<TranslatorProps, "translation"> {}
