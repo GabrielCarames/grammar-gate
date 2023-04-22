@@ -1,6 +1,6 @@
 import { type FC } from "react"
 import { NotificationSuccess } from "@/utils/toastNotifications"
-import CopyIcon from "../../../public/copy-icon.svg"
+import CopyIcon from "../../public/copy-icon.svg"
 
 interface CopyButtonProps {
   text: string
