@@ -5,9 +5,11 @@ const SYSTEM_MESSAGE = `
   If I give you a from language with the value of "auto", you will have to detect the language of the text and translate it to the language to translate. 
   You also have to include the "detectedLanguage" property and the value of the detected language. Otherwise don't include it. 
   You just have to answer me in this following JSON format:
-  translation: {
-    translatedText: "This is the translated text"
-    detectedLanguage: "This is the detected language (include the complete name of the language)"
+  {
+    translation: {
+      translatedText: "This is the translated text"
+      detectedLanguage: "This is the detected language (include the complete name of the language)"
+    }
   }
 `
 
