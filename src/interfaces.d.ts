@@ -89,7 +89,6 @@ export interface LanguageSectionProps {
   fromLanguage?: FromLanguageProps
   onSelectChange: (e: React.ChangeEvent<HTMLSelectElement>) => void
   languageSelectorValue: FromLanguageProps
-  languageSelectorDefaultValue: Languages
   options: Languages[]
   textareaValue: string
   textareaOnchange: (e: React.ChangeEvent<HTMLTextAreaElement>) => void

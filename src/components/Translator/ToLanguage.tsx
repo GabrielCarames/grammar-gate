@@ -9,7 +9,6 @@ import Textarea from "../Textarea"
 const ToLanguage: FC<Omit<LanguageSectionProps, "textareaOnchange">> = ({
   onSelectChange,
   languageSelectorValue,
-  languageSelectorDefaultValue,
   options,
   textareaValue,
   loading
@@ -20,7 +19,6 @@ const ToLanguage: FC<Omit<LanguageSectionProps, "textareaOnchange">> = ({
         onSelectChange={onSelectChange}
         selectName="to-languages"
         value={languageSelectorValue}
-        defaultValue={languageSelectorDefaultValue}
         options={options}
       />
       <Textarea

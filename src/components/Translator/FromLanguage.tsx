@@ -15,7 +15,6 @@ const FromLanguage: FC<LanguageSectionProps> = ({
   fromLanguage,
   onSelectChange,
   languageSelectorValue,
-  languageSelectorDefaultValue,
   options,
   textareaValue,
   textareaOnchange,
@@ -28,7 +27,6 @@ const FromLanguage: FC<LanguageSectionProps> = ({
         onSelectChange={onSelectChange}
         selectName="from-languages"
         value={languageSelectorValue}
-        defaultValue={languageSelectorDefaultValue}
         options={options}
         defaultOption={[AUTO_LANGUAGE]}
       />

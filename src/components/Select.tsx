@@ -13,7 +13,7 @@ interface SelectProps {
 }
 
 interface OptionProps {
-  options: Languages[] | typeof AUTO_LANGUAGE[]
+  options: Languages[] | (typeof AUTO_LANGUAGE)[]
   className?: string
 }
 

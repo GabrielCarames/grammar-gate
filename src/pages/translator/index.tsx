@@ -42,7 +42,6 @@ const Translator: FC = () => {
                 fromLanguage={fromLanguage}
                 onSelectChange={handleFromLanguage}
                 languageSelectorValue={fromLanguage}
-                languageSelectorDefaultValue={en}
                 options={LanguagesList}
                 textareaValue={fromText}
                 textareaOnchange={onFromLanguageChange}
@@ -63,7 +62,6 @@ const Translator: FC = () => {
               <ToLanguage
                 onSelectChange={handleToLanguage}
                 languageSelectorValue={toLanguage}
-                languageSelectorDefaultValue={es}
                 options={LanguagesList}
                 textareaValue={translation?.translatedText}
                 translation={translation}
