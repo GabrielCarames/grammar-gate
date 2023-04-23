@@ -7,6 +7,7 @@ import TextareaFooter from "../TextareaFooter"
 import CopyButton from "../CopyButton"
 import Textarea from "../Textarea"
 import ExampleTextButton from "../ExampleTextButton"
+import isDesktopView from "@/utils/isDesktopView"
 
 const EXAMPLE_TEXT =
   "The sun was setting behind the mountains as the weary travelers finally reached the end of their long journey. They set up camp and cooked a simple meal before falling into a deep sleep under the starry sky."
@@ -30,7 +31,12 @@ const FromLanguage: FC<LanguageSectionProps> = ({
         options={options}
         defaultOption={[AUTO_LANGUAGE]}
       />
-      <Textarea value={textareaValue} onChange={textareaOnchange} name="fromLanguage" />
+      <Textarea
+        value={textareaValue}
+        onChange={textareaOnchange}
+        name="fromLanguage"
+        autofocus={isDesktopView()}
+      />
       {textareaValue.length <= 0 && (
         <ExampleTextButton
           exampleText={EXAMPLE_TEXT}

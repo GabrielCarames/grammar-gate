@@ -25,6 +25,7 @@ const ToLanguage: FC<Omit<LanguageSectionProps, "textareaOnchange">> = ({
         value={textareaValue}
         readOnly={true}
         name="toLanguage"
+        autofocus={false}
         className={`!bg-gray-200 dark:!bg-[#242432] rounded-t-none rounded-b-none ${
           textareaValue ? "cursor-auto" : "cursor-default"
         }`}

@@ -5,6 +5,7 @@ import Highlighter from "react-highlight-words"
 import ExampleTextButton from "../ExampleTextButton"
 import { CorrectionsProps } from "@/interfaces"
 import Textarea from "../Textarea"
+import isDesktopView from "@/utils/isDesktopView"
 
 interface GrammarCheckerTextareaProps {
   onChange: (e: ChangeEvent<HTMLTextAreaElement>) => void
@@ -45,6 +46,7 @@ const GrammarCheckerTextarea: FC<GrammarCheckerTextareaProps> = ({
         value={value}
         name="text"
         className="relative md:!max-h-[500px] !bg-transparent !p-0 !pt-5 !pl-0"
+        autofocus={isDesktopView()}
       />
       {value.length <= 0 && (
         <ExampleTextButton
