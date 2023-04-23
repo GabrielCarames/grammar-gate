@@ -8,11 +8,11 @@ const NavbarLinks: FC = () => {
   const router = useRouter()
 
   return (
-    <nav className="w-full flex justify-center border-b-[0.5px] md:border-none border-white-2 dark:border-gray-3">
-      <ul className="flex gap-1 md:px-5 h-full overflow-x-auto">
+    <nav className="w-full flex md:justify-center border-b-[0.5px] md:border-none border-white-2 dark:border-gray-3">
+      <ul className="flex md:justify-center gap-0 px-5 h-full overflow-x-auto">
         {links?.map(link => (
           <Item
-            className={`!rounded-none relative ${
+            className={`!rounded-none outline-[1px] odd:outline outline-gray-200 dark:outline-gray-700 relative ${
               router.pathname === link?.href ? "bg-white-2 dark:bg-gray-3" : ""
             }`}
             key={link?.name}

@@ -13,7 +13,7 @@ const ThemeButton: FC<ThemeButtonProps> = ({ className }) => {
 
   return (
     <button
-      className={`w-[40px] md:hidden flex justify-center items-center bg-gray-1 dark:bg-white-2 dark:text-white rounded-[10px] p-3 box-border ${className}`}
+      className={`w-[30px] h-[30px] md:w-[40px] md:h-[40px] md:hidden flex justify-center items-center bg-gray-1 dark:bg-white-2 dark:text-white rounded-[10px] p-3 box-border ${className}`}
       onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
     >
       <IconWrapper
