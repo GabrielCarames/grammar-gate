@@ -9,7 +9,9 @@ const ModalContent: FC<ModalContentProps> = ({ content }) => {
 
   return (
     <div className="flex flex-col gap-5 h-full">
-      <h2 className="text-lg font-bold">Grammar Checker</h2>
+      <h2 className="text-lg font-bold capitalize">
+        {router.pathname.split("/")[1].split("-").join(" ")}
+      </h2>
       <ul className="flex flex-col gap-5 overflow-y-scroll h-full">
         {sections.map(([key, values]) => (
           <li key={key}>
