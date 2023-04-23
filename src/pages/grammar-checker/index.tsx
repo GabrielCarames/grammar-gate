@@ -1,4 +1,4 @@
-import GrammarCheckerInfo from "../../utils/GrammarCheckerInfo.json"
+import GrammarCheckerInfo from "../../utils/grammarCheckerInfo.json"
 import GrammarCheckerTextareaWrapper from "@/components/GrammarChecker/GrammarCheckerTextareaWrapper"
 import TextareaSection from "@/components/TextareaSection"
 import Aside from "@/components/GrammarChecker/Aside"
