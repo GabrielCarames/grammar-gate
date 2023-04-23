@@ -2,8 +2,9 @@ import { InformationCircleIcon } from "@heroicons/react/24/solid"
 import { type FC, useState } from "react"
 import Modal from "./Modal"
 import ModalContent from "./ModalContent"
+import { ModalContentProps } from "@/interfaces"
 
-const InfoButtonSection: FC = () => {
+const InfoButtonSection: FC<ModalContentProps> = ({ content }) => {
   const [showInfo, setShowInfo] = useState(false)
   const handleCloseModal = () => setShowInfo(!showInfo)
 
@@ -14,7 +15,7 @@ const InfoButtonSection: FC = () => {
       </button>
       {showInfo && (
         <Modal onClose={handleCloseModal}>
-          <ModalContent />
+          <ModalContent content={content} />
         </Modal>
       )}
     </div>

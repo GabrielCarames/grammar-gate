@@ -1,0 +1,25 @@
+{
+  "How It Works": [
+    "Our text summarizer uses ChatGPT technology to condense long articles and documents into shorter, more manageable summaries.",
+    "The tool analyzes the content of your text for important information, key points, and themes."
+  ],
+  "Limitations": [
+    "Our text summarizer may not be able to capture all the nuances and details of the original text, especially if it contains technical or highly specialized language.",
+    "Some information may be lost in the summarization process due to the need to condense the text.",
+    "Additionally, the tool may not be able to recognize certain idiomatic expressions or colloquialisms."
+  ],
+  "Common Features": [
+    "Identifying the main topic or theme of the text.",
+    "Ranking sentences based on their importance to the overall meaning of the text.",
+    "Generating a concise summary that captures the essence of the original text."
+  ],
+  "Tips": [
+    "Read the summary to make sure it accurately captures the main points of the original text.",
+    "Use the tool as a guide rather than relying solely on its output. You know the content best, so use your judgment to decide which information to include in your own summaries."
+  ],
+  "Disclaimers": [
+    "While our text summarizer is designed to provide accurate and useful summaries, it may not always be 100% accurate.",
+    "The tool is best used as a starting point for your own summaries and not a substitute for your own reading and comprehension.",
+    "We are not responsible for any errors or inaccuracies in the summaries that may go undetected by the tool."
+  ]
+}

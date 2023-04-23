@@ -1,3 +1,4 @@
+import TextSummarizerInfo from "../../utils/TextSummarizerInfo.json"
 import TextSummarizerTextareaWrapper from "@/components/TextSummarizer/TextSummarizerTextareaWrapper"
 import { SummarizedText } from "@/components/TextSummarizer/SummarizedText"
 import TextareaSection from "@/components/TextareaSection"
@@ -20,6 +21,7 @@ const TextSummarizer: FC = () => {
               title={HeaderTitle.TEXT_SUMMARIZER}
               description={HeaderDescription.TEXT_SUMMARIZER}
               className="!bg-green-1"
+              content={TextSummarizerInfo}
             />
             <div className="w-full flex flex-col lg:flex-row justify-center gap-5">
               <TextSummarizerTextareaWrapper />

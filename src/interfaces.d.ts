@@ -98,3 +98,14 @@ export interface LanguageSectionProps {
 }
 
 export interface OriginTranslator extends Omit<TranslatorProps, "translation"> {}
+
+export interface ModalContentProps {
+  content: {
+    "How It Works": string[]
+    Limitations: string[]
+    "Common Mistakes"?: string[]
+    "Common Features"?: string[]
+    Tips: string[]
+    Disclaimers: string[]
+  }
+}

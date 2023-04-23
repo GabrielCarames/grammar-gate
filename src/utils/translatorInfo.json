@@ -1,0 +1,28 @@
+{
+  "How It Works": [
+    "Our translator uses ChatGPT technology to accurately translate text from one language to another.",
+    "The tool analyzes the context of your text to provide the most accurate translation possible.",
+    "We support translation between many popular languages, including Spanish, French, German, Chinese, and more.",
+    "If you don't know the language of your text, you can use our language detection tool to identify it automatically."
+  ],
+  "Limitations": [
+    "Our translator may not be able to accurately translate all text, especially if it contains complex or technical terms.",
+    "Some translations may be missed due to variations in language dialects and idiomatic expressions.",
+    "Additionally, translations may not be 100% accurate due to the limitations of machine translation technology."
+  ],
+  "Common Translation Errors": [
+    "Mistranslated idiomatic expressions: For example, 'Kick the bucket' translated as 'Kick the pail'.",
+    "Incorrect gender agreement: For example, 'El gato' translated as 'The female cat'.",
+    "Misused homophones: For example, 'They're there' translated as 'Their there'."
+  ],
+  "Tips": [
+    "Double-check the translated text to ensure it accurately conveys the intended meaning.",
+    "Use the tool as a guide rather than relying solely on its translations. You know your text best, so use your judgment to decide which translations to use.",
+    "For complex or important translations, consider using a professional translator to ensure accuracy."
+  ],
+  "Disclaimers": [
+    "While our translator is designed to provide accurate translations, it may not always be 100% accurate.",
+    "The tool is best used as a supplement to professional translation services.",
+    "We are not responsible for any errors or inaccuracies in your translations that may occur while using the tool."
+  ]
+}

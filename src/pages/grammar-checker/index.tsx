@@ -1,3 +1,4 @@
+import GrammarCheckerInfo from "../../utils/GrammarCheckerInfo.json"
 import GrammarCheckerTextareaWrapper from "@/components/GrammarChecker/GrammarCheckerTextareaWrapper"
 import TextareaSection from "@/components/TextareaSection"
 import Aside from "@/components/GrammarChecker/Aside"
@@ -20,6 +21,7 @@ const GrammarChecker: FC = () => {
               title={HeaderTitle.GRAMMAR_CHECKER}
               description={HeaderDescription.GRAMMAR_CHECKER}
               className="bg-pink-1"
+              content={GrammarCheckerInfo}
             />
             <GrammarCheckerTextareaWrapper />
           </TextareaSection>
