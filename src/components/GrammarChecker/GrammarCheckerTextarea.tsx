@@ -13,7 +13,7 @@ interface GrammarCheckerTextareaProps {
 
 const getSearchWords = (corrections: CorrectionsProps) => {
   return [
-    `\\b(${corrections?.correctionsList.map(correction => correction.result[0]).join("|")})\\b`,
+    `\\b(${corrections?.correctionsList?.map(correction => correction.result[0]).join("|")})\\b`,
     "gi"
   ]
 }
@@ -26,7 +26,6 @@ const GrammarCheckerTextarea: FC<GrammarCheckerTextareaProps> = ({
   setTextToCorrect
 }) => {
   const { corrections, value } = useBoundStore()
-
   return (
     <div className="relative w-full px-5">
       <div
@@ -45,13 +44,13 @@ const GrammarCheckerTextarea: FC<GrammarCheckerTextareaProps> = ({
         onChange={onChange}
         value={value}
         name="text"
-        className="relative md:!max-h-[500px] bg-transparent p-0 pt-5 !pl-0"
+        className="relative md:!max-h-[500px] !bg-transparent !p-0 !pt-5 !pl-0"
       />
       {value.length <= 0 && (
         <ExampleTextButton
           exampleText={EXAMPLE_TEXT}
           additionalSetState={setTextToCorrect}
-          className="text-pink-500 dark:text-pink-500"
+          className="text-pink-500 hover:text-pink-600 dark:text-pink-400 dark:hover:text-pink-500"
         />
       )}
     </div>

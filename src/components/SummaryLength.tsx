@@ -7,7 +7,7 @@ const SummaryLength: FC = () => {
       <div className="flex flex-col items-center gap-1">
         <span className="font-semibold">Summary Length</span>
         <input
-          className="cursor-pointer w-32 accent-yellow-1"
+          className="cursor-pointer w-32 accent-blue-1"
           type="range"
           name="summary-length"
           min="0"

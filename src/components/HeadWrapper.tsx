@@ -7,7 +7,7 @@ const HeadWrapper: FC<ChildrenProps> = ({ children }) => {
   return (
     <>
       <Head>
-        <title>Grammar Gate | Your One-Stop Solution for Writing</title>
+        <title>Grammar Gate | Your All-In-One Solution for Writing</title>
         <meta
           name="description"
           content="GrammarGate is a platform that provides a suite of grammar tools, including a grammar checker and text summarizer. Improve your writing with our tools, designed to catch grammar and spelling errors, and generate concise summaries of lengthy text. Try our grammar tools today and take your writing to the next level."

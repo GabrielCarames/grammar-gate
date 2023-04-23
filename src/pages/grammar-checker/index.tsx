@@ -19,6 +19,7 @@ const GrammarChecker: FC = () => {
             <TextareaSection.Header
               title={HeaderTitle.GRAMMAR_CHECKER}
               description={HeaderDescription.GRAMMAR_CHECKER}
+              className="bg-pink-1"
             />
             <GrammarCheckerTextareaWrapper />
           </TextareaSection>

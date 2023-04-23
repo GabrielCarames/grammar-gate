@@ -31,7 +31,7 @@ const ModalContent: FC = () => {
         </svg>
         <Link
           href="https://github.com/GabrielCarames/grammar-checker"
-          className="text-pink-2 dark:text-yellow-1 font-semibold"
+          className="text-pink-2 dark:text-blue-1 font-semibold"
         >
           {" "}
           Gabriel Caramés

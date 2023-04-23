@@ -36,7 +36,7 @@ const FromLanguage: FC<LanguageSectionProps> = ({
       {textareaValue.length <= 0 && (
         <ExampleTextButton
           exampleText={EXAMPLE_TEXT}
-          className="top-[105px] dark:text-orange-500"
+          className="top-[105px] text-orange-500 hover:text-orange-400 dark:text-orange-500 dark:hover:text-orange-600"
           additionalSetState={setFromText}
         />
       )}
