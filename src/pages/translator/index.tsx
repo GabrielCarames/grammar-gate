@@ -1,6 +1,6 @@
 import { type FC } from "react"
 import { AUTO_LANGUAGE, HeaderDescription, HeaderTitle, Languages } from "@/enums.d"
-import TranslatorInfo from "../../utils/translatorInfo.json"
+import TranslatorInfo from "@/utils/translatorInfo.json"
 import FromLanguage from "@/components/Translator/FromLanguage"
 import ToLanguage from "@/components/Translator/ToLanguage"
 import TextareaSection from "@/components/TextareaSection"
