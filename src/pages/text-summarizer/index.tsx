@@ -1,4 +1,4 @@
-import TextSummarizerInfo from "../../utils/TextSummarizerInfo.json"
+import TextSummarizerInfo from "@/../public/TextSummarizerInfo.json"
 import TextSummarizerTextareaWrapper from "@/components/TextSummarizer/TextSummarizerTextareaWrapper"
 import { SummarizedText } from "@/components/TextSummarizer/SummarizedText"
 import TextareaSection from "@/components/TextareaSection"
