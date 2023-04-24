@@ -5,8 +5,8 @@ const NotFound: FC = () => {
   return (
     <div className="bg-white dark:bg-black">
       <main className="w-full h-screen flex justify-center items-center">
-        <section className="flex flex-col items-center gap-5">
-          <header className="flex flex-col gap-4">
+        <section className="flex flex-col items-center gap-5 px-5">
+          <header className="flex flex-col gap-4 text-center">
             <h1 className="flex flex-col gap-10 items-center text-4xl font-bold text-text-gray dark:text-white">
               <span className="text-pink-1 text-7xl"> 404 </span>Page not found
             </h1>
