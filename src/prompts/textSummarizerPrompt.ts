@@ -3,6 +3,11 @@ const SYSTEM_PROMPT = `
   Do not include your opinions or interpretations, just the key information.
   I need you to answer me in JSON format with a field called "summary" and the summary as its value. 
   Do not include any other field or value. Do not include any other text or explanation without me asking you to do so.
+
+  Consider this example of how you should answer me in JSON format:
+  {
+    "summary": "The summary of the given text"
+  }
 `
 
 const createUserPrompt = (summaryLength: string, textToSummarize: string) => `
