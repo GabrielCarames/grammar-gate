@@ -1,25 +1,29 @@
 # Grammar Gate  📑  ✍🏻
 
-Grammar Gate is a writing tool platform that offers a range of features to enhance your writing skills. Built with Next.js, TailwindCSS, and powered by the [OpenAI ChatGPT API](https://platform.openai.com/docs/guides/chat).
+Grammar Gate is a writing tool platform that offers a range of features to enhance your writing skills. Perfect for students, professionals, and anyone looking to communicate more effectively. 
 
-It provides an English ***grammar checker*** that eliminates errors and helps perfect your writing and also a ***text summarizer***, which can quickly and easily condense long passages of text into shorter, more concise versions. 
-Perfect for students, professionals, and anyone looking to communicate more effectively. 
+Built with Next.js, TailwindCSS, and powered by the [OpenAI ChatGPT API](https://platform.openai.com/docs/guides/chat).
 
 ## Features
 
-- Grammar Checker
+- ***Grammar Checker***
 identifies grammatical errors in your text and provides you with a list of suggested corrections. Simply copy and paste your text into our tool, and our checker will analyze your writing for grammar, spelling, and punctuation mistakes. Our grammar checker covers a range of grammatical rules, including verb tense, subject-verb agreement, and articles.
 
-- Text Summarizer
- helps you condense long passages of text into shorter, more concise versions. Simply copy and paste your text into our tool and select the desired summary length. Our summarizer identifies the most important information in your text, so you can get a quick overview without having to read the entire document.
+- ***Text Summarizer***
+helps you condense long passages of text into shorter, more concise versions. Simply copy and paste your text into our tool and select the desired summary length. Our summarizer identifies the most important information in your text, so you can get a quick overview without having to read the entire document.
+
+- ***Translator***
+translates text from one language to another by analyzing the context of your text to provide the most accurate translation possible.
+We support translation between many popular languages, including Spanish, French, German, Chinese, and more.
+If you don't know the language of your text, you can use our language detection tool to identify it automatically.
 
 ## Desktop site 🖥️
 
-https://user-images.githubusercontent.com/49535753/232237052-61e0e621-af85-4761-bf07-5bd240851a6a.mp4
+https://user-images.githubusercontent.com/49535753/233981475-0f8b052c-18fb-4073-bcda-05a3348bdc69.mp4
 
 ## Mobile site 📱
 
-https://user-images.githubusercontent.com/49535753/232238492-324875ab-a0fb-4f4a-b9ad-699b116ff935.mp4
+https://user-images.githubusercontent.com/49535753/233981518-d64d7aa6-e0d5-4760-8027-d5652bab69ba.mp4
 
 ## Technologies 💫
 [![NextJS](https://img.shields.io/badge/-Next.JS-black?style=for-the-badge&logo=Next.js)](https://nextjs.org/)
@@ -45,13 +49,13 @@ pnpm run dev
 
 The app needs to use the variables located in the "env.example" file. To access them, follow the following steps:
  - Create a new file named "**.env**" in the root of the app.
- - Copy and paste everything in the "**.env.example**" file into the **.env** file. 
+ - Copy and paste everything in the "**.env.example**" file into the "**.env**" file. 
 
 ## Deployment 🚀
-You can view the deployment by [clicking here](https://grammar-gate-gabrielcarames.vercel.app/).
+You can see the deployment by [clicking here](https://grammar-gate-gabrielcarames.vercel.app/).
 
 ## Disclaimer ⚠️
 
-- While our grammar checker is designed to provide accurate suggestions for corrections, it may not always be 100% accurate. The tool is best used as a supplement to your own knowledge and judgment about grammar. We are not responsible for any errors or inaccuracies in your writing that may go undetected by the tool.
+- While our Grammar Gate platform is designed to provide the most acurrate solutions for our grammar tools, it may not always be 100% accurate. Grammar gate tools are best used as a supplement to your own knowledge and judgment about grammar. We are not responsible for any errors or inaccuracies in your writing that may go undetected by Grammar Gate.
 
 - Unfortunately, the ChatGPT API is currently very slow due to the high demand and may take a while to get a response from both the grammar checker and text summarizer. Please be patient.
