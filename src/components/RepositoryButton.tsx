@@ -15,6 +15,7 @@ const RepositoryButton = () => {
         } ${router.pathname === "/text-summarizer" && "text-green-1 dark:text-green-400"} ${
           router.pathname === "/translator" && "text-orange-500 dark:text-orange-400"
         } `}
+        target="_blank"
       >
         <span className="flex justify-center items-center gap-2">
           <GithubIcon className="w-5 h-5" />
