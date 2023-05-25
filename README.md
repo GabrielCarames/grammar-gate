@@ -1,8 +1,14 @@
 # Grammar Gate  📑  ✍🏻
 
-Grammar Gate is a writing tool platform that offers a range of features to enhance your writing skills. Perfect for students, professionals, and anyone looking to communicate more effectively. 
+Grammar Gate is a writing tool platform powered by the [OpenAI ChatGPT API](https://platform.openai.com/docs/guides/chat) that offers a range of features to enhance your writing skills. Perfect for students, professionals, and anyone looking to communicate more effectively.
 
-Built with Next.js, TailwindCSS, and powered by the [OpenAI ChatGPT API](https://platform.openai.com/docs/guides/chat).
+## Technologies 💫
+[![NextJS](https://img.shields.io/badge/-Next.JS-black?style=for-the-badge&logo=Next.js)](https://nextjs.org/)
+[![React](https://img.shields.io/badge/-React.js-blue?style=for-the-badge&logo=React)](https://es.reactjs.org/)
+[![TypeScript](https://img.shields.io/badge/-TypeScript-white?style=for-the-badge&logo=Typescript)](https://www.typescriptlang.org/)
+[![Javascript](https://img.shields.io/badge/-Javascript-323330?style=for-the-badge&logo=Javascript&logoColor=F7DF1E)](https://developer.mozilla.org/es/docs/Web/JavaScript)
+[![TailwindCSS](https://img.shields.io/badge/-TailwindCSS-38BDF8?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindui.com/)
+[![ChatGPTAPI](https://img.shields.io/badge/-ChatGPT-74ab9c?style=for-the-badge&logo=openai)](https://graphql.org/)
 
 ## Features
 
@@ -24,14 +30,6 @@ https://user-images.githubusercontent.com/49535753/233981475-0f8b052c-18fb-4073-
 ## Mobile site 📱
 
 https://user-images.githubusercontent.com/49535753/233981518-d64d7aa6-e0d5-4760-8027-d5652bab69ba.mp4
-
-## Technologies 💫
-[![NextJS](https://img.shields.io/badge/-Next.JS-black?style=for-the-badge&logo=Next.js)](https://nextjs.org/)
-[![React](https://img.shields.io/badge/-React.js-blue?style=for-the-badge&logo=React)](https://es.reactjs.org/)
-[![TypeScript](https://img.shields.io/badge/-TypeScript-white?style=for-the-badge&logo=Typescript)](https://www.typescriptlang.org/)
-[![Javascript](https://img.shields.io/badge/-Javascript-323330?style=for-the-badge&logo=Javascript&logoColor=F7DF1E)](https://developer.mozilla.org/es/docs/Web/JavaScript)
-[![TailwindCSS](https://img.shields.io/badge/-TailwindCSS-38BDF8?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindui.com/)
-[![ChatGPTAPI](https://img.shields.io/badge/-ChatGPT-74ab9c?style=for-the-badge&logo=openai)](https://graphql.org/)
 
 ## Install ⚒
 Clone and install
